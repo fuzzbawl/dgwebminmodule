@@ -1,0 +1,32 @@
+<header>AntiVirus Plugin Option: Minimum Code Status</header>
+        Minimum acceptable code stability status -- if we come across code
+        that's not at least as stable as this, we barf.<br>
+        This is currently only used to check that you don't end up using untested
+        virus scanner support code without realising it.<br>
+        <br>
+        Levels used are:<br>
+        <table border=1 cellspacing=2 cellpadding=1>
+                <tr>
+                        <td valign="top">none</td><td>- there may not even be any code.</td>
+                </tr>
+                <tr>
+                        <td valign="top">unsupported</td><td>- code may be completely untested, a contributed dirty hack, anything, really.</td>
+                </tr>
+                <tr>
+                        <td valign="top">alpha</td><td>- code is pretty well untested. Don't assume it will work.</td>
+                </tr>
+                <tr>
+                        <td valign="top">beta</td><td>- code is tested a bit. It should work.</td>
+                </tr>
+                <tr>
+                        <td valign="top">supported</td><td>- code *should* be reliable.</td>
+                </tr>
+        </table>
+        <br>
+        Don't even *think* about setting this to anything other than "beta" or
+        "supported" on a system that receives real mail until you have tested it
+        yourself and are happy that it is all working as you expect it to.<br>
+        Don't set it to anything other than "supported" on a system that could
+        ever receive important mail.
+<hr>
+<a href="javascript:window.close()">Close Window</a>

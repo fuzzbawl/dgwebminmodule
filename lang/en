@@ -1,0 +1,193 @@
+index_title=DansGuardian
+index_header=Manage DansGuardian - true web content filtering for all
+index_start=Start DansGuardian
+index_stop=Stop DansGuardian
+index_forcedkilldg=Forced killall of the DansGuardian daemon.
+index_restart=Restart DansGuardian
+index_regroup=Reload Groups
+index_status=Display status
+index_return=Main DansGuardian page
+index_location=Expected location:
+index_edit=edit
+index_search=Enter phrase to search
+index_search_title=Search the phrase lists for a phrase.
+index_editconf=View/Edit Config
+index_editfiles=View/Edit Files
+index_groups=View/Edit Groups
+index_urlsearch_title=Search the blacklists for a phrase
+index_urlsearch_remove=remove
+index_editlists=View/Edit Blacklists
+index_clickhelp=Click on the Config Options Name to view a help page.
+index_notsupported=The version you have is not supported. Please get DansGuardian from <a href="http://www.dansguardian.org">http://www.dansguardian.org</a>.
+index_version=Version
+index_dgversion=DG version:
+index_modulever=Module Version
+index_notauth=You are not authorized to use this section
+index_logs=Display Logfile
+index_autorestart=Auto-Restart DG
+index_done=Done
+index_numberofgroups=Number of groups
+index_groupsettings=Group settings for
+index_group=Group
+index_childproc=Child processes
+index_childproclist=Child process pids
+
+header_startdg=Start DG
+header_stopdg=Stop DG
+header_restartdg=Restart DG
+header_regroup=Reload Groups
+error_modconfig=ERROR! Please check your module config!
+error_binnotfound=Warning - DansGuardian binary file not found.
+error_confnotfound=Warning - DansGuardian configuration file not found.
+error_lognotfound=Warning - DansGuardian log file not found.
+error_filenotfound=Warning - File not found.
+error_webminver=Wrong Webmin version! Version 0.81 or higher required.
+
+start_title=Starting DansGuardian...
+stop_title=Stopping DansGuardian...
+restart_title=Restarting DansGuardian...
+regroup_title=Reloading Groups...
+status_title=DansGuardian Status...
+
+edit_title=DansGuardian edit file
+edit_dgconfig=Edit DG Config
+edit_dgfiles=Edit DG Files
+edit_blacklists=Edit Blacklists
+edit_tab_network=Network
+edit_tab_process=Process
+edit_tab_logging=Logging
+edit_tab_content=Content Filter
+edit_tab_misc=Misc
+
+view_dglog=View DG logfile
+
+savefile_title=DansGuardian saved file
+
+saveconf_title=DansGuardian saved conf file
+saveconf_configfile=Config file:
+saveconf_configdata=Config file data:
+
+search_title=DansGuardian search results
+search_notfound=No match found.
+
+conf_reportinglevel=Reporting level
+conf_htmltemplate=HTML Template
+conf_loglevel=Log level
+conf_logexceptionhits=Log Exception Hits
+conf_logfileformat=Log File Format
+conf_filterip=Filter IP
+conf_filterport=Filter port
+conf_proxyip=Proxy IP
+conf_proxyport=Proxy port
+conf_accessdeniedaddress=Access denied address
+conf_bannedphraselist=Banned phrase list
+conf_exceptionphraselist=Exception phrase list
+conf_weightedphraselist=Weighted phrase list
+conf_exceptionurllist=Exception URL list
+conf_banneduserlist=Banned user list
+conf_bannediplist=Banned IP list
+conf_bannedextensionlist=Banned file extension list
+conf_bannedmimetypelist=Banned mimetype list
+conf_bannedsitelist=Banned site (domain) list
+conf_bannedurllist=Banned URL list
+conf_bannedregexpurllist=Banned regular expression list
+conf_exceptionsitelist=Exception site (domain) list
+conf_exceptioniplist=Exception IP list
+conf_exceptionuserlist=Exception user list
+conf_pics=PICS
+conf_picsfile=PICS
+conf_messages=Error Messages file
+conf_reverseaddresslookups=Reverse lookups for banned site and URLs
+conf_createlistcachefiles=Create list cache files
+conf_maxuploadsize=Form POST protection
+conf_usernameidmethodproxyauth=Username Identification (Proxy Auth)
+conf_usernameidmethodntlm=Username Identification (NTLM)
+conf_usernameidmethodident=Username Identification (Identd)
+conf_forwardedfor=Add X-Forwarded-For
+conf_maxchildren=Maximum num of processes
+conf_logconnectionhandlingerrors=Log connection handling errors
+conf_weightedphrasemode=Weighted phrase mode
+conf_naughtynesslimit=Naughtyness limit
+conf_showweightedfound=Show weighted phrases found
+
+conf_languagedir=Language directory
+conf_language=Language
+conf_usecustombannedimage=Used custom banned image
+conf_custombannedimagefile=Custom banned image file
+conf_contentregexplist=Content regular expression list
+conf_languagefile=Language file
+conf_urlcachenumber=URL cache number
+conf_urlcacheage=URL cacheage
+conf_phrasefiltermode=Phrase filter mode
+conf_preservecase=Preserve case
+conf_hexdecodecontent=Hex decode content
+conf_forcequicksearch=Force quick search
+conf_maxcontentfiltersize=Max content filter size
+conf_usexforwardedfor=Use x forwarded for
+conf_minchildren=Min children
+conf_minsparechildren=Min spare children
+conf_preforkchildren=Pre fork children
+conf_maxsparechildren=Max spare children
+conf_maxagechildren=Max age children
+
+conf_reportinglevel_radio_1=log, but do not block - Stealth mode
+conf_reportinglevel_radio_2=just say 'Access Denied'
+conf_reportinglevel_radio_3=report why but not what denied phrase
+conf_reportinglevel_radio_4=report fully
+conf_reportinglevel_radio_5=use HTML template file (accessdeniedaddress ignored)
+
+conf_loglevel_radio_1=none
+conf_loglevel_radio_2=just denied
+conf_loglevel_radio_3=all text based
+conf_loglevel_radio_4=all requests
+
+conf_logfileformat_radio_1=DansGuardian format
+conf_logfileformat_radio_2=CSV-style format
+conf_logfileformat_radio_3=Squid format
+conf_logfileformat_radio_4=Tab delimited
+
+conf_weightedphrasemode_radio_1=Disable weighted phrase feature
+conf_weightedphrasemode_radio_2=On, normal mode
+conf_weightedphrasemode_radio_3=On, singular mode
+
+conf_phrasefiltermode_radio_1=Raw only
+conf_phrasefiltermode_radio_2=Smart only
+conf_phrasefiltermode_radio_3=Both (default)
+
+## Version 2.7.2
+conf_preemptivebanning=Pre-emptive Banning
+conf_ipcfilename=IPC Filename
+conf_urlipcfilename=URL IPC Filename
+conf_pidfilename=PID Filename
+conf_nodaemon=Disable Daemonizing
+conf_nologger=Disable Logging
+conf_daemonuser=Runas user
+conf_daemongroup=Runas group
+conf_softrestart=Soft Restart
+
+## Version 2.7.5
+conf_filtergroups=Filter Groups
+conf_filtergroupslist=Filter Groups list
+conf_reverseclientiplookups=Reverse Client IP Lookups
+
+## Version 2.7.6
+conf_nonstandarddelimiter=Non-standard Delimiter
+
+## Version 2.7.7
+conf_bypasstimelimit=Bypass time limit
+conf_bypasskey=Bypass key
+
+## Virus Scan
+conf_virusscan=Enable virus scanning
+conf_exceptionvirusmimetypelist=Mime types not to virus scan
+conf_exceptionvirusextensionlist=File extensions not to virus scan
+
+acl_options=Select which functions user can perform
+acl_start=Can start and stop DG
+acl_status=Can view DG status
+acl_logs=Can view log files
+acl_editconf=Can edit DG config
+acl_editfiles=Can edit DG files
+
+note=NOTE:
+forgetrestart=Don't forget to restart DansGuardian

@@ -1,0 +1,121 @@
+index_title=DansGuardian
+index_header=DansGuardian - le filtrage de contenu web pour tous
+index_showadvanced=Options avançées: <font color="FF0000">off</font>
+index_hideadvanced=Options avançées: <font color="008000">on</font>
+index_startdg=Démarrer DansGuardian.
+index_stopdg=Arrêter DansGuardian.
+index_forcedkilldg=Arrêter sans condition DansGuardian.
+index_restartdg=Redémarrer DansGuardian.
+index_statusdg=Afficher le statut de DansGuardian.
+index_return=Page principale de DansGuardian.
+index_location=Chemin d'accès au fichier:
+index_edit=Editer
+index_search=Phrase.
+index_search_title=Chercher une règle avec une phrase.
+index_viewconf=Consulter/Editer la configuration
+index_viewfiles=Consulter/Editer les fichiers
+index_clickhelp=Cliquer sur l'option pour afficher une page d'aide.
+index_notsupported=La version installée n'est pas compatible. Veuillez installer une version 2.4.0 ou mieux à partir de <a href="http://www.dansguardian.org">http://www.dansguardian.org</a>.
+index_version=Version
+index_dgversion=Version de DG:
+index_modulever=Version du Module
+
+header_startdg=Démarrer DG
+header_stopdg=Arrêter DG
+header_restartdg=Redémarrer DG
+
+error_binnotfound=Attention - L'application DansGuardian n'est pas installée.
+error_confnotfound=Attention - Impossible de trouver le fichier de configuration de DansGuardian.
+error_lognotfound=Attention - Fichier de logs de DansGuardian introuvable.
+error_filenotfound=Attention - Fichier introuvable.
+error_webminver=Version de Webmin incorrecte! Ce module nécessite la version 0.81 ou mieux.
+
+start_title=Démarrage de DansGuardian...
+
+stop_title=Arrêt de DansGuardian ...
+
+forcedkill_title=Arrêt sans condition de DansGuardian...
+
+restart_title=Redémarrage de DansGuardian...
+
+status_title=Status de DansGuardian...
+
+edit_title=Fichier de configuration de DansGuardian
+edit_dgconfig=Edition de la configuration de DansGuardian 
+edit_dgfiles=Edition des fichiers de configuration de DansGuardian
+
+view_dglog=Consulter les logs de DG.
+
+savefile_title=Fichier DansGuardian sauvegardé
+
+saveconf_title=Fichier de configuration DansGuardian sauvegardé
+saveconf_configfile=Fichier de configuration:
+saveconf_configdata=Données du fichier de configuration:
+
+search_title=Résultats de la recherche DansGuardian
+search_notfound=Pas de résultat.
+
+conf_reportinglevel=Niveau de rapport
+conf_htmltemplate=Template HTML
+conf_loglevel=Niveau de log
+conf_logexceptionhits=Log des exceptions
+conf_logfileformat=Format du fichier de log
+conf_filterip=Adresse IP d'écoute
+conf_filterport=Port d'écoute 
+conf_proxyip=Proxy IP
+conf_proxyport=Port du Proxy
+conf_accessdeniedaddress=URL de la page de restriction
+conf_bannedphraselist=Phrases interdites
+conf_exceptionphraselist=Phrases autorisées (exceptions)
+conf_weightedphraselist=Pondération des phrases
+conf_exceptionurllist=URLs autorisées (exceptions)
+conf_banneduserlist=Utilisateurs interdits
+conf_bannediplist=Adresses IP interdites
+conf_bannedextensionlist=Extensions interdites
+conf_bannedmimetypelist=Types MIME interdits
+conf_bannedsitelist=Domaines interdits
+conf_bannedurllist=URLs interdites
+conf_bannedregexpurllist=URLs interdites par expressions régulières
+conf_exceptionsitelist=Domaines autorisés (exceptions)
+conf_exceptioniplist=Adresses IP autorisées (exceptions)
+conf_exceptionuserlist=Utilisateurs autorisés (exceptions)
+conf_picsfile=PICS
+conf_reverseaddresslookups=Résolution de nom des domaines et urls interdits
+conf_createlistcachefiles=Création des caches domaine et url
+conf_maxuploadsize=Protection contre l'upload
+conf_usernameidmethodproxyauth=Méthodes d'identification de l'utilisateur (utilisée dans les logs)
+conf_usernameidmethodntlm=Méthode NTLM (Pas implémentée)
+conf_usernameidmethodident=Méthode Ident
+conf_forwardedfor=Ajoute X-Forwarded-For: clientip à la requête HTTP
+conf_maxchildren=Nombre maximum de processus démarrés
+conf_logconnectionhandlingerrors=Log des erreurs
+conf_weightedphrasemode=Mode de pondération des phrases
+conf_naughtynesslimit=Limite de la pondération
+conf_showweightedfound=Affiche les phrases pondérées trouvées.
+
+conf_reportinglevel_radio_1=Log, mais ne filtre pas - Mode furtif
+conf_reportinglevel_radio_2=Juste dire 'Access Denied'
+conf_reportinglevel_radio_3=Dire pourquoi mais pas quelle phrase interdite
+conf_reportinglevel_radio_4=Rapport complet
+conf_reportinglevel_radio_5=Utiliser le fichier template HTML (url d'interdiction ignorée)
+
+conf_loglevel_radio_1=Aucun
+conf_loglevel_radio_2=Juste interdit
+conf_loglevel_radio_3=Basé sur le texte
+conf_loglevel_radio_4=Toutes les requêtes
+
+conf_logfileformat_radio_1=Format DansGuardian
+conf_logfileformat_radio_2=Format CSV
+
+conf_weightedphrasemode_radio_1=Désactive la pondération de phrase
+conf_weightedphrasemode_radio_2=Mode normal 
+conf_weightedphrasemode_radio_3=Mode singulier - les phrases trouvées sont comptées une seule fois
+
+conf_virusscan=Contrôle viral du contenu des pages
+
+acltxt_options=Select which functions user can perform
+acltxt_start=Start and Stop DG
+acl_status=View Status
+acl_logs=View Logs
+acl_editconf=Edit DG Config
+acl_editfiles=Edit DG Files

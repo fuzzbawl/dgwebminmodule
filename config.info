@@ -1,0 +1,9 @@
+conf_dir=Full path to DG etc directory,7
+pid_file=Full path to DG pid file,8
+binary_file=Full path to DG binary,8
+log_path=Full path to DG log directory,7
+logoutput_path=Full path to public HTML directory,7
+restart_type=Module built-in Restart method,1,1-Graceful,2-Hard
+restart_cmd=Command to restart DG,3,Module built-in or other
+start_cmd=Command to start DG,3,Module built-in or other
+stop_cmd=Command to stop DG,3,Module built-in or other

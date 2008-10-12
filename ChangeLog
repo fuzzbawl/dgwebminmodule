@@ -1,0 +1,201 @@
+0.7.0:
+I decided that a ground-up rewrite would take too long.
+Instead it is planned to remove support for DG versions earlier than 2.8,
+and focus on the items in the ToDo file.
+
+This release was sponsored by Richard Geoffrion. Give him a huge thank you!
+
+- Removed un-necessary default module config options
+- Converted to using SVN instead of CVS
+- Removed all code relating to DG versions < 2.9.0.1
+- Clarified built-in restart methods as pertaining to module in module config
+- Fixed dansguardian.conf config options in config listing
+- Made use of webmin ui_ function calls wherever possible in module
+- Replaced config.cgi section links with webmin tabs
+- Fixed status.cgi display output
+- Borrowed some changes from Aecio F. Neto that he made to previous pre-release module
+for ui_ functions and formatting
+- Included dgweblib.js file from Aecio F. Neto
+- PID file checking is now done via check_pid_file();
+- Child processes are now listed in status.cgi
+- Changed function calls to have & character, makes it easier to read the code
+- Quite a bit of code clean-up
+
+
+0.5.10-pr5:
+- Corrected some internal logic with quoting textbox options in config
+- Fixed bug with log analyzer (Bug #966726) (Fixed by Jimmy Myrick)
+- Added blacklist editor/updater for <2.7.5 by Mirek Hancl
+- Changed version checking; cleaned up a few files
+- Changed config file checking method
+- Modified index so it reports conf missing and binary missing as two different errors
+
+0.5.10-pr4:
+- Fixed issue with saveconf.cgi where it wasn't saving some options under content section
+- Fixed "access denied" issue with editing files (Bug #998350, Found by Roland Pope)
+
+0.5.10-pr3:
+- Fixed problem where banned/exception user/ip were showing up twice in editfiles for DG < 2.7
+- Removed link in editfiles which pointed to itself
+- Added link in savefile to point to groups 
+- Added "button" to reload group configs to index.cgi
+- Changed restart routine to perform -r to DG instead of -g
+- Made change in restart logic that "soft" restart is -r, "hard" restart is killall then launch
+- Added support for FreeBSD, RedHat (yuck), and Solaris for default module config
+- Fixed bug where process was restarted before config was written to disk
+- Fixed reload groups ACL problem
+- Changed module acl check to be a sub process
+- Added support for DansGuardian 2.8
+- Fixed bug where config editor lost other changes (Bug #952968)
+
+0.5.10-pr2:
+- Continued filter groups framework (is read-only currently)
+- Fixed missing semicolon after &checkdgconf in savefile.cgi (Found by Roland Pope)
+- Removed link in edit.cgi to return to config
+- Added conf_bypasstimelimit, conf_bypasskey, index_numberofgroups, index_groupsettings to language file for english
+- Changed groups.cgi to use new and current lang variables
+
+0.5.10-pr1:
+- Removed "Return to DG config" link in savefile.cgi, search.cgi, editfiles.cgi
+- Added support for config options from 2.7.1 through 2.7.6-7
+- Rearranged config options to be in sections. This makes for easier
+  viewing and editing of the config via this module.
+- Moved DG config file check to a sub in dg-lib file. Makes for
+  cleaner files all around.
+- Modified saveconf.cgi to work with sectioned editconf.cgi
+- Added support to specify start/stop/restart commands
+- Began filter groups framework
+
+0.5.9-3:
+- Fixed bug #813901 where .Include paths got messed up upon saving files
+  Bug was fixed with patch from Vincent Renardias, then I realized that webmin
+  has a function built-in to do what Vincent did. I implemented the webmin
+  function as it was smaller.
+
+0.5.9-2:
+Two releases in a day fixing my screw-ups, ugh
+- status.cgi was not doing it's job (process control)
+- Titles in status.cgi were not showing up
+- status.cgi itself was not showing up on index page
+- Cleaned up <hr> tags in savefile.cgi
+- Modified saveconf.cgi and saveavconf.cgi to auto-restart DG if user perms say to
+- Changed note in saveconf.cgi to be taken from lang files
+
+0.5.9-1:
+- Fixed problem introduced with last version where DG config dir was prefixed to all file paths when editing files.
+
+0.5.9:
+- Fixed help link on index.cgi (Thomas Thuemmel)
+- Security update: Fixed SourceForge bug #869509
+  edit.cgi now forces files to be within DG config dir before editing
+- Removed "Return to edit config" link from edit.cgi footer
+
+0.5.8-1:
+- Removed stop, start, and restart CGI's
+- status.cgi now performs all process actions
+
+0.5.8
+- Implemented per-file edit ACL's for webmin users
+- Auto-restart DG after file change is now possible
+- Language changes:
+  - Added note and forgetrestart
+  - Added index_autorestart
+  - Dropped "dg" from index_startdg, index_stopdg, and index_restartdg
+  - Dropped "file path" from conf_ variables for banned/exception files
+  - Added index_done
+- Process control is now done through a sub-routine
+
+0.5.7:
+- Lost due to way too many changes
+
+0.5.6:
+- Re-implemented search function
+- Fixed some more formatting issues
+
+0.5.5:
+- Fixed some formatting issues
+- Changed log analyzer to use log format from DG config
+- Fixed some missing text in lang/en (fr still needs updated)
+
+0.5.2:
+- Fixed startup problem (bug #731206) (Thomas Thuemmel)
+- Implemented Jimmy Myrick's log analyzer (Adam Kennedy)
+
+0.5.1:
+- Changed version checking to catch DG 2.6 and 2.7
+- Updated editconf.cgi for DG 2.6 and 2.7 options
+- Changed method of shutting DG down in restart and stop calls
+- Updated editconf.cgi to support the additional log formats
+
+0.5.0:
+- Was skipped due to my inability to keep track of what I did
+
+0.4.0:
+- Changed version checking to catch DG 2.5
+- Changed the way the "buttons" are generated for the index page
+- Removed "buttons" for start/stop/restart because they are tabs
+- Added Webmin ACL support for start/stop/restart, status, logs, and edit config
+- Changed some file names around
+- Added support for DG 2.5 (contentregexplist, languagefile, urlcache, maxcontent filter size)
+
+0.3.7a:
+- Fixed "Error Bad Header" bug. I put the binary file check code ABOVE the page header information. Oops. (Adam Kennedy)
+
+0.3.7:
+- Fixed bug where module was reporting unsupported version instead of giving an error that it couldn't find the DG binary. (Adam Kennedy)
+- French translation (JF Rameau)
+- DG AntiVirus plugin support (Jason Pattie)
+- Fixed typos in HTML code for various pages (Jason Pattie)
+- .Include support added for lists (Jason Pattie)
+- Various misc. file path corrections (Jason Pattie)
+- Better version checking for DG (Jason Pattie)
+- Changed config file writing method. It now updates the config file with the new values rather than writing out an entirely new file. (Jason Pattie)
+
+0.3.6:
+- Fixed error under FreeBSD where the log file for DG isn't named access.log
+- Fixed bug where pics file didn't have an "edit" link
+- Renamed module title to "DansGuardian 2.4" instead of "Manage DansGuardian 2.4.x", it's easier to find/read this way
+
+0.3.5a:
+- Fixed bug where view/save logfile omitted loglevel option
+- Added some entries into language file for file location errors
+- Fixed bug where viewlog.cgi couldn't find the log file
+
+0.3.5:
+- Fixed saveconf.cgi bug where it would output a blank config file (JF Rameau)
+- Modified saveconf.cgi to display what it put in the config file. (me)
+
+0.3.4:
+- Fixed misc. errors with help HTML files (me & JF Rameau)
+- The viewlog.cgi script now works! YAY! (me)
+- Translated to french (JF Rameau)
+- Fixed viewconf.cgi error for accessdenied help url (JF Rameau)
+- Fixed viewlog icon on index page (me)
+- Changed viewconf.cgi to list options in a table for easier viewing
+
+0.3.3:
+- Fixed problem where if version file didn't exist, it would freak out webmin
+- Fixed some comment typos
+
+0.3.2:
+- Fixed broken variables for binary location
+- Fixed broken version reporting
+
+0.3.1:
+- Started to add webmin ACL support
+- Added version reporting
+- Added new config option for 2.4.3
+- Added icons w/ new DG logo
+- Added online help links for config page
+
+0.2.1:
+- Added file locking when editing files
+- Added Restart/Stop/Start "buttons" to top index page  (I stole this from the apache module)
+- Removed the hideadvanced variable for preperation of Webmin ACL's
+- Added icon for editing config
+
+0.2.0:
+- Designed basic icons for main functions
+- Added arrays for easy table insertion for index
+- Moved the config file editing to another cgi
+- Modified the module config a bit. Now for etc directory you give it a directory name inside the chooser. NOTE: NO / is required at the end of the path!

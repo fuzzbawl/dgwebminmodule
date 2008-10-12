@@ -1,0 +1,7 @@
+conf_path=Répertoire de configuration de DG,7
+conf_file=Fichier de configuration de DG,8
+pid_file=Fichier pid de DG,8
+binary_file=Fichier binaire de DG,8
+log_path=Répertoire des logs de DG,7
+log_file=Fichier de log de DG,8
+logoutput_path=Répertoire public HTML,7
