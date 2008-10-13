@@ -47,7 +47,7 @@ sub checkdgbinary {
 ## Check DG version for compatibility
 sub checkdgver {
   my $ver = `$config{'binary_file'} -v 2>&1`;
-  if ($ver =~ /(2\.9\.\d+.\d+)/) {
+  if (($ver =~ /(2\.9\.9\.\d+)/) || ($ver =~ /(2\.10\.\d+.\d+)/)) {
     return $1;
   } else {
     return false;
@@ -109,24 +109,35 @@ sub form_line {
     my $maxlen = $_[2];
     my $helpfile = $_[3];
     my $editable = $_[4];
-    my $optionconf = "conf_$option";
-    my $label = $text{$optionconf};
+    my $group = $_[5];
+    my $label = $text{"conf_".$option};
     my $value = &readconfigoption($option);
-    print "<tr>", "<td>", &hlink("$label", "$helpfile"), "</td>", "<td><input name=$option size=$size maxlength=$maxlen value=\'$value\'>";
     if ($editable ne "") {
-        print " <A HREF=\"./edit.cgi?file=$value\">$editable</a>";
+        my $editlink = " <A HREF=\"./edit.cgi?file=$value\">$editable</a>";
     }
-    print "</td></tr>\n";
+    print &ui_table_row(&hlink("$label", "$helpfile"), "<input name=\"$option\" size=\"$size\" maxlength=\"$maxlen\" value=\"$value\" $editlink>");
 }
+
+# gform_line(<configfileoptionname>, <icon size>, <icon max len>, <editable file>)
+sub gform_line {
+    my $option = $_[0];
+    my $size = $_[1];
+    my $maxlen = $_[2];
+    my $helpfile = $_[3];
+    my $group = $_[4];
+    my $label = $text{"conf_".$option};
+    my $value = &readgroupconf($group,$option);
+    print &ui_table_row(&hlink("$label", "$helpfile"), "<input name=\"$option\" size=\"$size\" maxlength=\"$maxlen\" value=\"$value\">");
+}
+
 
 # edit_line_file(<configfileoptionname>, <icon size>, <icon max len>, <editable file>)
 sub edit_line_file {
     my $option = $_[0];
     my $helpfile = $_[1];
-    my $optionconf = "conf_$option";
-    my $label = $text{$optionconf};
+    my $label = $text{"conf_".$option};
     my $value = &readconfigoption($option);
-    print "<tr>", "<td>", &hlink("$label", "$helpfile"), "</td>", "<td>$value</td>", "<td><A HREF=\"./edit.cgi?file=$value\">$text{'index_edit'}</a></td></tr>\n";
+    print &ui_columns_row( [ &hlink("$label", "$helpfile"), $value, "<A HREF=\"./edit.cgi?file=$value\">$text{'index_edit'}</a>" ] );
     # search the file for '.Include<...>' directives and list any files found
     $fileref = &read_file_lines($value);
     my $file_line;
@@ -151,14 +162,25 @@ sub edit_line_file {
 sub form_option {
     my $option = $_[0];
     my $helpfile = $_[1];
-    my $optionconf = "conf_$option";
-    my $label = $text{$optionconf};
+    my $label = $text{"conf_".$option};
     my $value = &readconfigoption($option);
-    print "<tr><td>", &hlink("$label", "$helpfile"), "</td>", "<td><input type=checkbox name=$option value=\"on\"";
     if ($value eq 'on') {
-        print 'CHECKED';
+        my $checked = 'checked=CHECKED';
     }
-    print "></td></tr>\n";
+    print &ui_table_row(&hlink("$label", "$helpfile"), "<input type=\"checkbox\" name=\"$option\" value=\"on\" $checked>");
+}
+
+# gform_option(<configfileoptionname>)
+sub gform_option {
+    my $option = $_[0];
+    my $helpfile = $_[1];
+    my $group = $_[3];
+    my $label = $text{"conf_".$option};
+    my $value = &readgroupconf($group,$option);
+    if ($value eq 'on') {
+        my $checked = 'checked=CHECKED';
+    }
+    print &ui_table_row(&hlink("$label", "$helpfile"), "<input type=\"checkbox\" name=\"$option\" value=\"on\" $checked>");
 }
 
 # form_radio(<configfileoptionname>, <onchangefunction>, <option 1>, <option 2>, ...)
@@ -166,9 +188,8 @@ sub form_radio {
     my @options = @_;
     my $option = $options[0];
     my $onchangefunction = $options[1];
-    my $optionconf = "conf_$option";
-    my $optionradio = $optionconf . "_radio_";
-    my $label = $text{$optionconf};
+    my $optionradio = "conf_".$option."_radio_";
+    my $label = $text{"conf_".$option};
     my $helpfile = $options[0];
     my $value = &readconfigoption($option);
     my $radio = "blah";
@@ -185,6 +206,7 @@ sub form_radio {
             }
             $radioname = $optionradio . "$i";
             print "> $radio = $text{$radioname}<BR>";
+#            print &ui_table_row(&hlink("$label", "$helpfile"), "<input type=\"radio\" name=\"$option\" value=\"$radio\" onchange=\"$onchangefunction\" $checked> $radio = $text{$radioname}");
         }
         $i++;
     }

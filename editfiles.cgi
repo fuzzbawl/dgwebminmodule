@@ -14,9 +14,6 @@ use POSIX;
 # Check if DansGuardian conf file is there
 &checkdgconf;
 
-# Load dynamic settings script
-&loadwebjslib;
-
 print "$text{'index_dgversion'} $dg_version<br>\n";
 print "<p align=left>$text{'index_clickhelp'}</p>";
 print "\&nbsp;\n";
@@ -29,9 +26,9 @@ print &ui_form_end([ [ undef, $text{'index_search'} ] ]);
 print &ui_columns_start(\@filecolumns);
 
 ## Files for all versions
-my @configuration_files = ("bannediplist", "exceptioniplist");
+my @configuration_files = ("filtergroupslist", "bannediplist", "exceptioniplist");
 
-%help_files = ("banneduserlist" => "filepaths", "exceptionuserlist" => "filepaths", "bannediplist" => "filepaths", "exceptioniplist" => "filepaths");
+%help_files = ("filtergroupslist" => "filepaths", "bannediplist" => "filepaths", "exceptioniplist" => "filepaths");
 
 my $conf_file;
 

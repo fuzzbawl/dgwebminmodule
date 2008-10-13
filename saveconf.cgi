@@ -34,7 +34,7 @@ print "$text{'saveconf_configfile'} <b>$filename</b><p>\n";
 
 ## Network
 if ($configsection eq "network") {
-  push(@configoptions, "filterip","filterport","proxyport","proxyip","reverseaddresslookups", "usernameidmethodproxyauth", "usernameidmethodident", "forwardedfor", "usexforwardedfor", "reverseclientiplookups");
+  push(@configoptions, "filterip","filterport","proxyport","proxyip","reverseaddresslookups", "forwardedfor", "usexforwardedfor", "reverseclientiplookups");
 
 ## Process
 } elsif ($configsection eq "process") {

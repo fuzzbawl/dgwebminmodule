@@ -1,4 +1,4 @@
-0.7.0:
+0.7.0alpha1:
 I decided that a ground-up rewrite would take too long.
 Instead it is planned to remove support for DG versions earlier than 2.8,
 and focus on the items in the ToDo file.
@@ -7,9 +7,9 @@ This release was sponsored by Richard Geoffrion. Give him a huge thank you!
 
 - Removed un-necessary default module config options
 - Converted to using SVN instead of CVS
-- Removed all code relating to DG versions < 2.9.0.1
+- Removed all code relating to DG versions < 2.9.90.1
 - Clarified built-in restart methods as pertaining to module in module config
-- Fixed dansguardian.conf config options in config listing
+- Fixed dansguardian.conf config options in config.cgi
 - Made use of webmin ui_ function calls wherever possible in module
 - Replaced config.cgi section links with webmin tabs
 - Fixed status.cgi display output
@@ -18,8 +18,9 @@ for ui_ functions and formatting
 - Included dgweblib.js file from Aecio F. Neto
 - PID file checking is now done via check_pid_file();
 - Child processes are now listed in status.cgi
-- Changed function calls to have & character, makes it easier to read the code
+- Changed function calls to have "&" character, makes it easier to read the code
 - Quite a bit of code clean-up
+- Implemented form line/option functions for filter groups editing
 
 
 0.5.10-pr5:

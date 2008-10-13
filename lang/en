@@ -41,6 +41,7 @@ error_binnotfound=Warning - DansGuardian binary file not found.
 error_confnotfound=Warning - DansGuardian configuration file not found.
 error_lognotfound=Warning - DansGuardian log file not found.
 error_filenotfound=Warning - File not found.
+error_filenotused=Warning - File not used/defined.
 error_webminver=Wrong Webmin version! Version 0.81 or higher required.
 
 start_title=Starting DansGuardian...
@@ -176,6 +177,53 @@ conf_nonstandarddelimiter=Non-standard Delimiter
 ## Version 2.7.7
 conf_bypasstimelimit=Bypass time limit
 conf_bypasskey=Bypass key
+
+## Version 2.9
+conf_maxips=Maximum Allowed IPs
+conf_ipipcfilename=IP Address IPC Filename
+conf_maxlogitemlength=Maximum Log Item Length
+conf_anonymizelogs=Anonymize Logs
+conf_syslog=Log to syslog
+conf_loglocation=Log file location
+conf_statlocation=Stat file location
+conf_logclienthostnames=Log client hostnames
+conf_logchildprocesshandling=Log Child Process Handling
+conf_logadblocks=Log Advertisement Blocks
+conf_loguseragent=Log Client User-Agent
+conf_maxcontentramcachescansize=Maximum Ram Cache Scan Size
+conf_maxcontentfilecachescansize=Maximum File Cache Scan Size
+conf_filecachedir=File Cache Directory
+conf_deletedownloadedtempfiles=Delete Download Temp Files
+conf_initialtrickledelay=Initial Trickle Delay
+conf_trickledelay=Trickle Delay
+conf_scancleancache=Scan Clean Cache
+conf_contentscannertimeout=Content Scanner Timeout
+conf_contentscanexceptions=Content Scan Exceptions
+conf_recheckreplacedurls=Re-check Replaced URLs
+conf_groupmode=Group Mode
+conf_groupname=Group Name
+conf_blockdownloads=Block Downloads
+conf_categorydisplaythreshold=Category Display Threshold
+conf_embeddedurlweight=Embedded URL Weight
+conf_enablepics=Enable PICS
+conf_infectionbypass=Infection Bypass
+conf_infectionbypasskey=Infection Bypass Key
+conf_infectionbypasserrorsonly=Infection Bypass on Errors only
+conf_disablecontentscan=Disable Content Scan
+conf_deepurlanalysis=Deep URL Analysis
+conf_greysitelist=Grey site list
+conf_greyurllist=Grey URL list
+conf_exceptionregexpurllist=Exception regexp URL list
+conf_urlregexplist=URL regexp list
+conf_exceptionextensionlist=Exception extension list
+conf_exceptionmimetypelist=Exception mimetype list
+conf_exceptionfilesitelist=Exception file site list
+conf_exceptionfileurllist=Exception file URL list
+conf_headerregexplist=Header regexp list
+conf_bannedregexpheaderlist=Banned regexp header list
+conf_logsitelist=Log site list
+conf_logurllist=Log URL list
+conf_logregexpurllist=Log regexp URL list
 
 ## Virus Scan
 conf_virusscan=Enable virus scanning

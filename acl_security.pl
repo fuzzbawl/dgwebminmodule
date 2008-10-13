@@ -11,7 +11,7 @@ sub acl_security_form {
   # This array populates an html select list with the file names
   print "<tr><td><b>$text{'acl_editfiles'}</b></td>\n";
   print "<td><select name=files multiple size=6>\n";
-  foreach $s ('exceptionurllist', 'bannedurllist', 'exceptionuserlist', 'banneduserlist', 'exceptionphraselist', 'bannedphraselist', 'exceptionsitelist', 'bannedsitelist', 'exceptioniplist', 'bannediplist', 'weightedphraselist', 'bannedextensionlist', 'bannedmimetypelist', 'bannedregexpurllist', 'pics', 'contentregexplist', 'messages') {
+  foreach $s ('filtergroupslist', 'exceptionurllist', 'bannedurllist', 'exceptionuserlist', 'banneduserlist', 'exceptionphraselist', 'bannedphraselist', 'exceptionsitelist', 'bannedsitelist', 'exceptioniplist', 'bannediplist', 'weightedphraselist', 'bannedextensionlist', 'bannedmimetypelist', 'bannedregexpurllist', 'pics', 'contentregexplist', 'messages', 'greysitelist', 'greyurllist', 'exceptionregexpurllist', 'urlregexplist', 'exceptionextensionlist', 'exceptionmimetypelist', 'exceptionfilesitelist', 'exceptionfileurllist', 'headerregexplist', 'bannedregexpheaderlist', 'logsitelist', 'logurllist', 'logregexpurllist') {
     printf "<option value=%s %s>%s\n", $s, $_[0]->{$s} ? 'selected' : '', $text{"conf_${s}"};
   }
 
@@ -30,7 +30,7 @@ sub acl_security_save {
   $_[0]->{'autorestart'} = $in{'autorestart'};
 
   map { $files{$_} = 1 } split(/\0/, $in{'files'});
-  foreach $s ('exceptionurllist', 'bannedurllist', 'exceptionuserlist', 'banneduserlist', 'exceptionphraselist', 'bannedphraselist', 'exceptionsitelist', 'bannedsitelist', 'exceptioniplist', 'bannediplist', 'weightedphraselist', 'bannedextensionlist', 'bannedmimetypelist', 'bannedregexpurllist', 'pics', 'contentregexplist', 'messages') {
+  foreach $s ('filtergroupslist', 'exceptionurllist', 'bannedurllist', 'exceptionuserlist', 'banneduserlist', 'exceptionphraselist', 'bannedphraselist', 'exceptionsitelist', 'bannedsitelist', 'exceptioniplist', 'bannediplist', 'weightedphraselist', 'bannedextensionlist', 'bannedmimetypelist', 'bannedregexpurllist', 'pics', 'contentregexplist', 'messages', 'greysitelist', 'greyurllist', 'exceptionregexpurllist', 'urlregexplist', 'exceptionextensionlist', 'exceptionmimetypelist', 'exceptionfilesitelist', 'exceptionfileurllist', 'headerregexplist', 'bannedregexpheaderlist', 'logsitelist', 'logurllist', 'logregexpurllist') {
     $_[0]->{$s} = $files{$s};
   }
 }
