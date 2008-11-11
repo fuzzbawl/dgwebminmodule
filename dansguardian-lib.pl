@@ -11,7 +11,7 @@ $dg_version=&checkdgver();
 
 # Read in the dansguardian.conf file
 $cfref = &read_file_lines($config{'conf_dir'}."/dansguardian.conf");
-$modulever = "0.7.0";
+$modulever = "0.7.0alpha2";
 
 ## checkdgconf();
 ## Check for existance of DG config file
@@ -47,7 +47,7 @@ sub checkdgbinary {
 ## Check DG version for compatibility
 sub checkdgver {
   my $ver = `$config{'binary_file'} -v 2>&1`;
-  if (($ver =~ /(2\.9\.9\.\d+)/) || ($ver =~ /(2\.10\.\d+.\d+)/)) {
+  if (($ver =~ /(2\.9\.9\.\d+)/) || ($ver =~ /(2\.10\.?\d*.?\d*)/)) {
     return $1;
   } else {
     return false;

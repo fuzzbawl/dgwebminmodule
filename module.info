@@ -2,4 +2,4 @@ name=DansGuardian
 desc=DansGuardian Content Filter
 category=servers
 depends=1.220
-version=0.7.0alpha1
+version=0.7.0alpha2

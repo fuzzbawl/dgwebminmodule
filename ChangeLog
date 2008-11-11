@@ -1,3 +1,7 @@
+0.7.0alpha2:
+- Bumped version number. It slipped my mind last release.
+- Fixed bug #2168381, reported by cnighswonger
+
 0.7.0alpha1:
 I decided that a ground-up rewrite would take too long.
 Instead it is planned to remove support for DG versions earlier than 2.8,
