@@ -5,4 +5,4 @@ desc_pt=DansGuardian Web Conteúdo Filtro
 desc_es=DansGuardian Filtro de Contenido Web
 category=servers
 depends=1.220
-version=0.7.CKalpha4
+version=0.7.0beta1
