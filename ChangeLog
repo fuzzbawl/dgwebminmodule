@@ -1,3 +1,7 @@
+0.7.0 beta1:
+Chuck Kollars has done a MASSIVE amount of work bringing things inline with this version.
+A huge "Thank You!" to him for his work. With that, I give the community beta1.
+
 0.7.CKalpha4:
 Improve "progress" indicator in Log Analysis. For one thing, have separate
 schemes for interactive use and for batch use since optimization for
