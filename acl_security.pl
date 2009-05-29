@@ -1,36 +1,146 @@
-do 'dansguardian-lib.pl';
+#!/usr/bin/perl -w
+# dansguardian-lib.pl
 
-sub acl_security_form {
+require 'dansguardian-lib.pl';
+
+###############################################################
+# internal/utility sub-subroutines
+###############################################################
+sub showyesno
+{
+    my ($option) = @_;
+
+    my $headingtitle;
+
+    my $optionname = $option;
+    if ($option =~ m/(conf|lists|messages|edit)/) {
+        $headingtitle = "$text{'acl_canedit'} ";
+    } elsif ($option =~ m/view/) {
+        $headingtitle = "$text{'acl_canview'} ";
+    } elsif ($option =~ m/auto/) {
+        $headingtitle = "$text{'acl_canchooseauto'} ";
+        $optionname =~ s/auto//;
+    } else {
+        $headingtitle = "$text{'acl_can'} "; 
+    }
+    $headingtitle .= $text{"index_$optionname"};
+
+    if (($option eq 'start') || ($option eq 'stop')) {
+        $interplay = "onChange='if((this.form.start[0].checked)&&(this.form.stop[0].checked)){this.form.autorestart[0].disabled=false;this.form.autorestart[1].disabled=false;}else{this.form.autorestart[0].checked=false;this.form.autorestart[1].checked=true;this.form.autorestart[0].disabled=true;this.form.autorestart[1].disabled=true;}'";
+    } else {
+        $interplay = '';
+    }
+    print "<tr><td colspan=2><b>$headingtitle</b></td>\n";
+    print "<td><input type=radio name=$option value=1 " . ($$optionsref[0]->{$option} ? 'checked' : '') . " $interplay> $text{'yes'}\n";
+    print "<td><input type=radio name=$option value=0 " . ($$optionsref[0]->{$option} ? '' : 'checked') . " $interplay> $text{'no'}\n";
+    print "</td></tr>\n";
+}
+
+sub showlistsoptions
+{
+  print "<tr><td valign=bottom><b>$text{'acl_canedit'} $text{'index_editgroupsconfandlists'}</b></td>";
+  print "<td align=right valign=middle>$text{'acl_groups'}</td>\n";
+  print "<td colspan=2><select name=groups multiple size=6>\n";
+  print "<option value=f0 " . ($$optionsref[0]->{'f0'} ? 'selected' : '') . ">shared/common/base</option>\n";
+  print "<option value=local " . ($$optionsref[0]->{'local'} ? 'selected' : '') . ">local</option>\n";
+  print "<option value='' disabled>&nbsp;----------&nbsp;</option>\n";
+  for ($i=1; $i<=99; ++$i) {
+    $groupname = "f$i";
+    print "<option value='$groupname' " . ($$optionsref[0]->{$groupname} ? 'selected' : '') . ">&nbsp;&nbsp;$groupname&nbsp;&nbsp;</option>\n";
+  }
+  print "</select></td></tr>\n";
+
+
+  # This array populates an html select list with the list names
+  print "<tr><td>&nbsp;</td>";
+  print "<td align=right valign=middle>$text{'acl_lists'}</td>\n";
+  print "<td colspan=2><select name=lists multiple size=7>\n";
+  foreach $s ('conf', '', 'blacklists', 'phraselists', '', sort bytype keys %groupsconfigurationlists) {
+    if ($s) {
+      print "<option value='$s' " . ($$optionsref[0]->{$s} ? 'selected' : '') . ">" . ($text{"conf_$s"}) . " ...</option>\n";
+    } else {
+      # separator
+      print "<option value='' disabled>&nbsp;----------&nbsp;</option>\n";
+    }
+  }
+  print "</select></td></tr>\n";
+
+}
+
+###############################################################
+# external subroutines expected by Webmin
+#  (effectively our API)
+###############################################################
+sub acl_security_form 
+{
+  # set up a global so we can call subroutines
+  $optionsref = \@_;
+
   # This is for the main menu 
-  foreach $s ('start', 'stop', 'restart', 'regroup', 'status', 'logs', 'editconf', 'editfiles', 'groups', 'autorestart') {
-    printf "<tr><td><b>%s</b></td>\n", $text{"index_${s}"};
-    printf "<td><input type=radio name=%s value=1 %s> %s\n", $s, $_[0]->{$s} ? 'checked' : '', $text{'yes'};
-    printf "<td><input type=radio name=%s value=0 %s> %s</td></tr>\n", $s, $_[0]->{$s} ? '' : 'checked', $text{'no'};
+  $hralready = 0;
+  $groupsalready = 0;
+  foreach $s ('start', 'stop', 'reload', 'status', 'logs', 'search', 'editconf', 'editplugconf', 'editmessages', 'editlists', 'editfiltergroupassignments', 'setupfiltergroups', 'viewfiltergroups', 'editgroupsconf', 'editgroupslists', 'autorestart', 'autoreload' ) {
+    if (($s eq 'editgroupslists') || ($s eq 'editgroupsconf')) {
+        print "<tr><td colspan=4><hr></td></tr>" if ! $hralready;
+        &showlistsoptions() if ! $groupsalready;
+        print "<tr><td colspan=4><hr></td></tr>";
+        $hralready = 1;
+        $groupsalready = 1;
+    } else {
+        &showyesno($s);
+	$hralready = 0;
+    }
   }
-
-  # This array populates an html select list with the file names
-  print "<tr><td><b>$text{'acl_editfiles'}</b></td>\n";
-  print "<td><select name=files multiple size=6>\n";
-  foreach $s ('filtergroupslist', 'exceptionurllist', 'bannedurllist', 'exceptionuserlist', 'banneduserlist', 'exceptionphraselist', 'bannedphraselist', 'exceptionsitelist', 'bannedsitelist', 'exceptioniplist', 'bannediplist', 'weightedphraselist', 'bannedextensionlist', 'bannedmimetypelist', 'bannedregexpurllist', 'pics', 'contentregexplist', 'messages', 'greysitelist', 'greyurllist', 'exceptionregexpurllist', 'urlregexplist', 'exceptionextensionlist', 'exceptionmimetypelist', 'exceptionfilesitelist', 'exceptionfileurllist', 'headerregexplist', 'bannedregexpheaderlist', 'logsitelist', 'logurllist', 'logregexpurllist') {
-    printf "<option value=%s %s>%s\n", $s, $_[0]->{$s} ? 'selected' : '', $text{"conf_${s}"};
-  }
-
 }
 
 sub acl_security_save {
   $_[0]->{'start'} = $in{'start'};
   $_[0]->{'stop'} = $in{'stop'};
-  $_[0]->{'restart'} = $in{'restart'};
-  $_[0]->{'regroup'} = $in{'regroup'};
+  $_[0]->{'restart'} = ($in{'start'} && $in{'stop'}) ? 1 : 0;
+  $_[0]->{'reload'} = $in{'reload'};
   $_[0]->{'status'} = $in{'status'};
   $_[0]->{'logs'} = $in{'logs'};
+  $_[0]->{'search'} = $in{'search'};
   $_[0]->{'editconf'} = $in{'editconf'};
-  $_[0]->{'editfiles'} = $in{'editfiles'};
-  $_[0]->{'groups'} = $in{'groups'};
-  $_[0]->{'autorestart'} = $in{'autorestart'};
+  $_[0]->{'editplugconf'} = $in{'editplugconf'};
+  $_[0]->{'editlists'} = $in{'editlists'};
+  $_[0]->{'editmessages'} = $in{'editmessages'};
+  $_[0]->{'editfiltergroupassignments'} = $in{'editfiltergroupassignments'};
+  $_[0]->{'editgroupsconf'} = $in{'editgroupsconf'};
+  $_[0]->{'editgroupslists'} = $in{'editgroupslists'};
+  $_[0]->{'setupfiltergroups'} = $in{'setupfiltergroups'};
+  $_[0]->{'viewfiltergroups'} = $in{'viewfiltergroups'};
+  $_[0]->{'autorestart'} = ($in{'start'} && $in{'stop'}) ? $in{'autorestart'} : 0 ;
+  $_[0]->{'autoreload'} = $in{'autoreload'};
 
-  map { $files{$_} = 1 } split(/\0/, $in{'files'});
-  foreach $s ('filtergroupslist', 'exceptionurllist', 'bannedurllist', 'exceptionuserlist', 'banneduserlist', 'exceptionphraselist', 'bannedphraselist', 'exceptionsitelist', 'bannedsitelist', 'exceptioniplist', 'bannediplist', 'weightedphraselist', 'bannedextensionlist', 'bannedmimetypelist', 'bannedregexpurllist', 'pics', 'contentregexplist', 'messages', 'greysitelist', 'greyurllist', 'exceptionregexpurllist', 'urlregexplist', 'exceptionextensionlist', 'exceptionmimetypelist', 'exceptionfilesitelist', 'exceptionfileurllist', 'headerregexplist', 'bannedregexpheaderlist', 'logsitelist', 'logurllist', 'logregexpurllist') {
-    $_[0]->{$s} = $files{$s};
+  # parse HTML input into a form more convenient for Perl
+  map { $groups{$_} = 1} split(/\0/, $in{'groups'});
+  map { $lists{$_} = 1 } split(/\0/, $in{'lists'});
+
+  # check all the filter groups, see if at least one
+  #  ('f0' is a fake filter group which means the shared/common/base files)
+  $somegroup = 0;
+  for ($i=0; $i<=99; ++$i) {
+      $groupname = "f$i";
+      ++$somegroup if exists $groups{$groupname};
+      $_[0]->{$groupname} = $groups{$groupname};
+  }
+  ++$somegroup if exists $groups{'local'};
+  $_[0]->{'local'} = $groups{'local'};
+  $somelist = 0;
+  $someconf = 0;
+  foreach $s ('conf', 'blacklists', 'phraselists', keys %groupsconfigurationlists) {
+    $somelist = 1 if $lists{$s};
+    $_[0]->{$s} = $lists{$s};
+  }
+  $someconf = 1 if $lists{'conf'};
+  if ($somegroup) {
+    # at least one group, show choices if also a) 'conf' or b) at least one list
+    $_[0]->{'editgroupsconf'} = $someconf;
+    $_[0]->{'editgroupslists'} = $somelist;
+  } else {
+    # no groups, not allowed to edit anything at all, don't even show the choice
+    $_[0]->{'editgroupsconf'} = 0;
+    $_[0]->{'editgroupslists'} = 0;
   }
 }

@@ -1,173 +1,234 @@
 #!/usr/bin/perl
 # editconf.cgi
 
-require './dansguardian-lib.pl';
+# by declaring all the globals we'll reference (including some in our own
+#  libraries)_before_ pulling in libraries and adding the 'use ...' _after_ 
+#  pulling in libraries, we can 'use strict'  for our own code without 
+#  generating any messages about the less-than-clean code in the very old 
+#  Webmin libraries themselves
+our (%text, %access, %config, %in, $module_name, $modulever, $moduleinfo);
+our ($debug, $dg_version, $current_lang, $module_config_directory);
 use POSIX;
-&ReadParse();
-&ui_print_header($text{'edit_dgconfig'}, "", "");
-%access = &get_module_acl();
+require './dansguardian-lib.pl';
+use warnings;
+use strict qw(subs vars);
+&passthroughautoreturn();
+
+our %access = &get_module_acl();
+our $return = &getcleanreturn();
+our $pagename = "$text{'index_viewedit'} $text{'index_editconf'}";
+our $conffilepath = &group2conffilepath(0);
+
+our $readonly = ! &accessfile($conffilepath);
+
+&webminheader();
 
 # Make sure user has access to this file
-&checkmodauth(editconf);
+&checkmodauth('editconf');
+
+# Check if the right version
+if (!(&checkdgver())) {
+    print "<span style='color: brown'>$text{'error_version_notsupp'}<br>$text{'index_modulever'} $modulever $text{'index_moduleversupports'}<br>$text{'index_dgversion'} $dg_version<p>\n";
+}
 
 # Check if DansGuardian conf file is there
-&checkdgconf;
-
-# Load dynamic settings script
-#&loadwebjslib;
-
-#my $virus_engine;
-@tabs = map { [ $_, $text{'edit_tab_'.$_}, "editconf.cgi?mode=$_" ] }
-  (
-    "network",
-    "process",
-    "logging",
-    "content",
-    "misc", 
-    $access{'editavconf'} ? ( "dgav" ) : ( )
-  );
-
-$cfref = &read_file_lines($conffilepath);
-
-$configsection = $in{"mode"};
-
-print "$text{'index_dgversion'} $dg_version<br>\n";
-print "<p align=left>$text{'index_clickhelp'}</p>";
-
-## Network tab
-print &ui_tabs_start(\@tabs, "mode", $in{'mode'} || "network", 1);
-print &ui_tabs_start_tab("mode", "network");
-print &ui_form_start("saveconf.cgi", "post");
-print &ui_table_start("Network settings", undef, 2);
-
-&form_line("filterip", 15, 15, "filterip");
-&form_line("filterport", 4, 5, "filterport");
-&form_line("proxyip", 15, 15, "proxyip");
-&form_line("proxyport", 4, 5, "proxyport");
-&form_option("reverseaddresslookups", "reverseaddresslookups");
-&form_option("forwardedfor", "forwardedfor");
-&form_option("usexforwardedfor", "usexforwardedfor");
-&form_option("reverseclientiplookups", "reverseclientiplookups");
-&form_line("maxips", 4, 4, "maxips");
-
-print &ui_table_end();
-print "<input type=hidden name=\"conffilepath\" value=\"$conffilepath\">";
-print "<input type=hidden name=\"configsection\" value=\"network\">";
-print &ui_form_end([ [ undef, $text{'save'} ] ]);
-print &ui_tabs_end_tab();
-
-## Process tab
-print &ui_tabs_start_tab("mode", "process");
-print &ui_form_start("saveconf.cgi", "post");
-print &ui_table_start("Process settings", undef, 2);
-
-&form_line("maxchildren", 3, 4, "maxchildren");
-&form_line("minchildren", 3, 3, "minchildren");
-&form_line("minsparechildren", 3, 3, "minsparechildren");
-&form_line("preforkchildren", 3, 3, "preforkchildren");
-&form_line("maxsparechildren", 3, 3, "maxsparechildren");
-&form_line("maxagechildren", 6, 6, "maxagechildren");
-&form_line("ipcfilename", 56, 128, "ipcfilename");
-&form_line("urlipcfilename", 56, 128, "urlipcfilename");
-&form_line("ipipcfilename", 56, 128, "ipipcfilename");
-&form_line("pidfilename", 56, 128, "pidfilename");
-&form_option("nodaemon", "nodaemon");
-&form_option("nologger", "nologger");
-&form_line("daemonuser", 20, 128, "daemonuser");
-&form_line("daemongroup", 20, 128, "daemongroup");
-&form_option("softrestart", "softrestart");
-
-print &ui_table_end();
-print "<input type=hidden name=\"conffilepath\" value=\"$conffilepath\">";
-print "<input type=hidden name=\"configsection\" value=\"process\">";
-print &ui_form_end([ [ undef, $text{'save'} ] ]);
-print &ui_tabs_end_tab();
-
-## Logging tab
-print &ui_tabs_start_tab("mode", "logging");
-print &ui_form_start("saveconf.cgi", "post");
-print &ui_table_start("Log settings", undef, 2);
-
-&form_line("maxlogitemlength", 4, 4, "maxlogitemlength");
-&form_option("anonymizelogs", "anonymizelogs");
-&form_option("syslog", "syslog");
-&form_line("loglocation", 56, 128, "loglocation");
-&form_line("statlocation", 56, 128, "statlocation");
-&form_option("logexceptionhits", "logexception");
-&form_option("showweightedfound", "showweighted");
-&form_radio("reportinglevel","-1","0","1","2","3");
-&form_option("logconnectionhandlingerrors", "logconnecterr");
-&form_radio("loglevel","0","1","2","3");
-&form_radio("logfileformat","1","2","3","4");
-&form_option("logclienthostnames", "logclienthostnames");
-&form_option("logchildprocesshandling", "logchildprocesshandling");
-&form_option("logadblocks", "logadblocks");
-&form_option("loguseragent", "loguseragent");
-
-print &ui_table_end();
-print "<input type=hidden name=\"conffilepath\" value=\"$conffilepath\">";
-print "<input type=hidden name=\"configsection\" value=\"logging\">";
-print &ui_form_end([ [ undef, $text{'save'} ] ]);
-print &ui_tabs_end_tab();
-
-## Begin content filter tab
-print &ui_tabs_start_tab("mode", "content");
-print &ui_form_start("saveconf.cgi", "post");
-print &ui_table_start("Content filter settings", undef, 2);
-
-my @filepaths = ('bannediplist', 'exceptioniplist');
-foreach (@filepaths) {
-  &form_line("$_", 56, 128, "filepaths");
+if (! &checkdgconf) {
+    print "<span style='color: brown'>$text{'error_confnotfound'}<br>($text{'index_location'}: " . &group2conffilepath(0) . ")</span><p>\n";
 }
-&form_line("maxuploadsize", 4, 6, "post");
-&form_radio("weightedphrasemode","0","1","2");
-&form_line("urlcachenumber", 4, 4, "urlcachenumber");
-&form_line("urlcacheage", 4, 4, "urlcacheage");
-&form_line("maxcontentfiltersize", 6, 6, "maxcontentfiltersize");
-&form_line("maxcontentramcachescansize", 6, 6, "maxcontentramcachescansize");
-&form_line("maxcontentfilecachescansize", 6, 6, "maxcontentfilecachescansize");
-&form_line("filecachedir", 56, 128, "filecachedir");
-&form_option("deletedownloadedtempfiles", "deletedownloadedtempfiles");
-&form_line("initialtrickledelay", 4, 4, "initialtrickledelay");
-&form_line("trickledelay", 4, 4, "trickledelay");
-&form_radio("phrasefiltermode","0","1","2");
-&form_option("preservecase", "preservecase");
-&form_option("hexdecodecontent", "hexdecodecontent");
-&form_option("forcequicksearch", "forcequicksearch");
-&form_option("nonstandarddelimiter", "nonstandarddelimiter");
-&form_line("filtergroups", 3, 3, "filtergroups");
-&form_line("filtergroupslist", 56, 128, "filtergroupslist");
-&form_option("usecustombannedimage", "usecustombannedimage");
-&form_line("custombannedimagefile", 56, 128, "custombannedimagefile");
-&form_option("scancleancache", "scancleancache");
 
-print &ui_table_end();
-print "<input type=hidden name=\"conffilepath\" value=\"$conffilepath\">";
-print "<input type=hidden name=\"configsection\" value=\"content\">";
-print &ui_form_end([ [ undef, $text{'save'} ] ]);
-print &ui_tabs_end_tab();
+# Load dynamic settings scripts
+&loadeditjslib();
 
-## Begin misc tab
-print &ui_tabs_start_tab("mode", "misc");
-print &ui_form_start("saveconf.cgi", "post");
-print &ui_table_start("Miscelaneous settings", undef, 2);
+# list of tabs
+our @tabs = qw( network process logging reporting content phrase updownload plugins );
+push @tabs, '', 'allgroups' if &sharedoptionsavailable();
 
-&form_option("createlistcachefiles", "createlistcache");
-&form_line("accessdeniedaddress", 56, 128, "accessdeniedaddress");
-&form_line("languagedir", 56, 128, "languagedir");
-&form_line("language", 25, 50, "language");
-&form_line("contentscannertimeout", 4, 4, "contentscannertimeout");
-&form_option("contentscanexceptions", "contentscanexceptions");
-&form_option("recheckreplacedurls", "recheckreplacedurls");
+# lists of which options go on which tabs
+# every option is listed exactly once
+our @networktaboptions = qw( filterip filterport proxyip proxyport forwardedfor usexforwardedfor maxips );
+our @processtaboptions = qw( maxchildren minchildren minsparechildren preforkchildren maxsparechildren maxagechildren ipcfilename urlipcfilename ipipcfilename pidfilename nodaemon daemonuser daemongroup softrestart createlistcachefiles languagedir language );
+our @loggingtaboptions = qw( nologger logsyslog loglocation statlocation anonymizelogs maxlogitemlength logexceptionhits showweightedfound logconnectionhandlingerrors loglevel logfileformat logchildprocesshandling logclienthostnames logadblocks loguseragent logtimestamp );
+our @reportingtaboptions = qw( reportinglevel htmltemplate accessdeniedaddress nonstandarddelimiter );
+our @contenttaboptions = qw( filtergroups usecustombannedimage custombannedimagefile reverseclientiplookups maxcontentramcachescansize maxcontentfilecachescansize filecachedir contentscannertimeout contentscanexceptions reverseaddresslookups recheckreplacedurls );
+our @phrasetaboptions = qw( weightedphrasemode scancleancache urlcachenumber urlcacheage maxcontentfiltersize phrasefiltermode preservecase hexdecodecontent forcequicksearch );
+our @updownloadtaboptions = qw( maxuploadsize deletedownloadedtempfiles initialtrickledelay trickledelay );
+our @pluginstaboptions = qw( authplugin downloadmanager contentscanner );
+# this list of options is "special" - it may or may NOT be a tab
+our @allgroupstaboptions =  qw( groupmode blockdownloads naughtynesslimit categorydisplaythreshold embeddedurlweight enablepics bypass bypasskey infectionbypass infectionbypasskey infectionbypasserrorsonly disablecontentscan deepurlanalysis );
 
-print &ui_table_end();
-print "<input type=hidden name=\"conffilepath\" value=\"$conffilepath\">";
-print "<input type=hidden name=\"configsection\" value=\"misc\">";
-print &ui_form_end([ [ undef, $text{'save'} ] ]);
-print &ui_tabs_end_tab();
+# complete the definitions of each tab
+# each tab is specified by an array [0->handle, 1->tablegend, 
+#  2->destination (must be present, but not actually used), 3->displaytitle, 4->ref-to-array-of-options ]
+# the first three (0, 1, 2) are used by Webmin, (3) is used by our subroutine, and (4) is only for here
+@tabs = map { [ $_, $text{"edit_tab_$_"}, "saveconf.cgi", "$text{\"edit_tab_$_\"} $text{'edit_heading_options'}", \@{"${_}taboptions"} ] } @tabs;
+
+
+
+################### find-tab-with-option section ################
+
+# Init the hash that we'll use for our find-the-tab function
+our %option2tab = ();
+
+# first set up "allgroups" options
+#  if they're on a tab, the same thing will be written again
+#  if they're not on a tab, they won't be overwritten and will point at 'fg'
+foreach my $option (@allgroupstaboptions) {
+    $option2tab{$option} = 'fg';
+}
+
+# now spin through everything that will appear on any displayed tab
+foreach my $tabref (@tabs) {
+    next if ! defined $tabref;
+    next if ! $$tabref[0];
+    next if ! $$tabref[4];
+    next if scalar @{$$tabref[4]} <= 0;
+    foreach my $option (@{$$tabref[4]}) {
+        $option2tab{$option} = $$tabref[0];
+    }
+}
+
+# all the data is now fully prepared, so do the display
+# (also set up the bit of javascript we need,
+#  it's separate because putting it inline involves too many quoting problems)
+print <<"EOF";
+<script type=text/javascript>
+function findoption(name, value)
+{
+    if (value == '') {
+        // just return, effectively igore the selection
+    } else if (value == 'fg') {
+        // a per-filter-group option, either on 'allgroups' tab if shared variables available, or not here at all
+        alert(name + " $text{'edit_fgoption'}");
+    } else {
+        // the normal situation
+        select_tab('', value);
+    }
+
+    return false;
+}
+</script>
+EOF
+
+print "<div style='margin-left: 60px'><p>$text{'edit_whichtab'}<br>\n";
+print "<img border=0 src=images/transparent1x1.gif height=1 width=40><select onChange=\"findoption(this.options[this.selectedIndex].text, this.options[this.selectedIndex].value);\">\n";
+print "<option value=''>&nbsp;- select option -</option>\n";
+foreach my $findoption (sort keys %option2tab) {
+    my $description = $text{"conf_$findoption"};
+    print "<option value='$option2tab{$findoption}'>$findoption ($description)</option>\n";
+}
+print "</select></div><p>\n";
+
+
+## the tabs
+# message at top
+print "<p align=left>($text{'index_clickhelp'})</p>";
+
+our $initialtab = $in{'initialtab'};
+$initialtab = $tabs[0][0] if ! $initialtab;
+## following line is the minimal that works, line below that is how it used to be
+print &ui_tabs_start(\@tabs, undef, $initialtab);
+
+## fill in content for each tab
+foreach my $tabref (@tabs) {
+    next if ! defined $tabref;
+    next if ! $$tabref[0];
+    next if ! $$tabref[4];
+    next if scalar @{$$tabref[4]} <= 0;
+
+    print &ui_tabs_start_tab(undef, $$tabref[0]);
+    &edit_options_formtable_start($tabref);
+
+    &edit_options_headings_row(0, -1);
+
+    foreach my $option (@{$$tabref[4]}) {
+        &edit_options_data_row($option);
+    }
+
+    my $tabreturn = $return;
+    $tabreturn .= '%3F' if ($tabreturn !~ m/%3[fF]/);
+    $tabreturn .= '%26' if ($tabreturn !~ m/(?:%3[fF]|%26)$/);
+    $tabreturn .= "initialtab%3D$$tabref[0]";
+
+    print "<input type=hidden name='conffilepath' value='$conffilepath'>";
+    print "<input type=hidden name='configsection' value='$$tabref[0]'>";
+    print "<input type=hidden name='group' value='0'>";
+    print "<input type=hidden name='return' value='$tabreturn'>";
+    &edit_options_formtable_end($readonly);
+    print &ui_tabs_end_tab();
+}
 
 ## End of tabs
 
 print &ui_tabs_end(1);
-&ui_print_footer("index.cgi", $text{'index_return'});
-exit;
+
+
+################### reversion section #################
+
+our (@availableversions,  $availableversion, $listlength, $label, @buttons);
+
+if (! $readonly) {
+    print "<hr><p><hr>\n";
+
+    print "<p>$text{'editfile_whatrevert'}\n";
+
+    @availableversions = <$conffilepath.20*>;
+    $listlength = ($#availableversions > 20) ? 20 : ($#availableversions + 1);
+
+    if ($listlength > 0) {
+        print &ui_form_start('revertfile.cgi', 'post');
+
+        print "<input type=hidden name='return' value='$return'>";
+
+        print "<p>$text{'editfile_selectreversion'}<br><select name=revertfilepath>\n";
+        print "<option value=''>--revert to ? (YYYYMMDDhhmmss)--</option>\n";
+        foreach $availableversion (@availableversions) {
+            ($label) = ($availableversion =~ m{/([^/]*)$});
+            print "<option value='$availableversion'>$label</option>\n";
+        }
+        print "</select><br><br>\n";
+
+        @buttons = ( [ 'button', $text{'button_revert'} ], [ 'button', $text{'button_cancel'} ] );
+        print &ui_form_end(\@buttons);
+    } else {
+        print "<p align=center>* $text{'editfile_noversionsavailable'} *\n";
+    }
+}
+
+################### manual edit section #################
+
+print "<hr><p><hr>\n";
+
+print "<p>$text{'editfile_whatmanual'}\n";
+
+print &ui_form_start('editfile.cgi', 'get');
+print "<input type=hidden name=file value='$conffilepath'><input type=hidden name=return value='$return'>\n";
+@buttons = ( [ 'button', $text{'button_edit'} ], [ 'button', $text{'button_cancel'} ] );
+print &ui_form_end(\@buttons);
+
+print "<hr>\n";
+
+################### end #################
+
+&webminfooterandexit();
+
+###########################################################################
+#
+#    UTILITY SUBROUTINES
+#
+###########################################################################
+
+################
+sub webminheader
+################
+{
+    &ui_print_header($pagename, $text{'index_title'}, undef, 'editconf', 1, 0, 0, &restart_button.'<br>'.&help_search_link("dansguardian", "man"), undef, undef, "$text{'index_version'} $dg_version <small>($text{'index_modulever'} $modulever)</small>");
+}
+
+#######################
+sub webminfooterandexit
+#######################
+{
+    &ui_print_footer('index.cgi', $text{'index_return'});
+
+    exit;
+}

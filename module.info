@@ -1,5 +1,8 @@
 name=DansGuardian
-desc=DansGuardian Content Filter
+desc=DansGuardian Web Content Filter
+desc_fr=DansGuardian Filtrage De Contenu Web
+desc_pt=DansGuardian Web Conteúdo Filtro
+desc_es=DansGuardian Filtro de Contenido Web
 category=servers
 depends=1.220
-version=0.7.0alpha2
+version=0.7.CKalpha4

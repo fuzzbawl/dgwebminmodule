@@ -1,6 +1,182 @@
-0.7.0alpha2:
-- Bumped version number. It slipped my mind last release.
-- Fixed bug #2168381, reported by cnighswonger
+0.7.CKalpha4:
+Improve "progress" indicator in Log Analysis. For one thing, have separate
+schemes for interactive use and for batch use since optimization for
+either would mess up the other. 
+
+Improve notifications about parse failure errors in Log Analysis tool.
+Tell user both exactly which log files have parse failures in them and 
+how many parse failures there were (not only as an absolute number but
+also as a relative percentage). 
+
+Try to make it clearer that the "too busy" message does _not_ suggest 
+either that DG is performing poorly or that the server is mis-tuned. 
+Clarify wording of "too busy" message, and remove the whole test-and-message 
+construct from the main module, leaving it only in the Log Analysis tool.
+
+Fix "sort" of log file names input to Log Analysis to properly handle
+names that are a mixture of text and numbers (i.e. access.logs.10.gz). 
+
+Fix "sort" of list file names by type so it puts '...mimetypelist',
+'...extensionlist', and '...filesitelist' together.
+
+Properly distinguish between configuration option values 0 (zero) and
+'' (empty string).
+
+Properly handle configuration options that specify an entire line
+and can occur multiple times (i.e. authplug, contentscanner, 
+downloadmanager).
+
+Rework batch/unattended Log Analysis to not show any vestiges of
+Webmin header nor footor. Also remove the few remaining hyperlinks
+so there are none at all. 
+
+Count log translation errors and display message suggesting change
+if there appears to be a problem.
+
+0.7.CKalpha3:
+Added explicit setting of permissions for config files in the "local"
+directory (for Master->Slaves). Previously although these files existed,
+setting access permissions for them was not convenient.
+
+Fix user permissions so noStart/noStop properly disables AutoRestart.
+
+Recode the few remaining 'printf's to 'print' style instead (more
+'Perlish')
+
+Further enhance Log Analysis by also adding options to display
+a) matching phrases, and b) user agent string information. Also make 
+previously added showing of regular expression information optional, 
+controllable by another checkbox. 
+
+Allow any part of  'agent string' to be used as another part of 
+filtering records.
+
+Fix several miscellaneous bugs, including some missing messages
+and poor behavior with the occasional "blanket ..." reason for action.
+
+Relax some onerous but silly requirements, including requiring a 
+trailing slash on directory names in the module configuration.
+
+Greatly enhance handling of 'category', after realizing a single
+log record often references more than one category and categories
+were being combined when they should have been kept separate.
+
+Provide better returns at end of Log Analysis page, varying 
+what is shown intelligently depending on whether use is interactive 
+or batch and on whether the summary or details are being displayed.
+
+Enhance the operation of the "keepalive" to not only keep the
+browser happy but also let an interactive user know that processing
+is still continuing (that the module is not just "hung"). 
+
+Fully make allowance for more DG configuration options, specifically 
+the option that omits the *EXCEPTION* flag from exception records. 
+
+Add information about required and optional DG configurations to
+"help" page for Log Analysis tool.
+
+Change code as necessary to get rid of all Webmin-detected Perl
+"warnings" that were showing up in miniserv.error.
+
+Add several comments to code, each making it clearer what the heck 
+is going on.
+
+Fix a couple small errors found in the example/scaffold batch report
+script. Extend the comments a little to clarify usage. And change 
+defaults for batch report to a) show only Allowed and Denied but 
+not Exception, and b) greatly lengthen the number of items shown 
+in each report.
+
+Show more percentages in reports, yet label them clearly to 
+distinguish them. And use a consistent format (one digit after the 
+decimal point) for all of them (always coded as a separate 'sprint'
+statement). 
+
+Extract some frequently used constructs into new subroutines. (Next
+candidate -if there is yet another round of the extractions- is the 
+percentage sprintf.)
+
+Guarantee there is always consistency between different logformats by
+building regular expressions at runtime through concatenation of 
+common subsets.
+
+Enhance editing of text files to allow literal tab characters to be
+inserted in files (rather than the usual browser interpretation of
+TAB to mean 'move to next field' which prevents their entry into 
+any text field).
+
+Improve handling of preventing user from clicking on one tab and
+modifying a different one because of confusion when editgroupslists
+is initializeing its display.
+
+0.7.CKalpha2:
+Moved scaffolding example files into separate subdirectory.
+
+Added "agent" filtering to Log Analysis. To make change cleanly also
+a) added two new option checkboxes (with appropriate links) and
+b) revised and retranslated documentation for Log Analysis tool and
+c) added translated phrases to describe new options, and
+d) added new options to batch report scaffolding file. 
+
+Relaxed previous requirement of having to provide _both_ start and end dates.
+Removed linkage of start<->end dates in Javascript so now each can
+be specified separately without affecting the other.
+
+Added master->slaves compatibility and example. For compatibility added
+new subdirectory "local/", created files to populate it, and added 
+.Include statements to reference those new files. For example, added
+scaffolding files illustrating use of `rsync`.
+
+Improved calculation of "busy CPU percentage" so it doesn't falsely
+sai CPU is too busy if either a) some infrastructure is missing or
+b) there's a momentary spike in CPU usage.
+
+Eliminated duplicate display of list files available for editing
+even if an .Include is unnecessarily repeated.
+
+Made selection of which tab to show on multi-tab tools more intelligent, 
+so after a modification the return is always to the tab that was just 
+changed.
+
+Cleaned up miscellaneous errors as they were found. 
+
+Made some effort toward cleaning up message text translations. Removed 
+several unused messages. Made sure all langage message translation files
+had the exact same number of lines and used all the same keys.
+
+0.7.CKalpha1:
+Using version 0.7.0alpha1 as a base, I enhanced this module in early 2009.
+Initially I had only the modest goals of 
+i) adding reporting of regular expression matches to the output of 
+Log Analysis, and 
+ii) continuing to improve the fit with DG 2.10, especially by emphasizing 
+"multiple filter groups". But one thing led to another, which led to 
+another, which led to another, which... the eventual result was a 
+semi-rewrite.
+
+The final Log Analysis capability includes a host of small improvements.
+Most are too small to even list, but combined their effect might be seen 
+as a qualitative improvement in Log Analysis. Two new capabilities are 
+particularly notable:
+a) Log Analysis can be run on a _different_computer_ than DG. Just copy 
+the DG <language>/messages file and the log(s) to be analyzed to any
+other system. 
+b) Log Analysis is not only interactive, but can also run unattended/batch -
+an example/scaffold script file is included.
+c) Log Analysis can now process logs in _any_ language for which DG
+was configured and so DG wrote the logs in that language.
+d) Display of individual requests now includes much more information, 
+even the details of regular expression matches and of phrase matches.
+
+As part of installing this module you will need to tweak the paths in
+the 'module config' to match your local environment. This module will
+come up part way even with incorrect paths. This allows you to use Webmin
+itself to edit the module config to make it more correct. You should not
+have to use any text editor for anything.
+
+Reworked editing of text files to always use *nix-style line endings no
+matter what - not even editing a file through a browser running on a
+Windows machine will cause DOS-style line endings to be stored.
 
 0.7.0alpha1:
 I decided that a ground-up rewrite would take too long.
