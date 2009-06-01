@@ -1,3 +1,6 @@
+0.7.0 beta1b:
+Fixed several other missing files. Bumped version just in case.
+
 0.7.0 beta1a:
 Some files from CK's changes were missing from the SVN upload and the released tarball. Apologies for that, it should be fixed now.
 
