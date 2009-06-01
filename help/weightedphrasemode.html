@@ -1,9 +1,34 @@
 <header>Weighted Phrase mode</header>
-<pre>
+  <div style="max-Width: 40em">
+<p>
 There are 3 possible modes of operation:
-0 (off) = do not use the weighted phrase feature.
-1 (on, normal) = normal weighted phrase operation.
-2 (on, singular) = each weighted phrase found only counts once on a page.
-</pre>
+<ul>
+<li>0 (off) = do not use the weighted phrase feature at all.
+<li>1 (on, normal) = normal weighted phrase operation, count each weighted phrase as often as it occurs on a webpage.
+<li>2 (on, singular) = alternate weight score calculation method, count each weighted phrase only once [the first time] it occurs on a webpage. 
+</ul>
+<p>
+Turning the weighted phrase feature completely off will lobotomize DansGuardian from "true"
+(or "content") web filtering to little more than fancy (including regular expressions)
+URL filtering supplemented by banned phrases and the possibility of modifying content,
+which isn't very different from much simpler web filters. 
+<p>
+DansGuardian supports two different methods of calculating weight scores,
+the "normal" method and the "singular" method. 
+Each method has its pros and cons.
+Very good webpages will score well with either method,
+and very bad webpages will score poorly with either method,
+but middling webpages may score 
+below your threshold with one method but above your threshold with the other.
+So don't change an established DansGuardian system
+to use the other method lightly.
+<p>
+Also, the two weight scoring methods may require slightly different
+"naughtyness" limits in order to behave similarly.
+If the value you've chosen for "naughtynesslimit" is just a rough guess,
+it won't matter.
+But if you've tuned "naughtynesslimit" within a margin of only 5 or 10,
+you may need to re-tune it after you change the weight scoring method. 
 <hr>
+  </div>
 <a href="javascript:window.close()">Close Window</a>

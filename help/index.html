@@ -1,14 +1,50 @@
 <header>DansGuardian</header>
-Taken directly from <a href="http://www.dansguardian.org">DansGuardian Website</a><p>
-DansGuardian is is a web content filter which currently runs on Linux, FreeBSD, OpenBSD and Solaris. It filters the actual content of pages based on many methods including phrase matching, PICS filtering and URL filtering. It does not purely filter based on a banned list of sites like lesser totally commercial filters.
-
+  <div style="max-Width: 40em">
+<p>
+DansGuardian is a web content filter which currently runs on 
+Linux distributions, FreeBSD/OpenBSD, and Solaris. 
+DansGuardian does not just filter purely based on a list of banned sites 
+like many lesser (and totally commercial) filters.
+It goes beyond just URL vetting to
+filter the actual content of web pages using many methods such as PICS filtering
+and especially focussing on its weighted phrase matching.
+Weighted phrase matching scores page content a whole lot more intelligently than just
+"yes bad word seen" or "no bad word not seen",
+thus greatly improving filtering decisions.
+<p>
 DansGuardian is designed to be completely flexible and allows you to
-   tailor the filtering to your exact needs. It can be as draconian or as
-   unobstructive as you want. The default settings are geared towards what a primay school might want but DansGuardian puts you in control
-   of what you want to block.
+tailor the filtering to your exact needs. 
+It can be as draconian or as unobstructive as you want. 
+Default settings &mdash;geared towards what a primary school might want&mdash; 
+are provided to get you started.
+Once your DansGuardian is fully installed, 
+you are in control of what you want to block.
+You can use this Webmin&nbsp;module to easily adjust 
+the DansGuardian configuration to your desires.
 <p>
 DansGuardian is a true web content filter.
 <p>
-Look here for a <a href="http://www.dansguardian.org/?page=introduction">more detailed introduction</a>.
+<blockquote><small><i>(Loosely extracted from a <a href="http://www.dansguardian.org/?page=introduction">more detailed introduction</a> on the <a href="http://www.dansguardian.org/">DansGuardian Website</a>.)</i></small></blockquote>
 <hr>
+<p>
+This Webmin&nbsp;module provides graphical management of the 2.10(2.9) series of DansGuardian releases.
+It emphasizes the <i>Multilple Filter Groups</i> feature of DansGuardian
+and detailed Log&nbsp;Analysis filtering and reporting. 
+The Log&nbsp;Analysis can be run on a <u>different</u> computer 
+or/and can produce reports in an unattended <u>batch</u> mode 
+(an example script file is provided),
+as well as running interactively on the DansGuardian server.
+This Webmin&nbsp;module also provides example files for implementing a
+Master&rarr;Slaves configuration where only one site is administered
+as the others are simply "clones".
+<p>
+Unlike many other Webmin&nbsp;modules, 
+this DansGuardian&nbsp;Webmin&nbsp;module uses a lot of JavaScript.
+In fact, it might not even be usable if JavaScript is disabled.
+Also, this module requires significantly more
+CPU and RAM than previous versions.
+Be cautious about running it on the same computer as DansGuardian 
+during production hours.
+<hr>
+  </div>
 <a href="javascript:window.close()">Close Window</a>

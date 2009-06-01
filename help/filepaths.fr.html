@@ -1,4 +1,49 @@
-<header>Chemin d'accès</header>
-Le chemin d'accès du fichier (i.e. /etc/dansguardian/file).
+<header>dossier Paths</header>
+   <div style="max-Width: 40em">
+Le chemin complet vers un fichier
+(par exemple <code>/usr/local/etc/dansguardian/fichier</code>).
+<p>
+Dans la plupart des cas, aucun de ces chemins doivent être changées.
+Tous les paramètres par défaut de suivre le même schéma
+et, en général, ne doivent pas être annulés individuellement.
+<p>
+(Les fichiers sous <code>/usr/share</code> sont des copies des originaux.
+Si un fichier est irrémédiablement gâché,
+vous pouvez copier l'un de ces plus et commencez à tous.
+Ils ont bien sûr le même nom que le
+les fichiers que vous avez l'habitude de voir et d'édition.
+Ces fichiers sont utilisés <u>pas</u> à tous par un système fonctionnant dansguardian.
+Comme ces fichiers ne sont que de la récupération, <b>ne changent pas leur</b>.)
+<p>
+La plupart des chemins de fichiers dansguardian commencer par un «préfixe»
+qui en est de même pour presque tous les chemins qui
+instance de dansguardian.
+Le préfixe est généralement
+<code>soit /usr/local</code> ou "" (rien),
+l'origine du défaut, par exemple pour être soit
+<code>/usr/local/etc/dansguardian/fichier</code>
+ou
+<code>/etc/dansguardian/fichier</code>.
+<p>
+Le chemin est défini lorsque le préfixe est construit dansguardian
+(le 'configure' est nommé <code>paramètre - prefix</code>).
+Il <u>ne peut pas être changée</u> dansguardian sans recompilation.
+Vous pouvez déterminer ce qui a été construit en préfixe
+votre instance de l'exécution par dansguardian
+<code>dansguardian&nbsp;-v</code>
+(le paramètre mai pas si elle est fixée à
+<code>/usr/local</code>).
+<p>
+<i>languagedir</i> est l'endroit où les langues sont stockés à l'internationalisation.
+Ce répertoire est particulièrement important pour deux raisons:
+<ol>
+Le code HTML <li>modèle utilisé lors de reportinglevel est fixé à 3
+réside dans ce répertoire par défaut.
+<li>Le fichier de traduction de texte appelle <i>messages</i> --
+utilisés par dansguardian pour l'internationalisation réside dans ce répertoire.
+Ce même fichier est également utilisé par la capacité d'analyse Log
+de ce module Webmin dansguardian.
+</ol>
 <hr>
+  </div>
 <a href="javascript:window.close()">Fermer la fenêtre</a>

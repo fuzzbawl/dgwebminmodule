@@ -1,9 +1,11 @@
-<header>Méthodes d'identification des utilisateurs</header>
-Vous pouvez définir autant de méthode que vous voulez, et pas juste une. La première sera utilisée, et si l'utilisateur n'est pas trouvé, la suivante est utilisée (et ainsi de suite).<p>
+<header>méthodes d'identification d'utilisateur</header>
+   <div style="max-Width: 40em">
+Vous pouvez avoir autant de méthodes que vous voulez, et non pas un seul. Le premier sera utilisé, et si aucun nom d'utilisateur a été trouvé, la prochaine sera utilisé. <p>
 <b>Proxy Auth</b><br>
-Proxy Auth est utilisée pour une identification simple via le proxy (pas intéressante dans le cas d'un proxy transparent).<p>
-<b>Ident Auth</b><br>
-Ident est utilisé dans le cas où toute autre méthode ne marche pas. DG va contacter la machine dont est issue la connexion et lui demander le possesseur de cette connexion. Un serveur Ident est nécessaire sur la machine en question. <br>
-Pour plus d'informations, voir <a href="http://identd.sourceforge.net/" target="new-window">Identd for Win9x</a> pour un serveur Ident sur plate-forme Windows.
+Proxyauth est alors de base pour l'authentification de proxy est utilisé (pas bon pour les proxy transparent). <p>
+Ident <b>Auth</b><br>
+Ident est pour quand les autres ne fonctionnent pas. Il prendra contact avec l'ordinateur qui venait de la connexion et de requête pour le propriétaire de la connexion. Un serveur ident / démon est nécessaire pour être en cours d'exécution sur l'ordinateur. <br>
+S'il vous plaît voir <a href="http://identd.sourceforge.net/" target="new-window">Identd pour Win9x</a> pour un démon identd pour la plate-forme Windows.
 <hr>
+  </div>
 <a href="javascript:window.close()">Fermer la fenêtre</a>

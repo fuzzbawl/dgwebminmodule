@@ -1,4 +1,49 @@
 <header>File Paths</header>
-The path to the file (i.e. /etc/dansguardian/file).
+  <div style="max-Width: 40em">
+The full path to a file 
+(for example <code>/usr/local/etc/dansguardian/file</code>).
+<p>
+In most cases none of the paths should be changed.
+All the defaults follow the same pattern
+and usually should not be overridden individually. 
+<p>
+(The files under <code>/usr/share</code> are extra copies of the originals.
+If a file gets hopelessly messed up,
+you can copy one of these and start all over.
+They of course have the same names as the 
+files you're used to seeing and editing.
+These files are <u>not used</u> at all by a running DansGuardian system.
+As these files are only for recovery, <b>do not change them</b>.)
+<p>
+Most DansGuardian file paths begin with a "prefix"
+that's the same for almost all the paths in that 
+instance of DansGuardian.
+The prefix is usually 
+either <code>/usr/local</code> or "" (nothing),
+causing the example default to be either
+<code>/usr/local/etc/dansguardian/file</code>
+or
+<code>/etc/dansguardian/file</code>.
+<p>
+The path prefix is set when DansGuardian is built
+(the 'configure' parameter is named <code>--prefix</code>).
+It <u>cannot be changed</u> without recompiling DansGuardian.
+You can determine what prefix was built into
+your instance of DansGuardian by executing
+<code>dansguardian&nbsp;-v</code>
+(the parameter may not appear if it's set to 
+<code>/usr/local</code>).
+<p>
+<i>languagedir</i>is where languages are stored for internationalization.
+This directory is especially important for a couple of reasons:
+<ol>
+<li>The HTML template used when reportinglevel is set to 3
+resides within this directory by default. 
+<li>The file of text translations -called <i>messages</i>-
+used by DansGuardian for internationalization resides in this directory.
+This same file is also used by the Log Analysis capability 
+of this Webmin DansGuardian Module.
+</ol>
 <hr>
+  </div>
 <a href="javascript:window.close()">Close Window</a>

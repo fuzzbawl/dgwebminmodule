@@ -1,75 +1,243 @@
+# the master title and subtitle, set by the software
 index_title=DansGuardian
-index_header=Manage DansGuardian - true web content filtering for all
-index_start=Start DansGuardian
-index_stop=Stop DansGuardian
-index_forcedkilldg=Forced killall of the DansGuardian daemon.
-index_restart=Restart DansGuardian
-index_regroup=Reload Groups
-index_status=Display status
+index_heading=Manage DansGuardian - true web content filtering for all
 index_return=Main DansGuardian page
-index_location=Expected location:
-index_edit=edit
-index_search=Enter phrase to search
-index_search_title=Search the phrase lists for a phrase.
-index_editconf=View/Edit Config
-index_editfiles=View/Edit Files
-index_groups=View/Edit Groups
-index_urlsearch_title=Search the blacklists for a phrase
-index_urlsearch_remove=remove
-index_editlists=View/Edit Blacklists
-index_clickhelp=Click on the Config Options Name to view a help page.
-index_notsupported=The version you have is not supported. Please get DansGuardian from <a href="http://www.dansguardian.org">http://www.dansguardian.org</a>.
-index_version=Version
-index_dgversion=DG version:
-index_modulever=Module Version
-index_notauth=You are not authorized to use this section
-index_logs=Display Logfile
-index_autorestart=Auto-Restart DG
-index_done=Done
-index_numberofgroups=Number of groups
-index_groupsettings=Group settings for
-index_group=Group
-index_childproc=Child processes
-index_childproclist=Child process pids
 
-header_startdg=Start DG
-header_stopdg=Stop DG
-header_restartdg=Restart DG
-header_regroup=Reload Groups
-error_modconfig=ERROR! Please check your module config!
-error_binnotfound=Warning - DansGuardian binary file not found.
-error_confnotfound=Warning - DansGuardian configuration file not found.
-error_lognotfound=Warning - DansGuardian log file not found.
+# these go in a very small space, so keep them very short
+index_start=Start DG
+index_stop=Stop DG
+index_forcedkilldg=Forced killall of the DansGuardian daemon.
+index_restart=Stop-&-Restart DG
+index_reload=Reload DG Groups
+index_location=Expected location
+
+# titles of component parts of this management software
+index_status=Display Status of Server(Daemon)
+index_logs=Analyze Logfiles
+index_search=Search for Phrase Words (or Domain or URL)
+index_editconf=System-Wide Base Config
+index_editplugconf=System-Wide Base Plugin Configs
+index_editlists=System-Wide Lists
+index_editfiltergroupassignments=Filter Group Assignments
+index_editmessages=System-Wide Messages(Translations)
+index_editgroupsconfandlists=A Filter Group's Config & Lists
+index_editgroupsconf=A Filter Group's Base Config
+index_editgroupslists=A Filter Group's Lists
+index_setupfiltergroups=Set Up Lists&Configs For Multiple Filter Groups
+index_viewfiltergroups=How Lists&Configs For Multiple Filter Groups Are Set Up
+index_viewedit=View/Edit
+index_view=View
+#index_editblacklists=View/Edit Blacklists
+index_clickhelp=Click on the Name of a Config Option to view a help page.
+index_version=Version
+index_dgversion=Currently installed DG version
+index_modulever=Webmin Module Version
+index_moduleversupports=supports DG version 2.10 (& 2.9)
+index_notauth=You are not authorized to use this section
+index_done=Done
+index_numberofgroups=Number of filter groups
+index_groupsettings=Group settings for
+index_group=Filter Group
+index_childproc=Number of child processes
+index_childproclist=Child process PIDs
+index_enhancements=Click To See Description Of Module Enhancements Since Previous Version
+
+# several of these contain embedded HTML
+error_modconfig=ERROR! Please check (and correct if necessary) your <a href='/config.cgi?dansguardian'>module config</a>, especially the directory paths!
+error_binnotfound=Warning - DansGuardian binary file not found,  maybe you need to update your <a href='/config.cgi?dansguardian'>module config</a> (especially the directory paths).
+error_confnotfound=Warning - DansGuardian configuration file not found,  maybe you need to update your <a href='/config.cgi?dansguardian'>module config</a> (especially the directory paths).
+error_lognotfound=Warning - DansGuardian log file not found,  maybe you need to update your <a href='/config.cgi?dansguardian'>module config</a> (especially the directory paths).
+error_lognotcompressed=Ignoring compressed (gzip) DansGuardian logfile(s) in
 error_filenotfound=Warning - File not found.
+error_samefile=Warning - Cannot copy a file to itself
+error_messagesnotfound=Warning - Messages file (text translations) not found.
+error_fgusernotfound=Warning - Username -> Filter Group Assignment file not found.
+error_fgcomputernotfound=Warning - ComputerIP -> Filter Group Assignment file not found.
 error_filenotused=Warning - File not used/defined.
-error_webminver=Wrong Webmin version! Version 0.81 or higher required.
+error_filenotindir=Warning - File is outside DansGuardian directory.
+error_logfileformat_range=Error - unknown (out of range) log file format
+error_logfileformat_notsupp=Warning - log file format is not supported
+error_version_notsupp=Warning - the version of DansGuardian you have is not supported by this Webmin module version
+error_morethanonce=Error - currently specified more than once and so cannot be manipulated by this tool
+error_running=Warning - DansGuardian appears to be running
+error_notrunning=Warning - DansGuardian appears to not be running
+error_schemealready=Warning - it appears a multiple filter group scheme has already been set up
+error_noschemealready=Warning - it appears no multiple filter group scheme has been set up yet
+error_changedscheme=Warning - it appears a multiple filter group scheme was set up but was then changed so this Webmin module cannot manage it
+error_foreignschemealready=Warning - it appears some filter group scheme unknown to this Webmin module is already in place and cannot be managed
+error_multiplefgs=Warning - it appears you already have more than one filter group
+error_nomultiplefgs=Warning - multiple filter groups is not in use at all
+error_superuser=Warning - running as root(superuser) risks new files not being readable by production DansGuardian
+error_warning=Warning -
+error_note=NOTE:
+error_notselected=Nothing Selected
+error_blacklist=Blacklists may be overwritten outside of DansGuardian, and so should usually not be modified via this mechanism.
+error_fixedlist=Preset lists may be included or not as you wish (module config option "include fixed lists in display"), but should usually not be modified.
+error_changeseldom=Most of these files contain semi-fixed content which seldom needs changing
+error_nopath=The symbol <span style='font-size: 135%'>&not;</span> may mean either of two different things: item not currently enabled for this filter group, or item not available for this filter group -- depending on your list files scheme, some of these files may be unused/inaccessible.
+error_toobig=It may not work to modify very large files via this mechanism.
+error_notauthfile=You are not authorized to change this file
+error_viewonly=you will be limited to only viewing this file
+error_verybusy=To avoid possibly interfering with production use of DansGuardian, consider either using a different computer or waiting until the load on this computer is lighter. 
+error_noauthyet=Warning - first enable the appropriate authplugins (and maybe enhance the local proxy [Squid?] configuration too) before you can assign users to filter groups
+error_listsnotfound=Warning - it appears list configuration files are not present or not readable
+error_nouser=Warning - it appears either 'anonymizelogs=on' was set in dansguardian.conf or no "auth" methods were enabled so Individual names were not logged
+error_noaddr=Warning - it appears 'anonymizelogs=on' was set in dansguardian.conf so Source Computer addresses were not logged
+error_userisaddr=Warning - it appears IP is the main enabled "auth" method so users are identified only by Source Computer address not by Individual name
+
+
+# these go on clickable computer buttons, so as few words as possible
+button_ok=OK
+button_save=Save
+button_cancel=Cancel
+button_help=Help
+button_proceed=Proceed
+button_proceed_computerIP=Proceed To Filter Group Assignments By Computer IP
+button_proceed_username=Proceed To Filter Group Assignments By Username
+button_update=Update
+button_cancelchange=Cancel Change
+button_revert=Revert
+button_edit=Manual Edit
+button_search=Search
+button_run=Run Report
+button_reset=Reset Form
+button_visit=Visit
 
 start_title=Starting DansGuardian...
 stop_title=Stopping DansGuardian...
 restart_title=Restarting DansGuardian...
-regroup_title=Reloading Groups...
+reload_title=Reloading Filter Groups/Lists...
 status_title=DansGuardian Status...
 
-edit_title=DansGuardian edit file
-edit_dgconfig=Edit DG Config
-edit_dgfiles=Edit DG Files
-edit_blacklists=Edit Blacklists
 edit_tab_network=Network
 edit_tab_process=Process
 edit_tab_logging=Logging
+edit_tab_reporting=Reporting
 edit_tab_content=Content Filter
+edit_tab_phrase=Filter Phrases
+edit_tab_updownload=Up/Down Load
+edit_tab_plugins=Plugins
+edit_tab_allgroups=All Groups
 edit_tab_misc=Misc
+edit_whichtab=Given an option name, go to whichever tab it's on
+edit_fgoption=is a per-filter-group option, use the Filter Groups Config tool
+edit_heading_options=Settings
+edit_heading_lists=List Files
+edit_note_sharedlists=*<span style='font-size: 90%; font-style: italic'>Items shown in italics <span style='color: #707070'>and with</span> <span style='color: #50507C'>reduced color</span> may affect all filter groups.</span>*
+edit_note_fixedlists=*<span style='font-size: 85%; font-variant: small-caps; color: #505050'>Items shown in small caps and with <span style='color: #a0a0a0'>no color</span> are references to fixed files.</span>*<small><br>&nbsp;(to omit fixed files from the list change the <a href='/config.cgi?dansguardian'>module config</a> option)</small>
+edit_note_nofixedlists=<small>&nbsp;(to include fixed files in the list change the <a href='/config.cgi?dansguardian'>module config</a> option)</small>
+edit_columns_name=Name
+edit_columns_set=Set?
+edit_columns_system=System-Wide
+edit_columns_group=Filter Group
+edit_columns_value=Value
+edit_columns_allgroups=All Groups
+edit_columns_default=Default
 
-view_dglog=View DG logfile
+view_return=View Logs With Different Options
+view_subreturn=Current Summary Report
+view_requestfilters=Request Filters
+view_reportoptions=Report Options
+view_futureoptions=Future Options
+view_filter_postheading=Requests Filter For This Report
+view_match=Total log entries that matched filter
+view_all=Total ALL log entries
+view_no=NO Logged Request Records Matched The Currently Specified Filter
+view_anded=All specified filters will be ANDed together
+view_detailcaption1=Date &nbsp; Time &nbsp; SourceIP &nbsp; Username &nbsp; Filtergroupname &nbsp; HTTPMethod &nbsp; Size &nbsp; MimeType &nbsp; listCategories &nbsp; Weight(Score)
+view_detailcaption2=optional agent string
+view_detailcaption3=URL
+view_detailcaption4a=optional regular expression (pattern) matching information
+view_detailcaption4b=optional matching phrases information
+view_detailcaption5=optional filter action information
+view_logfileformat=Specified log file format: 
+view_parameter=Parameter
+view_value=Value
+view_description=Description
+view_exception=Exception
+view_denied=Denied
+view_allowed=Allowed
+view_summaries=Summaries
+view_not=not
+view_matched=matched
+view_matchterms=Possible Terms Matching URL
+view_top=Top
+view_requests=Requests
+view_matching=Requests that matched filter
+view_err_cannotopen=Cannot open file (permissions issue?)
+view_err_fixperms=Try chmod 755 directories and chmod 644 files
+view_err_entryinvalid=Invalid entry
+view_err_greaterthan=is greater than
+view_err_logformat=Make sure module config format of log file matches logs being analyzed
+view_err_dateinvalid=Invalid date detected
+view_err_notparse=Failed to parse log entry or entries
+view_err_notunderstood=Failed to understand log entry or entries
+view_err_language=Make sure module config messages file matches logs being analyzed
+view_batchfile_title=As a convenience, here is an example of a script that produces unattended batch reports.
+view_batchfile_link=Batch Report Scaffolding Script
+view_masterslavesfiles_title=As a convenience, here are examples of rsync files for setting up a master&rArr;slaves configuration.
+view_masterenablefile_link=Example File Enabling Rsync Daemon On Master
+view_masterconffile_link=Example File Configuring Rsync Daemon On Master
+view_masteridentfile_link=Example File Identifying Rsync Daemon On Master
+view_slavesfile_link=Example Script Using Rsync To Update Slave
+view_logfile=Log File
+view_whichlogfiles=Analyzing DansGuardian logfile(s) in 
 
-savefile_title=DansGuardian saved file
+field_startdate=Start Date
+field_enddate=End Date
+field_daterange=Date Range
+field_ipaddress=Client IP Address or IP Subnet
+field_username=Username
+field_category=Category (#listcategory)
+field_mimetype=MIME Type
+field_filtergroup=Filter Group
+field_reason=Reason(Action)
+field_domain=Domain(Site)
+field_weight=Weight(Score)
+field_agent=Agent
 
-saveconf_title=DansGuardian saved conf file
-saveconf_configfile=Config file:
-saveconf_configdata=Config file data:
 
-search_title=DansGuardian search results
-search_notfound=No match found.
+savefile_title=Update List File
+revertfile_title=Revert Config-or-List File
+
+editfile_storefile=stored updated file on disk
+editfile_copyfile=copied disk file
+editfile_backupcopyfile=saved copy of old file for reversion as (...YYYYMMDDhhmmss)
+editfile_backuprenamefile=renamed old file for reversion as (...YYYYMMDDhhmmss)
+editfile_revertfile=reverted file to a previous version
+editfile_whatrevert=In an emergency, rather than editing a list or configuration, you may want to simply revert to a saved previous version.
+editfile_whatmanual=In an emergency, rather than using the GUI to manipulate the configuration, manually edit the config file directly with no restrictions whatsoever.
+editfile_versionsavailable=Saved Previous Versions (...YYYYMMDDhhmmss [saved date: YEAR MONTH DAY hour minute second])
+editfile_noversionsavailable=No Previous Versions Of This File Are Available
+editfile_selectreversion=Select Version To Revert To (...YYYYMMDDhhmmss [saved date: YEAR MONTH DAY hour minute second])
+editfile_usedreversion=reverted from
+editfile_manualedit=Manually Edit Raw File
+
+saveconf_title=Update Config
+saveconf_configfile=saved config file
+saveconf_noupdate=No changes so config not updated
+
+search_title=Search Results
+search_questionable=Results may not be complete or accurate
+search_notfound=Did Not Find Anything
+search_found=Found
+search_input=Type In Phrase Words (or Domain or URL) to Search For
+search_interpret=Interpret Input As
+search_detect=auto-detect search input type
+search_url=URL
+search_domain=partial or full Domain/Host
+search_phrase=Literal Phrase
+search_permute=Phrase Words (3 words max)
+search_regexp=URL Regular Expression (pattern)
+search_modify=Modification Regular Expression (pattern)
+search_toomany=permuted word search limited to only first three words
+search_none=no search words specified
+search_return=Search Again With Different Options
+search_heading_filtergroup=enabled&nbsp;filter&nbsp;groups
+search_heading_file=list&nbsp;file
+search_heading_match=search&nbsp;found
+
+setup_done=Finished Setting Up Config-&-List Files For Multiple Filter Groups Scheme:
 
 conf_reportinglevel=Reporting level
 conf_htmltemplate=HTML Template
@@ -85,20 +253,19 @@ conf_bannedphraselist=Banned phrase list
 conf_exceptionphraselist=Exception phrase list
 conf_weightedphraselist=Weighted phrase list
 conf_exceptionurllist=Exception URL list
-conf_banneduserlist=Banned user list
+conf_banneduserlist=***Not Used By 2.9/2.10***
 conf_bannediplist=Banned IP list
-conf_bannedextensionlist=Banned file extension list
+conf_bannedextensionlist=Banned (file)extension list
 conf_bannedmimetypelist=Banned mimetype list
 conf_bannedsitelist=Banned site (domain) list
 conf_bannedurllist=Banned URL list
-conf_bannedregexpurllist=Banned regular expression list
+conf_bannedregexpurllist=Banned URL-pattern list
 conf_exceptionsitelist=Exception site (domain) list
 conf_exceptioniplist=Exception IP list
-conf_exceptionuserlist=Exception user list
-conf_pics=PICS
-conf_picsfile=PICS
-conf_messages=Error Messages file
-conf_reverseaddresslookups=Reverse lookups for banned site and URLs
+conf_exceptionuserlist=***Not Used By 2.9/2.10***
+conf_picsfile=PICS file
+conf_messages=Error Messages text (translations) file
+conf_reverseaddresslookups=Reverse lookups for banning sites/URLs
 conf_createlistcachefiles=Create list cache files
 conf_maxuploadsize=Form POST protection
 conf_usernameidmethodproxyauth=Username Identification (Proxy Auth)
@@ -106,7 +273,7 @@ conf_usernameidmethodntlm=Username Identification (NTLM)
 conf_usernameidmethodident=Username Identification (Identd)
 conf_forwardedfor=Add X-Forwarded-For
 conf_maxchildren=Maximum num of processes
-conf_logconnectionhandlingerrors=Log connection handling errors
+conf_logconnectionhandlingerrors=Syslog connection handling errors
 conf_weightedphrasemode=Weighted phrase mode
 conf_naughtynesslimit=Naughtyness limit
 conf_showweightedfound=Show weighted phrases found
@@ -115,7 +282,7 @@ conf_languagedir=Language directory
 conf_language=Language
 conf_usecustombannedimage=Used custom banned image
 conf_custombannedimagefile=Custom banned image file
-conf_contentregexplist=Content regular expression list
+conf_contentregexplist=Rewrite Content (pattern) list
 conf_languagefile=Language file
 conf_urlcachenumber=URL cache number
 conf_urlcacheage=URL cacheage
@@ -131,72 +298,90 @@ conf_preforkchildren=Pre fork children
 conf_maxsparechildren=Max spare children
 conf_maxagechildren=Max age children
 
-conf_reportinglevel_radio_1=log, but do not block - Stealth mode
+conf_reportinglevel_radio_1=log only (Stealth mode)
 conf_reportinglevel_radio_2=just say 'Access Denied'
-conf_reportinglevel_radio_3=report why but not what denied phrase
+conf_reportinglevel_radio_3=why blocked but not phrase
 conf_reportinglevel_radio_4=report fully
-conf_reportinglevel_radio_5=use HTML template file (accessdeniedaddress ignored)
+conf_reportinglevel_radio_5=use HTML template file
 
 conf_loglevel_radio_1=none
 conf_loglevel_radio_2=just denied
 conf_loglevel_radio_3=all text based
 conf_loglevel_radio_4=all requests
 
-conf_logfileformat_radio_1=DansGuardian format
-conf_logfileformat_radio_2=CSV-style format
-conf_logfileformat_radio_3=Squid format
+conf_logexceptionhits_radio_1=Never log exceptions
+conf_logexceptionhits_radio_2=Log but do not flag them
+conf_logexceptionhits_radio_3=Log and flag them
+
+conf_logfileformat_radio_1=native (space delimited)
+conf_logfileformat_radio_2=CSV-style
+conf_logfileformat_radio_3=Squid log file
 conf_logfileformat_radio_4=Tab delimited
 
 conf_weightedphrasemode_radio_1=Disable weighted phrase feature
-conf_weightedphrasemode_radio_2=On, normal mode
-conf_weightedphrasemode_radio_3=On, singular mode
+conf_weightedphrasemode_radio_2=Enable- normal mode
+conf_weightedphrasemode_radio_3=Enable- count each phrase only once
 
 conf_phrasefiltermode_radio_1=Raw only
-conf_phrasefiltermode_radio_2=Smart only
+conf_phrasefiltermode_radio_2=Smart (remove extra spaces) only
 conf_phrasefiltermode_radio_3=Both (default)
+conf_phrasefiltermode_radio_4=Meta and Title tags only (not body)
 
-## Version 2.7.2
+conf_preservecase_radio_1=Force lowercase before scanning
+conf_preservecase_radio_2=Do not change case for scanning
+conf_preservecase_radio_3=Scan lowercase, again originalcase
+
+conf_groupmode_radio_1=no access (everything banned)
+conf_groupmode_radio_2=web access filtered normally
+conf_groupmode_radio_3=no filter (everything excepted)
+
+conf_filtergroupslistsscheme_radio_1=Nested Hierarchy of Filter Groups
+conf_filtergroupslistsscheme_radio_2=Separate Lists for each Filter Group
+conf_filtergroupslistsscheme_radio_3=Common Base for All Filter Groups
+
+# Version 2.7.2
 conf_preemptivebanning=Pre-emptive Banning
 conf_ipcfilename=IPC Filename
 conf_urlipcfilename=URL IPC Filename
-conf_pidfilename=PID Filename
+conf_pidfilename=PID(Running Process) Filename
 conf_nodaemon=Disable Daemonizing
 conf_nologger=Disable Logging
 conf_daemonuser=Runas user
 conf_daemongroup=Runas group
 conf_softrestart=Soft Restart
 
-## Version 2.7.5
+# Version 2.7.5
 conf_filtergroups=Filter Groups
 conf_filtergroupslist=Filter Groups list
-conf_reverseclientiplookups=Reverse Client IP Lookups
+conf_reverseclientiplookups=Client IP-to-Name Lookups
 
-## Version 2.7.6
+# Version 2.7.6
 conf_nonstandarddelimiter=Non-standard Delimiter
 
-## Version 2.7.7
-conf_bypasstimelimit=Bypass time limit
+# Version 2.7.7
+conf_bypass=Bypass time limit
 conf_bypasskey=Bypass key
 
-## Version 2.9
+# Version 2.9
 conf_maxips=Maximum Allowed IPs
 conf_ipipcfilename=IP Address IPC Filename
 conf_maxlogitemlength=Maximum Log Item Length
 conf_anonymizelogs=Anonymize Logs
-conf_syslog=Log to syslog
+conf_logsyslog=Log non-access messages to syslog
 conf_loglocation=Log file location
 conf_statlocation=Stat file location
 conf_logclienthostnames=Log client hostnames
-conf_logchildprocesshandling=Log Child Process Handling
+conf_logchildprocesshandling=Syslog Child Process Handling
 conf_logadblocks=Log Advertisement Blocks
 conf_loguseragent=Log Client User-Agent
+conf_logtimestamp=Log Timestamp
 conf_maxcontentramcachescansize=Maximum Ram Cache Scan Size
 conf_maxcontentfilecachescansize=Maximum File Cache Scan Size
 conf_filecachedir=File Cache Directory
-conf_deletedownloadedtempfiles=Delete Download Temp Files
+conf_deletedownloadedtempfiles=Delete Download Temp Lists
 conf_initialtrickledelay=Initial Trickle Delay
 conf_trickledelay=Trickle Delay
-conf_scancleancache=Scan Clean Cache
+conf_scancleancache=Cache Scanned-Clean FIles
 conf_contentscannertimeout=Content Scanner Timeout
 conf_contentscanexceptions=Content Scan Exceptions
 conf_recheckreplacedurls=Re-check Replaced URLs
@@ -211,31 +396,39 @@ conf_infectionbypasskey=Infection Bypass Key
 conf_infectionbypasserrorsonly=Infection Bypass on Errors only
 conf_disablecontentscan=Disable Content Scan
 conf_deepurlanalysis=Deep URL Analysis
-conf_greysitelist=Grey site list
+conf_greysitelist=Grey site (domain) list
 conf_greyurllist=Grey URL list
-conf_exceptionregexpurllist=Exception regexp URL list
-conf_urlregexplist=URL regexp list
-conf_exceptionextensionlist=Exception extension list
+conf_exceptionregexpurllist=Exception URL-pattern list
+conf_urlregexplist=Rewrite URL (pattern) list
+conf_exceptionextensionlist=Exception (file)extension list
 conf_exceptionmimetypelist=Exception mimetype list
-conf_exceptionfilesitelist=Exception file site list
+conf_exceptionfilesitelist=Exception file site (domain) list
 conf_exceptionfileurllist=Exception file URL list
-conf_headerregexplist=Header regexp list
-conf_bannedregexpheaderlist=Banned regexp header list
-conf_logsitelist=Log site list
+conf_headerregexplist=Rewrite Outgoing Header (pattern) list
+conf_bannedregexpheaderlist=Banned Outgoing Header (pattern) list
+conf_logsitelist=Log site (domain) list
 conf_logurllist=Log URL list
-conf_logregexpurllist=Log regexp URL list
+conf_logregexpurllist=Log URL-pattern list
+conf_conf=Configuration (.conf) file
+conf_blacklists=Blacklists
+conf_phraselists=Phraselists
+conf_local=Local
 
-## Virus Scan
-conf_virusscan=Enable virus scanning
-conf_exceptionvirusmimetypelist=Mime types not to virus scan
-conf_exceptionvirusextensionlist=File extensions not to virus scan
+# plugins tab
+conf_authplugin=Auth Plugins
+conf_downloadmanager=Download Managers
+conf_contentscanner=Content Scanners (Anti-Virus etc.)
 
-acl_options=Select which functions user can perform
-acl_start=Can start and stop DG
-acl_status=Can view DG status
-acl_logs=Can view log files
-acl_editconf=Can edit DG config
-acl_editfiles=Can edit DG files
+acl_can=Can
+acl_canedit=Can Edit
+acl_canview=Can View
+acl_canchooseauto=Can Choose To Auto-
+acl_lists=Config-&-Lists Within Filter Group
+acl_groups=Filter Groups
 
-note=NOTE:
-forgetrestart=Don't forget to restart DansGuardian
+restart_needed=DansGuardian needs restarting, ask someone to do it
+restart_forget=DansGuardian needs restarting, don't forget to do it
+restart_change=So change will take effect,
+reload_needed=DansGuardian needs groups/lists reloading, ask someone to do it
+reload_forget=DansGuardian needs groups/lists reloading, don't forget to do it
+reload_change=So change will take effect,

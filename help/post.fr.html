@@ -1,10 +1,13 @@
-<header>Protection POST (Web upload et formes)</header>
-<pre>
-Ne bloque pas les formes sans upload. Il s'agit juste de bloquer ou de limiter (en Koctets) les uploads.
-
-La valeur 0 bloque tout upload
-Une valeur supérieure à 0 indique une limite en Koctets
-Utiliser -1 <b>autorise</b> les uploads.
-</pre>
+<header>Protection POST (Web et télécharger des formulaires)</header>
+   <div style="max-Width: 40em">
+<p>
+Ne bloque pas les formes sans fichier de téléchargement, c'est-à-dire ce n'est que pour le blocage ou la limitation de téléchargements mesuré en kilo-octets après encodage MIME et l'en-tête des bosses
+<p>
+Utilisez 0 pour un bloc complet
+<br>
+Utilisez la taille en ko (par exemple 512 = 512 kilo-octets) pour limiter
+<br>
+Utilisez -1 pour <b>n</b> de blocage.
 <hr>
+  </div>
 <a href="javascript:window.close()">Fermer la fenêtre</a>

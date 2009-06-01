@@ -1,33 +1,61 @@
-This is a basic TODO list of things that still need done for the module. If you would like to help, please let me know.
+All the following files do not exist - perhaps some of them should.
+(We have a mechanism for displaying some fairly appropriate help file anyway,
+which will largely hide the fact these are missing,
+but if a user really needs the information in one, it isn't there.)
+---
+help/urlregexplist.html (for option urlregexplist)
+help/deletedownloadedtempfiles.html (for option deletedownloadedtempfiles)
+help/bannedphraselist.html (for option bannedphraselist)
+help/nodaemon.html (for option nodaemon)
+help/weightedphraselist.html (for option weightedphraselist)
+help/logsitelist.html (for option logsitelist)
+help/maxlogitemlength.html (for option maxlogitemlength)
+help/groupmode.html (for option groupmode)
+help/usexforwardedfor.html (for option usexforwardedfor)
+help/logchildprocesshandling.html (for option logchildprocesshandling)
+help/headerregexplist.html (for option headerregexplist)
+help/pidfilename.html (for option pidfilename)
+help/exceptionsitelist.html (for option exceptionsitelist)
+help/picsfile.html (for option picsfile)
+help/exceptionregexpurllist.html (for option exceptionregexpurllist)
+help/exceptionextensionlist.html (for option exceptionextensionlist)
+help/contentscanexceptions.html (for option contentscanexceptions)
+help/logconnectionhandlingerrors.html (for option logconnectionhandlingerrors)
+help/bannedregexpurllist.html (for option bannedregexpurllist)
+help/ipc.html (for option urlipcfilename)
+help/bannedsitelist.html (for option bannedsitelist)
+help/greysitelist.html (for option greysitelist)
+help/greyurllist.html (for option greyurllist)
+help/exceptionmimetypelist.html (for option exceptionmimetypelist)
+help/logexceptionhits.html (for option logexceptionhits)
+help/logregexpurllist.html (for option logregexpurllist)
+help/maxips.html (for option maxips)
+help/ipc.html (for option ipcfilename)
+help/nologger.html (for option nologger)
+help/filecachedir.html (for option filecachedir)
+help/logsyslog.html (for option logsyslog)
+help/ipc.html (for option ipipcfilename)
+help/logtimestamp.html (for option logtimestamp)
+help/bannedregexpheaderlist.html (for option bannedregexpheaderlist)
+help/bannedmimetypelist.html (for option bannedmimetypelist)
+help/exceptionfilesitelist.html (for option exceptionfilesitelist)
+help/logurllist.html (for option logurllist)
+help/bannedextensionlist.html (for option bannedextensionlist)
+help/exceptionfileurllist.html (for option exceptionfileurllist)
+help/initialtrickledelay.html (for option initialtrickledelay)
+help/enablepics.html (for option enablepics)
+help/groupnamelist.html (for option groupnamelist)
+help/recheckreplacedurls.html (for option recheckreplacedurls)
+help/trickledelay.html (for option trickledelay)
+help/anonymizelogs.html (for option anonymizelogs)
+help/softrestart.html (for option softrestart)
+help/exceptionurllist.html (for option exceptionurllist)
+help/blockdownloads.html (for option blockdownloads)
+help/contentscannertimeout.html (for option contentscannertimeout)
+help/bannedurllist.html (for option bannedurllist)
+help/contentregexplist.html (for option contentregexplist)
+help/groupname.html (for option groupname)
+help/showweightedfound.html (for option showweightedfound)
+help/exceptionphraselist.html (for option exceptionphraselist)
 
-Thanks!
 
-
-- Implement check_ipaddress() for banned/exception ip lists
-
-- Implement foreign_call() to make sure perl modules are installed
-
-- Implement ftp_download() or http_download() to grab newer weighted phrase lists and black lists
-
-- Implement kill_byname_logged() and kill_logged() into status.cgi
-
-- Perhaps utilize open_socket() or http_download() into status.cgi to make sure DG is answering requests, and not just running
-
-- Perhaps make a function that can be called from this module or other modules, that calls replace_file_line(). This would be used for simple one line changes. Such as a button that can add a filter group, where you would only need to increase the filter groups DG option to a higher number.
-
-- Might be kind of neat to use seed_random() to generate bypasskey values if requested by the user
-
-- Pass the IP, user, site, url lists through the unique() function to remove duplicates
-
-- Utilize read_file and write_file for the filter groups assignments
-
-- Change file editing page to have "buttons" such as "Users", "Ip's", and "Sites/Domains", which will contain both banned and exception lists for that type. That should clean up the long file listing which is both ugly and confusing.
-
-- Add useradmin_update.pl which is run when a new user is created through webmins "Users and Groups" module, if notify other modules is checked. This would allow us to have an option in the module config which adds the user to a specified filtergroup.
-
-- Not really our job, but perhaps add a small section in our module to allow certain sites to be added to the Squid no_cache list. This would allow a one-stop place for managing "content filter and related" things. I know it would help my users quite a bit. Opinions?
-
-
-SQL Logger
-- Implement foreign_installed() to make sure MySQL is installed and setup
-  before setting the database etc.

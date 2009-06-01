@@ -1,59 +1,243 @@
+# Le capitaine et le sous-titre, fixée par le logiciel
 index_title=DansGuardian
-index_header=DansGuardian - le filtrage de contenu web pour tous
-index_showadvanced=Options avançées: <font color="FF0000">off</font>
-index_hideadvanced=Options avançées: <font color="008000">on</font>
-index_startdg=Démarrer DansGuardian.
-index_stopdg=Arrêter DansGuardian.
-index_forcedkilldg=Arrêter sans condition DansGuardian.
-index_restartdg=Redémarrer DansGuardian.
-index_statusdg=Afficher le statut de DansGuardian.
-index_return=Page principale de DansGuardian.
+index_heading=DansGuardian - le filtrage de contenu web pour tous
+index_return=Page principale de DansGuardian
+
+# Ils vont dans un très petit espace, pour les garder très courts
+index_start=Démarrer DG
+index_stop=Arrêter DG
+index_forcedkilldg=Arrêter sans condition DansGuardian
+index_restart=Redémarrer DG
+index_reload=Recharger DG Groupes
 index_location=Chemin d'accès au fichier:
-index_edit=Editer
-index_search=Phrase.
-index_search_title=Chercher une règle avec une phrase.
-index_viewconf=Consulter/Editer la configuration
-index_viewfiles=Consulter/Editer les fichiers
-index_clickhelp=Cliquer sur l'option pour afficher une page d'aide.
-index_notsupported=La version installée n'est pas compatible. Veuillez installer une version 2.4.0 ou mieux à partir de <a href="http://www.dansguardian.org">http://www.dansguardian.org</a>.
+
+# Titres des éléments de ce logiciel de gestion
+index_status=Afficher le statut de DansGuardian
+index_logs=Consulter les logs de DG
+index_search=Recherche de mots pour mots (ou de domaine ou URL)
+index_editconf=la configuration
+index_editplugconf=la Plugin configuration
+index_editlists=les fichiers
+index_editfiltergroupassignments=groupe de filtrage Assignments
+index_editmessages=les messages système (traduction)
+index_editgroupsconfandlists=Un filtre du Groupe Config & Lists
+index_editgroupsconf=Un filtre du Groupe de la Base de Config
+index_editgroupslists=Un filtre du Groupe Lists)
+index_setupfiltergroups=Set Up Listes & Configs Pour les filtres multiples Groupes
+index_viewfiltergroups=Comment Listes et Configs Pour filtres multiples groupes sont constitués
+index_viewedit=Voir/Modifier
+index_view=Voir
+# index_editblacklists=View/Edit Blacklists
+index_clickhelp=Cliquez sur le nom d'une option de configuration pour afficher une page d'aide.
 index_version=Version
-index_dgversion=Version de DG:
+index_dgversion=actuellement installés DG version
 index_modulever=Version du Module
+index_moduleversupports=DG soutient version 2.9/2.10
+index_notauth=Vous n'êtes pas autorisé à utiliser cette section
+index_done=Fait
+index_numberofgroups=nombre de groupes de filtre
+index_groupsettings=groupe de paramètres
+index_group=groupe de filtrage
+index_childproc=nombre de processus enfants
+index_childproclist=enfant processus DIP
+index_enhancements=Cliquez pour voir la description des modules Améliorations depuis la version précédente
 
-header_startdg=Démarrer DG
-header_stopdg=Arrêter DG
-header_restartdg=Redémarrer DG
-
-error_binnotfound=Attention - L'application DansGuardian n'est pas installée.
-error_confnotfound=Attention - Impossible de trouver le fichier de configuration de DansGuardian.
-error_lognotfound=Attention - Fichier de logs de DansGuardian introuvable.
+# Contiennent plusieurs de ces embedded HTML
+error_modconfig=ERREUR! S'il vous plaît vérifier (et corriger si nécessaire) votre <a href='/config.cgi?dansguardian'>Configuration du module</a>, en particulier les chemins!
+error_binnotfound=Attention - dansguardian ne trouve pas de fichier binaire, vous avez peut-être besoin de mettre à jour votre <a href='/config.cgi?dansguardian'>Configuration du module</a> (en particulier les chemins.)
+error_confnotfound=Attention - dansguardian fichier de configuration ne trouve pas, peut-être que vous devez mettre à jour votre <a href='/config.cgi?dansguardian'>Configuration du module</a> (en particulier les chemins.)
+error_lognotfound=Attention - dansguardian fichier non trouvé, peut-être que vous devez mettre à jour votre <a href='/config.cgi?dansguardian'>Configuration du module</a> (en particulier le répertoire chemins.)
+error_lognotcompressed=Ignorer compressé (gzip) DansGuardian logfile en
 error_filenotfound=Attention - Fichier introuvable.
-error_webminver=Version de Webmin incorrecte! Ce module nécessite la version 0.81 ou mieux.
+error_samefile=Attention - Impossible de copier un fichier sur lui-même
+error_messagesnotfound=Attention - Messages image (traductionsn'a pas été trouvée.)
+error_fgusernotfound=Attention - Nom d'utilisateur -> Filtre Group Assignment fichier n'est pas trouvé.
+error_fgcomputernotfound=Attention - ComputerIP -> Filtre Group Assignment fichier n'est pas trouvé.
+error_filenotused=Attention - Fichier utilisé / défini.
+error_filenotindir=Attention - Le fichier est en dehors de dansguardian répertoire.
+error_logfileformat_range=Erreur - inconnu (hors de portéeformat du fichier journal)
+error_logfileformat_notsupp=Attention - log format de fichier n'est pas supporté
+error_version_notsupp=Attention - la version de dansguardian vous avez n'est pas supporté par ce module Webmin version
+error_morethanonce=Erreur - actuellement spécifié plus d'une fois et ne peut donc pas être manipulés par cet outil
+error_running=Attention - dansguardian semble être en cours d'exécution
+error_notrunning=Attention - dansguardian semble ne pas être en cours d'exécution
+error_schemealready=Attention - il apparaît un groupe de filtres multiples régime a déjà été mis en place
+error_noschemealready=Attention - il ne semble groupe des filtres multiples régime a été mis en place pour le moment
+error_changedscheme=Attention - il apparaît un groupe de filtres multiples a été mis en place, mais a ensuite été modifiée pour ce module Webmin ne peut pas le gérer
+error_foreignschemealready=Attention - il semble certain filtre groupe inconnu à ce régime module Webmin est déjà en place et ne peuvent être gérés
+error_multiplefgs=Attention - il semble que vous avez déjà plus d'un filtre de groupe
+error_nomultiplefgs=Attention - plusieurs groupes de filtre n'est pas utilisé du tout
+error_superuser=Attention - courir en tant que root (superles risques de nouveaux fichiers ne sont pas lisibles par la production dansguardian)
+error_warning=Attention
+error_note=NOTE:
+error_notselected=Aucune sélection
+error_blacklist=blacklists mai être écrasé en dehors de dansguardian, et doit donc généralement pas être modifiés par le biais de ce mécanisme.
+error_fixedlist=Preset mai listes être inclus ou non que vous le souhaitez (module de configuration option "fixes dans l'affichage des listes», mais devrait généralement pas être modifiés.)
+error_changeseldom=La plupart de ces fichiers contiennent des semi-fixe le contenu qui doit être changé rarement
+error_nopath=Le symbole <span style='font-size: 135%'>&not;</span>, soit de mai signifie deux choses différentes: le point de ne pas activé pour ce filtre groupe, ou qui n'est pas disponible pour ce filtre de groupe - en fonction de votre liste de fichiers système, certains de ces fichiers inutilisés de mai / inaccessible.
+error_toobig=Il mai de ne pas travailler à modifier de très gros fichiers par le biais de ce mécanisme.
+error_notauthfile=Vous n'êtes pas autorisé à modifier ce fichier
+error_viewonly=vous serez limité à visionner ce fichier
+error_verybusy=Pour éviter peut-être interférer avec l'utilisation de la production dansguardian, soit envisager d'utiliser un autre ordinateur ou d'attendre jusqu'à ce que la charge sur cet ordinateur est plus léger.
+error_noauthyet=Attention - tout d'abord activer le authplugins (et peut-être améliorer le proxy local [Squid?] configuration tropavant de pouvoir affecter des utilisateurs de filtrer les groupes)
+error_listsnotfound=Attention - il apparaît la liste des fichiers de configuration ne sont pas présents ou pas lisible
+error_nouser=Attention - il apparaît soit 'anonymizelogs=on' se trouve dans dansguardian.conf ou pas "auth" méthodes sont permis, de façon individuelle les noms n'ont pas été identifiés
+error_noaddr=Attention - il semble 'anonymizelogs=on' est dans dansguardian.conf, afin Source Computer adresses ne sont pas enregistrés
+error_userisaddr=Attention - Il apparaît de propriété intellectuelle est le principal permis "auth", de sorte que les utilisateurs sont identifiés par ordinateur source et non par adresse Nom
+
+
+# Aller sur ces boutons cliquables ordinateur, de sorte que peu de mots que possible
+button_ok=OK
+button_save=Enregistrer
+button_cancel=Annuler
+button_help=Aide
+button_proceed=Continuer
+button_proceed_computerIP=Passer à Filtre Groupe affectations Par Computer IP
+button_proceed_username=Passer à filtre par nom d'utilisateur Groupe Assignments
+button_update=mise à jour
+button_cancelchange=Annuler le changement
+button_revert=Annuler
+button_edit=Manuel Edit
+button_search=Recherche
+button_run=Run Rapport
+button_reset=Réinitialiser le formulaire
+button_visit=Visite
 
 start_title=Démarrage de DansGuardian...
-
 stop_title=Arrêt de DansGuardian ...
-
-forcedkill_title=Arrêt sans condition de DansGuardian...
-
 restart_title=Redémarrage de DansGuardian...
-
+reload_title=Recharger Filter groupes/listes ...
 status_title=Status de DansGuardian...
 
-edit_title=Fichier de configuration de DansGuardian
-edit_dgconfig=Edition de la configuration de DansGuardian 
-edit_dgfiles=Edition des fichiers de configuration de DansGuardian
+edit_tab_network=Network
+edit_tab_process=processus
+edit_tab_logging=enregistrement
+edit_tab_reporting=déclaration
+edit_tab_content=Content Filter
+edit_tab_phrase=Phrases Filter
+edit_tab_updownload=Upload/Download
+edit_tab_plugins=Plugins
+edit_tab_allgroups=Tous les groupes
+edit_tab_misc=Divers
+edit_whichtab=Étant donné le nom d'une option, passez à l'onglet qui se retrouve sur la
+edit_fgoption=est un par-filter-groupe, utilisez l'outil de configuration du filtre des groupes
+edit_heading_options=Paramètres
+edit_heading_lists=liste de fichiers
+edit_note_sharedlists=*<span style='font-size: 90%; font-style: italic'>Les points indiqués en italique <span style='color: #707070'>et avec</span> <span style='color: #50507C'>réduction de couleur</span> mai touchent les groupes de tous les filtres.</span>*
+edit_note_fixedlists=*<span style='font-size: 85%; font-variant: small-caps; color: #505050'>Articles dans les petites capitalisations et avec <span style='color: #a0a0a0'>pas de couleur</span> sont des références à des fichiers fixes.</span>*<small><br>&nbsp;(à ne pas fixer la liste des fichiers de changer <a href='/config.cgi?dansguardian'>Configuration du module</a>)</small>
+edit_note_nofixedlists=<small>&nbsp;(pour inclure fixe la liste des fichiers dans <a href='/config.cgi?dansguardian'>Configuration du module</a></small>
+edit_columns_name=Nom
+edit_columns_set=Définir?
+edit_columns_system=L'échelle Du Système
+edit_columns_group=Filtre Groupe
+edit_columns_value=Valeur
+edit_columns_allgroups=Tous Les Groupes
+edit_columns_default=Défaut
 
-view_dglog=Consulter les logs de DG.
+view_return=View logs Encore une fois avec différentes options
+view_subreturn=Rapport de synthèse en cours
+view_requestfilters=Request Filters
+view_reportoptions=Options de rapport
+view_futureoptions=Options pour l'avenir
+view_filter_postheading=demande de filtre pour le présent rapport
+view_match=Total des entrées du journal correspondant à filtre
+view_all=Total TOUS les entrées du journal
+view_no=NO Logged Demande Records indiquée correspond à l'heure actuelle Filter
+view_anded=tous les filtres seront précisés ANDed ensemble
+view_detailcaption1=Date &nbsp; Time &nbsp; SourceIP &nbsp; Nom d'utilisateur &nbsp; Filtergroupname &nbsp; HTTPMethod &nbsp; Taille &nbsp; MimeType &nbsp; listCategories &nbsp; Poids(Score)
+view_detailcaption2=facultatif agent string
+view_detailcaption3=URL
+view_detailcaption4a=optionnel expression régulière (patternà l'information)
+view_detailcaption4b=optionnel correspondant à des phrases d'information
+view_detailcaption5=en option filtre d'information sur l'action
+view_logfileformat=indiquée format du fichier journal:
+view_parameter=Paramètre
+view_value=Valeur
+view_description=Description
+view_exception=Exception
+view_denied=Refusé
+view_allowed=Autorisé
+view_not=inverse
+view_summaries=résumés
+view_matched=appariées
+view_matchterms=Possible Conditions Matching URL
+view_top=Haut
+view_requests=Demandes
+view_matching=Des demandes d'équivalence de filtre
+view_err_cannotopen=Impossible d'ouvrir le fichier (problème d'autorisations?)
+view_err_fixperms=Essayez d'annuaires et logfiles chmod 755 chmod 644
+view_err_entryinvalid=entrée non valide
+view_err_greaterthan=est supérieure à
+view_err_logformat=Assurez-vous que le module de configuration du format de fichier correspond à l'analyse logs
+view_err_dateinvalid=Date incorrecte détectée
+view_err_notparse=Impossible d'analyser entrée du journal ou les entrées
+view_err_notunderstood=Impossible de comprendre entrée du journal ou les entrées
+view_err_language=Assurez-vous que le module de configuration le fichier des messages correspond à l'analyse logs
+view_batchfile_title=Par commodité, voici un exemple d'un script qui produit des rapports sans assistance du lot.
+view_batchfile_link=Batch Rapport Scaffolding Script
+view_masterslavesfiles_title=Par commodité, voici des exemples de fichiers de rsync pour la mise en place d'un maître&rArr;esclaves configuration.
+view_masterenablefile_link=Exemple de dossier d'habilitation Rsync Daemon Le Master
+view_masterconffile_link=Exemple de dossier Configuration Rsync Le Master Daemon
+view_masteridentfile_link=Exemple de fichier d'identification Rsync Daemon Le Master
+view_slavesfile_link=Exemple de script utilisant rsync Pour mettre à jour Slave
+view_logfile=Fichier Log
+view_whichlogfiles=Analyse DansGuardian logfile en
+
+field_startdate=Date de début
+field_enddate=Fin
+field_daterange=Date de gamme
+field_ipaddress=Adresse IP du client ou de sous-réseau IP
+field_username=Nom d'utilisateur
+field_category=Catégorie (#listcategory)
+field_mimetype=type MIME
+field_filtergroup=groupe de filtrage
+field_reason=Reason(Action)
+field_domain=domaine(site)
+field_weight=Poids(Score)
+field_agent=Agent
+
 
 savefile_title=Fichier DansGuardian sauvegardé
+revertfile_title=Rétablir config ou-List-File
+
+editfile_storefile=mise à jour des fichiers stockés sur le disque
+editfile_copyfile=fichier sur le disque copié
+editfile_backupcopyfile=copie enregistrée de l'ancien fichier de réversion en tant que (... YYYYmmDDhhMMss)
+editfile_backuprenamefile=ancien nom de fichier pour que le retour (... YYYYmmDDhhMMss)
+editfile_revertfile=le fichier est revenu à une version précédente
+editfile_whatrevert=En cas d'urgence, plutôt que d'éditer une liste ou d'une configuration, vous mai souhaitez simplement revenir à l'enregistrement d'une version précédente.
+editfile_whatmanual=En cas d'urgence, plutôt que d'utiliser l'interface graphique pour manipuler la configuration, de modifier manuellement le fichier de configuration directement, sans aucune restriction que ce soit.
+editfile_versionsavailable=enregistrés des versions antérieures (... YYYYmmDDhhMMss [sauvé date: année mois jour heure minute seconde])
+editfile_noversionsavailable=Pas de versions précédentes de ce dossier sont disponibles
+editfile_selectreversion=Sélectionnez la version de revenir à (... YYYYmmDDhhMMss [sauvé date: année mois jour heure minute seconde])
+editfile_usedreversion=revenu de
+editfile_manualedit=modifier manuellement Raw File
 
 saveconf_title=Fichier de configuration DansGuardian sauvegardé
 saveconf_configfile=Fichier de configuration:
-saveconf_configdata=Données du fichier de configuration:
+saveconf_noupdate=Aucun changement de configuration, afin de ne pas mis à jour
 
 search_title=Résultats de la recherche DansGuardian
+search_questionable=Résultats de mai ne pas être complets ou exacts
 search_notfound=Pas de résultat.
+search_found=Trouvé
+search_input=Type In Words Phrase (ou domaine ou URL) de Recherche
+search_interpret=Interpréter Input As
+search_detect=auto-détection du type d'entrée de recherche
+search_url=URL
+search_domain=partielle ou totale de Domaine/Hébergement
+search_phrase=Literal Phrase
+search_permute=Phrase mots (3 mots maximum)
+search_regexp=URL expression régulière (modèle)
+search_modify=Modification expression régulière (modèle)
+search_toomany=recherche par mot-permutée limité à seulement trois premiers mots
+search_none=pas de termes de recherche spécifiés
+search_return=Search Again avec différentes options
+search_heading_filtergroup=permis&nbsp;filtre&nbsp;groupes
+search_heading_file=liste&nbsp;fichier
+search_heading_match=recherche&nbsp;trouvés
+
+setup_done=terminé la mise en place Config-&-List fichiers Pour filtres multiples groupes Scheme
 
 conf_reportinglevel=Niveau de rapport
 conf_htmltemplate=Template HTML
@@ -61,7 +245,7 @@ conf_loglevel=Niveau de log
 conf_logexceptionhits=Log des exceptions
 conf_logfileformat=Format du fichier de log
 conf_filterip=Adresse IP d'écoute
-conf_filterport=Port d'écoute 
+conf_filterport=Port d'écoute
 conf_proxyip=Proxy IP
 conf_proxyport=Port du Proxy
 conf_accessdeniedaddress=URL de la page de restriction
@@ -69,7 +253,7 @@ conf_bannedphraselist=Phrases interdites
 conf_exceptionphraselist=Phrases autorisées (exceptions)
 conf_weightedphraselist=Pondération des phrases
 conf_exceptionurllist=URLs autorisées (exceptions)
-conf_banneduserlist=Utilisateurs interdits
+conf_banneduserlist=***Not Used By 2.9/2.10***
 conf_bannediplist=Adresses IP interdites
 conf_bannedextensionlist=Extensions interdites
 conf_bannedmimetypelist=Types MIME interdits
@@ -78,20 +262,41 @@ conf_bannedurllist=URLs interdites
 conf_bannedregexpurllist=URLs interdites par expressions régulières
 conf_exceptionsitelist=Domaines autorisés (exceptions)
 conf_exceptioniplist=Adresses IP autorisées (exceptions)
-conf_exceptionuserlist=Utilisateurs autorisés (exceptions)
-conf_picsfile=PICS
+conf_exceptionuserlist=***Not Used By 2.9/2.10***
+conf_picsfile=PICS fichier
+conf_messages=Error Messages texte (traductionsfichier)
 conf_reverseaddresslookups=Résolution de nom des domaines et urls interdits
-conf_createlistcachefiles=Création des caches domaine et url
-conf_maxuploadsize=Protection contre l'upload
+conf_createlistcachefiles=Créer la liste des fichiers de cache
+conf_maxuploadsize=Protection contre l'upload (formulaire POST protection)
 conf_usernameidmethodproxyauth=Méthodes d'identification de l'utilisateur (utilisée dans les logs)
 conf_usernameidmethodntlm=Méthode NTLM (Pas implémentée)
 conf_usernameidmethodident=Méthode Ident
 conf_forwardedfor=Ajoute X-Forwarded-For: clientip à la requête HTTP
 conf_maxchildren=Nombre maximum de processus démarrés
-conf_logconnectionhandlingerrors=Log des erreurs
+conf_logconnectionhandlingerrors=Syslog connexion des erreurs de manipulation
 conf_weightedphrasemode=Mode de pondération des phrases
 conf_naughtynesslimit=Limite de la pondération
 conf_showweightedfound=Affiche les phrases pondérées trouvées.
+
+conf_languagedir=répertoire Language
+conf_language=Language
+conf_usecustombannedimage=Used coutume interdit image
+conf_custombannedimagefile=Custom interdit fichier image
+conf_contentregexplist=Rewrite Contenu (pattern liste)
+conf_languagefile=Langue fichier
+conf_urlcachenumber=nombre de cache Web
+conf_urlcacheage=URL cacheage
+conf_phrasefiltermode=Phrase filtre mode
+conf_preservecase=Préserver cas
+conf_hexdecodecontent=Hex décoder le contenu
+conf_forcequicksearch=force de recherche rapide
+conf_maxcontentfiltersize=Max de filtrage de contenu de taille
+conf_usexforwardedfor=Utilisez x transmis pour
+conf_minchildren=Min enfants
+conf_minsparechildren=Min épargner les enfants
+conf_preforkchildren=fourche avant les enfants
+conf_maxsparechildren=Max épargner les enfants
+conf_maxagechildren=Max âge des enfants
 
 conf_reportinglevel_radio_1=Log, mais ne filtre pas - Mode furtif
 conf_reportinglevel_radio_2=Juste dire 'Access Denied'
@@ -104,18 +309,126 @@ conf_loglevel_radio_2=Juste interdit
 conf_loglevel_radio_3=Basé sur le texte
 conf_loglevel_radio_4=Toutes les requêtes
 
-conf_logfileformat_radio_1=Format DansGuardian
-conf_logfileformat_radio_2=Format CSV
+conf_logexceptionhits_radio_1=Ne vous connectez jamais exceptions
+conf_logexceptionhits_radio_2=journal, mais ne pas le signaler
+conf_logexceptionhits_radio_3=Log et leur drapeau
+
+conf_logfileformat_radio_1=DansGuardian native (espace délimité)
+conf_logfileformat_radio_2=CSV
+conf_logfileformat_radio_3=Squid log file
+conf_logfileformat_radio_4=délimité par des tabulations
 
 conf_weightedphrasemode_radio_1=Désactive la pondération de phrase
-conf_weightedphrasemode_radio_2=Mode normal 
+conf_weightedphrasemode_radio_2=Mode normal
 conf_weightedphrasemode_radio_3=Mode singulier - les phrases trouvées sont comptées une seule fois
 
-conf_virusscan=Contrôle viral du contenu des pages
+conf_phrasefiltermode_radio_1=brut seulement
+conf_phrasefiltermode_radio_2=Smart (supprimer les espacesuniquement)
+conf_phrasefiltermode_radio_3=les deux (par défaut)
+conf_phrasefiltermode_radio_4=Meta tags et du titre uniquement (pas le corps)
 
-acltxt_options=Select which functions user can perform
-acltxt_start=Start and Stop DG
-acl_status=View Status
-acl_logs=View Logs
-acl_editconf=Edit DG Config
-acl_editfiles=Edit DG Files
+conf_preservecase_radio_1=Force minuscules avant de numérisation
+conf_preservecase_radio_2=Ne changez pas de cas de numérisation
+conf_preservecase_radio_3=Scan minuscules, de nouveau originalcase
+
+conf_groupmode_radio_1=pas d'accès (tout interdit)
+conf_groupmode_radio_2=accès à Internet filtré normalement
+conf_groupmode_radio_3=pas de filtre (tout exceptés)
+
+conf_filtergroupslistsscheme_radio_1=Nested hiérarchie des groupes de filtre
+conf_filtergroupslistsscheme_radio_2=listes distinctes pour chaque groupe de filtres
+conf_filtergroupslistsscheme_radio_3=base commune pour tous les groupes de filtre
+
+# Version 2.7.2
+conf_preemptivebanning=Pre-emptive Banning
+conf_ipcfilename=IPC Filename
+conf_urlipcfilename=URL IPC Filename
+conf_pidfilename=PID (processus en coursNom de fichier)
+conf_nodaemon=Désactiver Daemonizing
+conf_nologger=désactiver la journalisation
+conf_daemonuser=Runas utilisateur
+conf_daemongroup=Runas groupe
+conf_softrestart=Redémarrer Soft
+
+# Version 2.7.5
+conf_filtergroups=filtre Groupes
+conf_filtergroupslist=Filtre liste Groupes
+conf_reverseclientiplookups=Client IP-to-Name Lookup
+
+# Version 2.7.6
+conf_nonstandarddelimiter=non-standard Delimiter
+
+# Version 2.7.7
+conf_bypass=Bypass limite de temps
+conf_bypasskey=Bypass clé
+
+# Version 2.9
+conf_maxips=Maximum Allowed IP
+conf_ipipcfilename=Adresse IP IPC Filename
+conf_maxlogitemlength=Maximum Log Point Length
+conf_anonymizelogs=anonymes Journaux
+conf_logsyslog=Connexion non-accès à des messages syslog
+conf_loglocation=emplacement du fichier journal
+conf_statlocation=Stat emplacement du fichier
+conf_logclienthostnames=Log client les noms d'hôtes
+conf_logchildprocesshandling=Processus de traitement des enfants Syslog
+conf_logadblocks=Log Parallélépipèdes Publicité
+conf_loguseragent=Log Client User-Agent
+conf_logtimestamp=Log Timestamp
+conf_maxcontentramcachescansize=maximum Ram Cache Scan Size
+conf_maxcontentfilecachescansize=Maximum Size File Cache Scan
+conf_filecachedir=File Cache Directory
+conf_deletedownloadedtempfiles=Supprimer Télécharger Temp Lists
+conf_initialtrickledelay=Initial Delay Trickle
+conf_trickledelay=Trickle Delay
+conf_scancleancache=cache-Clean Scanned Files
+conf_contentscannertimeout=Content Scanner Timeout
+conf_contentscanexceptions=Contenu Scan Exceptions
+conf_recheckreplacedurls=Re-check Remplacé URL
+conf_groupmode=Groupe de Mode
+conf_groupname=Nom du groupe
+conf_blockdownloads=Block Downloads
+conf_categorydisplaythreshold=Catégorie Affichage Seuil
+conf_embeddedurlweight=Embedded Web Poids
+conf_enablepics=Activer PICS
+conf_infectionbypass=Infection Bypass
+conf_infectionbypasskey=Infection Bypass Key
+conf_infectionbypasserrorsonly=Infection Bypass sur Erreurs uniquement
+conf_disablecontentscan=Désactiver le contenu Scan
+conf_deepurlanalysis=Deep URL Analysis
+conf_greysitelist=Gris site (domainelist)
+conf_greyurllist=Gris URL
+conf_exceptionregexpurllist=Exception modèle list
+conf_urlregexplist=Rewrite URL modèle
+conf_exceptionextensionlist=extension de fichier Exception list
+conf_exceptionmimetypelist=Exception mimetype list
+conf_exceptionfilesitelist=Exception fichier site (domainelist)
+conf_exceptionfileurllist=Exception fichier liste d'URL
+conf_headerregexplist=Rewrite Sortantes Header modèle
+conf_bannedregexpheaderlist=Banned Sortantes Header modèle
+conf_logsitelist=Log domaine/site
+conf_logurllist=Log URL
+conf_logregexpurllist=Log URL modèle
+conf_conf=Configuration (.conf)
+conf_blacklists=Blacklists
+conf_phraselists=Phraselists
+conf_local=Local
+
+# Plugins onglet
+conf_authplugin=Auth Plugins
+conf_downloadmanager=Download Managers
+conf_contentscanner=Escanners contenu (Anti-Virus etc)
+
+acl_can=Pouvoir
+acl_canedit=Peut éditer
+acl_canview=Puis vue
+acl_canchooseauto=peuvent choisir d'Auto-
+acl_lists=Config-&-listes dans Filter Groupe
+acl_groups=filtre Groupes
+
+restart_needed=dansguardian besoins redémarrage, demander à quelqu'un de le faire
+restart_forget=redémarrage dansguardian besoins, n'oubliez pas de le faire
+restart_change=Alors modification prendra effet
+reload_needed=dansguardian besoins des groupes/listes de rupture de charge, demander à quelqu'un de le faire
+reload_forget=dansguardian besoins des groupes/listes de rechargement, n'oubliez pas de le faire
+reload_change=Alors modification prendra effet

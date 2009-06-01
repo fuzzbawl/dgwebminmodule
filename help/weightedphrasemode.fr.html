@@ -1,10 +1,34 @@
-<header>Mode Pondération de Phrase</header>
-<pre>
-DansGuardian propose trois modes opératoires:
-
-0 (désactivé)      = ne pas utiliser le mode Pondération.
-1 (activé, normal) = mode Pondération standard.
-2 (on, singulier)  = chaque phrase pondérée trouvée ne compte qu'une fois par page.
-</pre>
+<header>Phrase pondéré mode</header>
+   <div style="max-Width: 40em">
+<p>
+Il existe 3 modes de fonctionnement:
+<ul>
+<li>0 (off) = ne pas utiliser la fonction de pondération à tous les mots.
+<li>1 (sur, normal) = fonctionnement normal pondéré phrase, compter chaque pondérée phrase aussi souvent que cela se produit sur une page web.
+<li>2 (le singulier) = suppléant poids score méthode de calcul, compter chaque phrase pondéré seulement une fois [la première fois], il se produit sur une page web.
+</ul>
+<p>
+Turning pondéré expression caractéristique sera complètement hors lobotomize dansguardian des «véritables»
+(ou du "contenu") filtrage Web à un peu plus de fantaisie (y compris les expressions régulières)
+Filtrage des URL interdites complété par des phrases et la possibilité de modifier le contenu,
+qui n'est pas très différente de beaucoup plus simple des filtres Web.
+<p>
+Dansguardian soutient deux méthodes différentes de calcul des scores de poids,
+la «normale» et la méthode de "singulier" méthode.
+Chaque méthode a ses avantages et ses inconvénients.
+Très bon score et pages Web avec une ou l'autre méthode,
+et très mauvais score pages Web mal avec une ou l'autre méthode,
+mais middling pages mai score
+en dessous de votre seuil d'une seule méthode, mais au-dessus du seuil de l'autre.
+Donc, ne pas changer un système établi dansguardian
+d'utiliser l'autre méthode légère.
+<p>
+Aussi, les deux poids nécessitent des méthodes de cotation mai légèrement différente
+"naughtyness" limites afin de se comporter de façon similaire.
+Si la valeur que vous avez choisi pour "naughtynesslimit" est juste un rough deviner,
+il ne sera pas question.
+Mais si vous avez réglé "naughtynesslimit" dans une marge de seulement 5 ou 10,
+mai-vous besoin de re-régler après vous modifiez le poids scoring method.
 <hr>
+  </div>
 <a href="javascript:window.close()">Fermer la fenêtre</a>
