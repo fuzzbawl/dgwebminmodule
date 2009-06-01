@@ -1,0 +1,26 @@
+# An rsync daemon on the master is enabled by dropping a file similar to this one into 
+#  /etc/xinet.d/rsync on the master system.
+# Such a file will probably either already exist on your system
+#  or will appear automatically after you install rsync.
+# Use something similar to this example file only if no rsync daemon file already exists.
+# DO NOT OVERWRITE AN EXISTING FILE.
+
+##########################################################################################
+# This file may already exist, yet rsyncd is still not enabled 
+#  because the file says 'disable = yes'.
+# If so change just that one line to 'disable = no' to enable the rsync daemon. 
+# Again, DO NOT OVERWRITE AN EXISTING FILE.  
+
+# default: off
+# description: The rsync server is a good addition to an ftp server, 
+#  as it allows crc checksumming etc.
+service rsync
+{
+	disable		= no
+	socket_type     = stream
+	wait            = no
+	user            = root
+	server          = /usr/local/bin/rsync
+	server_args     = --daemon
+	log_on_failure  += USERID
+}

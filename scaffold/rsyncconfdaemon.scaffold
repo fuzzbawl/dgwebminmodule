@@ -1,0 +1,32 @@
+# When the rsync daemon starts up, it reads its configuration from /etc/rsyncd.conf.
+#  If such a file does not exist at all on the master, create it using this one as a model.
+#  But if such a file does already exist on the master, 
+#   just merge the model section [dgconfigdir] below (with your customizations)
+#   into the existing file.
+# DO NOT OVERWRITE AN EXISTING FILE
+
+	motd file = /etc/rsyncd.motd
+
+[dgconfigdir]
+	# specify the correct path of the DansGuardian configuration files 
+	#  on your master system
+	path = /etc/dansguardian
+	#
+	comment = DansGuardian configuration files
+	#
+	# making DansGuardian config files read-only to all remote systems
+	#  (per next line) is recommended
+	read only = yes
+	#
+	# the user the rsync daemon will run as (if not 'read only', 
+	#  use something less risky than 'root')
+	uid = root
+	#
+	# the group the rsync daemon will run as, perhaps the name 
+	#  of the group DansGuardian runs as
+	gid = proxy
+	#
+	list = yes
+	#
+	# for additional security, add 'hosts allow' specifying the
+	#  IP addresses of your slave systems

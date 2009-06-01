@@ -1,0 +1,12 @@
+conf_dir=Full caminho para a DG config (etc.) diretório,7
+pid_file=Full caminho para o arquivo pid DG,8
+binary_file=Full caminho para a DG binário,8
+log_path=Full caminho para a DG log diretório,7
+messages_path=Full caminho para a DG mensagens arquivo (ou literal 'followDansGuardian'),8
+log_format=Format da DG logfile,1,followDansGuardian-followDansGuardian,1-vigor DG Native,2-vigor CSV,3-vigor Squid Nativa (sem Log Analysis),4-vigor TAB Delimited
+restart_cmd=Command para reiniciar DG (se for permitido),3,Módulo built-in-ou-Sistema
+autorestart=Auto reiniciar DG conforme necessário (se permitido),1,0-explícito manual só reiniciar,1-reiniciar automaticamente
+start_cmd=Command para iniciar DG (se for permitido),3,Módulo built-in-ou-Sistema
+stop_cmd=Command parar DG (se for permitido),3,Módulo built-in-ou-Sistema
+autoreload=Auto recarregar DG grupos conforme necessário (se permitido),1,0-recarga manual explícito apenas,1-recarregar automaticamente
+show_fixedlists=Include "fixas" listas (blacklists/phraselists/etc.) em displays,1,0-excluir "fixas" listas de exibição,1-display "fixo" lista demasiado

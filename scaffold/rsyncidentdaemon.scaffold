@@ -1,0 +1,5 @@
+ # If necessary, store this file as /etc/rsyncd.motd on the master system, 
+ #  but DO NOT OVERWRITE AN EXISTING FILE.
+ # If you wish, add things like site information and legal notices here,
+ #  then DELETE THESE LINES, as otherwise they will be displayed.
+Welcome to the RSYNC Daemon on the DansGuardian master system

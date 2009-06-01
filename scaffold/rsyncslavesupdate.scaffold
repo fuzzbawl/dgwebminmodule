@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# NOTE: "multiple filter groups" and "multiple master->slaves" are largely orthogonal.
+# You might have either one without the other, or you might have both, 
+#  or you might have neither.
+# These examples -and the Webmin DansGuardian Module they accompany- 
+#  are designed to eliminate possible cross-interference between 
+#  "multiple filter groups" and "multiple master->slaves".
+
+
+# 1) Store this file where a slave system can easily execute it.
+#  For example if the slave already has /sbin/dansguardian, 
+#   store this file as /sbin/dansguardian.slave.
+#  Also set "execute" permissions on the newly created file.
+
+# 2) Integrate this file into the slave system 
+#  so every time DansGuardian is started on the slave system this is executed too.
+# One way to do this is to modify /etc/init.d/dansguardian on the slave system
+#  slightly by adding one line after
+#   echo -n "Starting dansguardian: " 
+#  to call this script too, for example:
+#  /sbin/dansguardian.slave
+
+NUMBERFGS=5				#<== customize for your system
+DGCONFIGDIR=/etc/dansguardian	 	#<== customize for your slave system
+DGMASTERHOST=portal.yourdomain.tld	#<== customize for your network
+
+logger -i -s -p daemon.warning -t `basename $0` "WARNING - The generic example in $0 must be customized to match individual systems."
+# After customizing this script to match your system,
+#  comment out the safety exit in the safety exit in the next line.
+exit 1 
+
+# -----------------------------------------------------------
+
+ping -w 5 -n -v $DGMASTERHOST >/dev/null 2>&1
+if [[ $? != 0 ]]
+then
+	logger -i -s -p daemon.warning -t `basename $0` "DansGuardian master system '$DGMASTERHOST' is not pingable from DansGuardian slave system '`hostname`' at `date`!"
+	exit 2
+fi
+
+# dansguardian.conf, dansguardianfN.conf, etc.
+# comment out the next line if your slave configurations
+#  may not always be EXACTLY the same as your master configurations
+#  so you don't wish to overwrite the base configuration files
+rsync -v -t -p -o -g $DGMASTERHOST::dgconfigdir/* $DGCONFIGDIR
+
+# shared/base list files
+rsync -v -t -p -o -g $DGMASTERHOST::dgconfigdir/lists/* $DGCONFIGDIR/lists
+
+# list files for each filter group
+FG=1	# starting value (part of loop construct on next line)
+while (true)
+do
+	rsync -v -t -p -o -g $DGMASTERHOST::dgconfigdir/lists/f$FG/* $DGCONFIGDIR/lists/f$FG
+	FG=$(( $FG + 1 ))
+	if [[ $FG > $NUMBERFGS ]]; then break; fi
+done 
+
+# intentionally do NOT overwrite existing files 
+#   (but supply initial files anyway)
+#  this directory (local/) is where to put changes that 
+#   won't be overwritten by the files from the master
+rsync -v -t -p -o -g --ignore-existing $DGMASTERHOST::dgconfigdir/lists/local/* $DGCONFIGDIR/lists/local
+
+# if master has been updated, propagate updates to slaves too
+rsync -v -t -p -o -g --recursive $DGMASTERHOST::dgconfigdir/lists/blacklists/* $DGCONFIGDIR/lists/blacklists
+rsync -v -t -p -o -g --recursive $DGMASTERHOST::dgconfigdir/lists/phraselists/* $DGCONFIGDIR/lists/phraselists

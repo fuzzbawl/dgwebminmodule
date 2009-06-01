@@ -1,0 +1,12 @@
+conf_dir=Full camino a la DG de configuración (etc) directorio,7
+pid_file=Full camino a la DG archivo pid,8
+binary_file=Full camino a la DG binario,8
+log_path=Full camino a la DG de registro de directorio,7
+messages_path=Full camino a la DG de mensajes de archivo (o literal "followDansGuardian '),8
+log_format=Format de la Dirección General de 'log',1,followDansGuardian-followDansGuardian,1-DG vigor nativo,2-CSV vigor,3-Calamar vigor nativo (no de análisis de registro),4-fuerza delimitada por tabuladores
+restart_cmd=Command para reiniciar la Dirección General (si se permite),3,módulo incorporado en el sistema
+autorestart=Auto reiniciar la Dirección General según sea necesario (si lo permite),1,0-explícito manual de reiniciar sólo,1-reinicie automáticamente
+start_cmd=Command para iniciar la DG (si se permite),3,módulo incorporado en el sistema
+stop_cmd=Command para poner fin a la Dirección General (si se permite),3,módulo incorporado en el sistema
+autoreload=Auto recargar la DG grupos,según sea necesario (si se permite),1,0-explícito manual de recarga sólo,1-recarga automáticamente
+show_fixedlists=Include "fijos" listas (blacklists/phraselists/etc.) muestra en,1,0-excluir "fijos" listas de pantalla,1-pantalla "fijos" listas

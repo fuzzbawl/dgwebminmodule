@@ -1,0 +1,61 @@
+#!/bin/bash
+
+#################################################################
+# You can produce a DansGuardian report
+# using Webmin but UNATTENTED (i.e. purely batch/automatic)
+#
+# Change the first variable below to the URL you usually 
+# use to access Webmin interactively.
+# Then change the second and third variables below to the
+# Webmin user that simulates a logon to run the report.
+# (Doing this unfortunately exposes a password in cleartext,
+# so create a user for no other purpose than running DG reports
+# and take away almost all the user's permissions
+# so the user can't do anything other than run reports.)
+#
+# As this will operate completely unattended,
+# you can launch it any way and any time you wish,
+# including as a 'cron' job.
+#################################################################
+
+#################################################################
+# customize these to match your environment
+WEBMINBASEURL=https://logserver:10000
+#  do NOT include a trailing slash - although it may look better, 
+#   it won't work in this particular script
+WEBMINUSERNAME=logonly
+WEBMINPASSWORD=kilroywashere
+#################################################################
+
+
+# the following are just scripting convenience symbols
+# you do _not_ need to change them
+# (in fact in most cases you _shouldn't_ change them)
+LOGFILE=webminbatch.log
+REPORTFILE=dgreport
+
+wget --save-cookies=cookies --keep-session-cookies --no-check-certificate --append-output=$LOGFILE --output-document=/dev/null "$WEBMINBASEURL/dansguardian/"
+
+wget --load-cookies=cookies --save-cookies=cookies --keep-session-cookies --no-check-certificate --append-output=$LOGFILE --output-document=/dev/null "$WEBMINBASEURL/session_login.cgi?user=$WEBMINUSERNAME&pass=$WEBMINPASSWORD"
+
+# the following is actually executable code 
+# (although it may look like a symbol definition)
+# do not change it lightly
+TODAY=`date '+sSDY=%Y&sSDM=%m&sSDD=%d&sEDY=%Y&sEDM=%m&sEDD=%d'`
+
+# Experts can use the parameters in the next line
+# to customize the report that will be produced.
+# However simply using the default report
+# (longer, not-hyperlinked, Allowed and Denied 
+# summary tables of all activity today)
+# should be adequate for most purposes.
+wget --load-cookies=cookies --save-cookies=cookies --keep-session-cookies --no-check-certificate --append-output=$LOGFILE --output-document=$REPORTFILE "$WEBMINBASEURL/dansguardian/logs.cgi?a=i&$TODAY&sIP=&sUN=&sSN=&sCAT=&sMIME=&sGRP=&sAGT=&sWN=&sWD=&sSumAlw=on&sSumDen=on&sSumExc=off&sSumCnt=50&sD=off&sG=off&sR=off&sZ=off&sL=off&sTITLE=Web+Filter+Usage+Report"
+# (sTITLE identifies this as a "batch" operation - no sTITLE ==> "interactive")
+
+# The report has now been created as an (HTML) file
+#
+# Add below your instructions to distribute it
+
+
+
+#
