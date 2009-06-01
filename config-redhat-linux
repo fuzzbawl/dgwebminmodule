@@ -1,8 +1,0 @@
-conf_dir=/usr/local/etc/dansguardian/
-pid_file=/var/run/dansguardian.pid
-binary_file=/usr/sbin/dansguardian
-log_path=/var/log/dansguardian/
-restart_type=1
-restart_cmd=/etc/rc.d/init.d/dansguardian restart
-start_cmd=/etc/rc.d/init.d/dansguardian start
-stop_cmd=/etc/rc.d/init.d/dansguardian stop
