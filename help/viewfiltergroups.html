@@ -1,0 +1,42 @@
+<header>How Config-&amp;-List Files For Multiple Filter Groups Are Set Up</header>
+  <div style="max-Width: 40em">
+<p>
+For easier maintenance, implementing <i>multiple filter groups</i>
+often also involves linking the config and list files in a particular way.
+The setup process, which can be rather daunting,
+can be done automatically by one of these DansGuardian management tools.
+It is usually done just once.
+<p>
+Sometimes an administrator wants to know
+if the process has already been done,
+and if so which options were selected.
+This addresses that issue
+by displaying the options that were used
+to set up the links between config&amp;list files
+for multiple filter groups.
+<p>
+The possible general schemes are:
+<ul style='list-style-type: none'>
+<li>1 : nested list files
+<p>this means each list file will affect not only
+its own filter group but also all other filter groups
+below (or above) it. So for example if your filter groups are 
+"temps", "employees", "managers", and "executives", any 
+change to the exception... lists for "managers" will also 
+automatically affect "executives", and any changes to the
+banned... lists for "managers" will also automatically
+affect "employees" and "temps".
+<li>2 : separate list files
+<p>this means each filter group will be given
+own completely independent lists, 
+which will neither affect nor be affected
+by any other filter group 
+<li>3 : common list files
+<p> this means each filter group has its own lists,
+yet it <u>also</u> references a list which is common
+to all filter groups. In other words there are common
+"base" lists on which individual filter groups then elaborate.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

@@ -1,0 +1,37 @@
+<header>Comment Le filtre par défaut du Groupe (F1) qui sera utilisée</header>
+   <div style="max-Width: 40em">
+<p>
+C'est une option pratique pour Webmin etc
+Même si elle est stockée dans dansguardian.conf,
+il signifie rien <u></u> dansguardian à lui-même.
+<p>
+Grâce à de multiples filtergroups,
+chaque fois que dansguardian ne peut pas identifier un utilisateur,
+que l'utilisateur est affecté à la "par défaut" filtre groupe - f1.
+L'incapacité d'identifier l'utilisateur peut signifier
+il s'agit d'un nouvel utilisateur,
+ou il s'agit d'un utilisateur guest,
+ou la configuration n'est pas complète,
+ou il y avait une erreur d'exécution,
+ou ...
+<p>
+Dans de nombreux cas, le filtre par défaut du groupe est donnée
+pas accès à Internet à tous.
+De cette façon, s'il ya un problème,
+l'utilisateur sera présent à tout de suite
+car ils ne peuvent accéder au Web dans l'intervalle.
+Dans certains autres cas, le filtre par défaut de groupe
+est utilisé pour "la plupart des" utilisateurs. Cela réduit la
+taille de votre configuration car vous avez seulement besoin
+à la liste des utilisateurs qui devraient <u>pas</u>
+être attribué à la valeur par défaut du filtre de groupe.
+<p>
+Cette option indique au programme d'installation qui filtre les groupes de la
+deux utilisations possibles du filtre par défaut du groupe que vous souhaitez utiliser.
+Si elle est le / cochée, le filtre par défaut de groupe ne sera donnée à tous les accès au Web.
+Si, en revanche, il est off / décochée,
+le filtre par défaut du groupe sera disponible pour plus de la configuration.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

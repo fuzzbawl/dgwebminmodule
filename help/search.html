@@ -1,0 +1,61 @@
+<header>Search for Phrase Words (or Domain or URL or Regexp)</header>
+  <div style="max-Width: 40em">
+  <p>
+Search for something to find out whether or not
+it's mentioned somewhere in the lists.
+If it is, find out which category mentions it.
+And find out for which filter groups that phrase is currently enabled.
+<p>
+Comments that include the search terms are listed
+along with non-comment lines, as the comments often
+contain relevant information.
+For example you may have recorded in a comment 
+the reason why a particular
+item is <u>not</u> enabled for a particular filter group.
+<p>
+Many different kinds of things can be searched for:
+a word or phrase, a domain or host name,
+a URL, a pattern (regular expression) in a URL,
+or a pattern (regular expression) in modification instructions.
+In most cases (but not a pattern 
+in modification instructions) just type what you're looking for
+and the program will figure out what it is.
+On the occasions when you want your
+search terms to be interpreted a particular way
+rather than relying on the automatic detection,
+click the appropriate selection at the right.
+<p>
+Searches are intelligent about which files to look in.
+They search different files depending on what 
+kind of thing you're looking for. For example
+words should be looked for in all the phraselist files,
+but a URL pattern could not possibly be in the phraslist files.
+<p>
+On the results display, for each list file
+every filter group is shown with an indication
+of whether or not it currently uses that file.
+&radic; indicates the list is currently used by that filter group,
+&not; indicate the list is not currently used by that filter group.
+This allows you to determine very quickly
+whether or not a particular restriction is 
+enabled for a particular filter group. 
+<hr>
+<p>
+Searches can also be performed on a computer
+other than the
+one that runs production DansGuardian,
+provided only that a copy of the files to be searched
+is present.
+However the list of filter groups and the indication
+of whether or not that filter group currently uses
+the file that was found
+may be inaccurate or incomplete. 
+<p>
+And of course if the copy of the files to be searched
+(phraselists, blacklists, config lists, etc.) 
+does not match the original on the computer that
+runs production DansGuardian,
+the display of what was found may be misleading. 
+<hr>
+ </div>
+<a href="javascript:window.close()">Close Window</a>

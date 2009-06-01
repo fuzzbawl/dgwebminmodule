@@ -1,0 +1,24 @@
+<header>Uso Não-padrão Delimitador Quando Constructing URLs para a CGI Reporting Programa</header>
+   <div style="max-Width: 40em">
+<p>
+A não-padrão delimitador (algo diferente do habitual <code>&amp;</code> e <code>=</code>)
+só será usada em conjunto com <i>accessdeniedaddress</i>.
+Por isso, não terá efeito se <i>reportinglevel</i> é 3.
+<p>
+Para facilitar a plena incorporação proibido URL
+no URL que é passado para <i>accessdeniedaddress</i> sem causar confusão,
+o delimitador dentro da consulta parte do URL pode usar as duas seqüências de caracteres
+<code>::</code> (em vez de <code>&amp; </code)
+e <code>==</code> (em vez de <code>=</code>.
+Seu dansguardian.pl-como script CGI irá naturalmente têm de analisar a consulta parte do URL
+utilizando estes suplentes delimitadores.
+<p>
+Vire sobre este caso requer que o script CGI
+ou achar que torna mais fácil codificação seu script CGI.
+Nota ainda que, embora este resolve o problema da confusão
+e pode ser compatível com a maioria dos programas CGI,
+É totalmente não-padrão e não será suportado
+por utilidade subrotinas ou bibliotecas.
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

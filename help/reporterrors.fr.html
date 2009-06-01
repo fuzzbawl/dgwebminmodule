@@ -1,0 +1,77 @@
+<header>Reporting "Access Denied" Pour les utilisateurs</header>
+   <div style="max-Width: 40em">
+<p>
+Dansguardian a deux méthodes différentes pour rendre l'accès est refusé aux utilisateurs.
+(Ces paramètres sont de présenter un "accès refusé" à la page des utilisateurs.
+Ils n'ont pas d'effet sur ce qui se passe dans le journal ou comment.)
+<p>
+Dans la plupart des cas, vous devez utiliser la plus récente et la plus rapide et plus propre
+HTML File méthode.
+Il n'a pas besoin d'un serveur web ou la mise en place d'un programme CGI,
+et il est plus facile de personnaliser la page d'accès refusé.
+Set <i>reportinglevel</i> à 3,
+permettre <i>accessdeniedaddress</i> pour être ignorée,
+et laissez <i>htmltemplate</i> par défaut à son habitude
+<code>PREFIX / <i>languagedir</i> / <i>langue</i> / template.html</code>.
+<p>
+Utilisez l'ancienne méthode de pointage <i>accessdeniedaddress</i>
+à votre propre installation d'un "dansguardian.pl"-like
+script sur votre propre serveur web seulement dans des situations inhabituelles
+des circonstances particulières dans lesquelles vous avez besoin d'un maximum de flexibilité.
+<p>
+Bien que par défaut, tous les groupes d'utiliser le filtre de mêmes paramètres
+rapport à l'accès refusé,
+il est possible pour chaque filtre de groupe à avoir ses propres réglages.
+Par exemple, il est possible de faire filtrer les différents groupes
+utiliser différents <i>htmltemplate</i> des fichiers, y compris certains un "bypass"
+installation et d'autres pas.
+Dans le cas habituel dans lequel remplace ne sont pas nécessaires,
+vient préciser les paramètres une fois dans dansguardian.conf.
+Pour fournir les différents paramètres de filtre pour les différents groupes,
+préciser les paramètres de l'individu dansguardianf <i>N</i>. conf
+fichiers.
+<p>
+Les paramètres sont:
+<ul style='list-style-type: none'>
+Niveau <li><u>Reporting</u>
+<ul style='list-style-type: none'>
+<li>-1 = journal, mais ne pas bloquer (mode furtif)
+<li>0 = Juste dire "Accès refusé"
+<li>1 = rapport, mais pourquoi ne pas nier ce que la phrase
+<li>2 = Rapport pleinement
+<li>3 = Utilisez le modèle de fichier HTML (Access Denied Adresse sera ignorée)
+</ul>
+La valeur par défaut est 3, qui précise en utilisant un fichier HTML
+(plutôt que d'un programme CGI)
+et est généralement le cas.
+<p>
+<li><u>HTML Fichier modèle Path</u>
+<br>
+Seulement utile lorsque <i>reportinglevel</i> est fixée à 3
+<u>et</u> filtre certains groupes ont leur propre page d'accès refusé.
+Permet le fichier HTML à lire sur un autre emplacement
+plutôt que de l'habituel
+<code>PREFIX / <i>languagedir</i> / <i>langue</i> / template.html</code>.
+<br>
+Si spécifié, ce doit être un chemin complet à partir de "/".
+Bien que partielle des chemins mai cause pas une erreur de syntaxe dans tous les cas,
+à la fin, ils ne fonctionnent pas à droite.
+<p>
+<li><u>Access Denied Adresse</u>
+<br>
+Utilisé uniquement lorsque <i>reportinglevel</i> est <u>pas</u> set à 3,
+ignoré sinon.
+L'adresse de votre déclaration script CGI qui vous avez installé et l'exécution
+sur votre propre serveur Web.
+Votre serveur web n'a aucun lien avec dansguardian
+autres que celles prévues par cette URL.
+Ainsi, votre serveur web mai mai ou ne pas être en cours d'exécution sur
+sur le même ordinateur que votre dansguardian.
+<br>
+Cela doit être une URL commençant par "http://".
+Bien que partielle URL mai de ne pas provoquer une erreur de syntaxe dans tous les cas,
+à la fin, ils ne fonctionnent pas à droite.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

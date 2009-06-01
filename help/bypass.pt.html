@@ -1,0 +1,29 @@
+<header>temporária negado / Infected Page Bypass</header>
+   <div style="max-Width: 40em">
+<p>
+Isto fornece um link na página negado para contornar a proibição de alguns minutos. Ser
+seguro que usa um aleatório hashed secreta gerada pelo demónio inicialização. Você define o
+número de segundos para o bypass vai funcionar antes de o negar irá aparecer novamente.
+<p>
+Para permitir que o link da página negou a aparecer, você precisará mudar esta opção, não só
+mas também editar a template.html.
+<p>
+Os valores possíveis são:
+<ul style='list-style-type: none'>
+<li>0: desabilitar a opção ignorar totalmente
+<li>-1: permitir que a derivação opção, mas exigem a separação dansguardian.pl-como programa CGI
+para gerar um link válido
+(para fazer bypass chave separadas geração possível,
+o <i>bypasskey</i> opção não deve ser um valor aleatório)
+<li><i>n</i>: segundos para que o bypass opção permanecerá ativado
+(exemplo: 300 é de 5 minutos)
+<p>
+A mesma funcionalidade está prevista para as páginas que
+vírus são infectadas (em vez de negada por causa do conteúdo)
+pela configuração opção <i>infectedbypass</i>,
+com as mesmas configurações possíveis.
+</ul>
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

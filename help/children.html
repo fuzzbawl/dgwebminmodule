@@ -1,0 +1,122 @@
+<header>Child Processes</header>
+  <div style="max-Width: 40em">
+<p>
+Most applications that continuously handle a large
+number of requests
+have some sort of subprocess mechanism.
+With each request being handled by a different subprocess,
+even if something unexpected 
+causes one of the requests to go dramatically awry,
+it will just hang that one subprocess
+but not the whole application.
+As it happens, each subprocess of DansGuardian for handling a request
+is visible to the OS as a separate "child process".
+(A couple of other DansGuardian processes
+will be visible to the OS too.)
+<p>
+In DansGuardian, there are several parameters related to
+the number of "child processes" that handle individual requests.
+Appropriate tuning of these parameters might affect performance.
+It's roughly the case that increasing the numbers will speed
+up the operation of large systems (up to a point). 
+But larger numbers will use more memory,
+and if the total size of all DansGuardian processes plus Squid
+spills over real memory into virtual memory, 
+speed may noticeably decrease. 
+So there's a balance to be struck.
+<p>
+You will probably want to tune <i>maxchildren</i>
+to be about the same as your peak number of simultaneous users.
+And you may want to tune <i>minsparechildren</i> too so it's
+about the number of users that typically start
+activity at the same time. 
+If you increase either of these parameters, 
+you may need to also increase the other parameters proportionally.
+<p>
+The parameters include:
+<ul style='list-style-type: none'>
+<li><u>Prefork Children</u>
+<br>
+Sets the minimum number of child processes to spawn all at once
+whenever DansGuardian needs to spawn at least one.
+Spawning several subprocesses all at once
+shares some overhead and prevents the silliness
+of spawing subprocesses one at a time
+even though several are needed.
+<br>
+On large sites you might want to try 10.
+<br>
+Default = 6
+<p>
+<li><u>Minimum Spare Children</u>
+<br>
+Sets the minimum number of child processes to be kept 
+ready in reserve in case a whole bunch of users
+arrive all at once.
+<br>
+On large sites you might want to try 8.
+<br>
+Default = 4
+<p>
+<li><u>Minimum Children</u>
+<br>
+Sets the minimum number of processes to keep 
+both to handle active requests and to by ready in reserve for future requests.
+This controls how many child processes will be
+spawned when DansGuardian first starts up.
+It effectively controls how small the footprint
+of a system that's momentarily inactive is.
+<br>
+On large sites you might want to try 32.
+<br>
+Default = 8
+<p>
+<li><u>Maximum Spare Children</u>
+<br>
+Sets the maximum number of processes to keep in reserve
+for future requests even though they aren't doing anything at the moment.
+When more than this many processes are inactive,
+DansGuardian will cull some of them.
+This is how much capability DansGuardian 
+should keep ready at hand after a load spike.
+For optimum performance this might need to be about the same
+as the peak number of users that ever start activity all at once.
+<br>
+On large sites you might want to try 64.
+<br>
+Default = 32
+<p>
+<li><u>Maximum Children</u>
+<br>
+Sets the <b>maximum</b> number of subprocesses that can exist,
+This number is not simply infinite for two reasons:
+<ol>
+<li>A limit will <b>prevent DoS attacks</b> from 
+killing the server with too many spawned processes. 
+<li>A limit will <b>prevent RAM exhaustion</b>
+so the server won't thrash itself to death 
+even under very high load.
+</ol>
+On large sites you might want to double or triple this number.
+<p>
+<li><u>Maximum Age of Children</u>
+<br>
+Sets the maximum age of a child process before DansGuardian croaks it.
+This is the number of connections they handle before exiting.
+Periodically getting rid of existing child processes and spawning new ones
+is a safety mechanism in case there are "memory leaks" 
+or other bugs in the child processes
+that only become visible when the process runs for a very long time.
+<br>
+If your system is plagued by instability,
+try reducing this parameter.
+If stability is not an issue but peak performance is,
+try increasing this parameter.
+<br>
+On large sites you might want to try 10000.
+<br>
+Default = 500
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

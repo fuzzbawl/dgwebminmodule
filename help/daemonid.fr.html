@@ -1,0 +1,25 @@
+<header>Daemon User / Group</header>
+   <div style="max-Width: 40em">
+Comme tous les processus,
+le serveur dansguardian / daemon
+a un <u>utilisateur</u> et <u>groupe</u>.
+L'utilisateur ou le groupe de chaque processus
+contrôle la manière dont le système d'exploitation qui lui accorde des autorisations,
+en particulier l'accès aux différents fichiers et répertoires.
+Typiquement le fonctionnement est simple
+si dansguardian, son proxy local backend (par exemple Squid),
+et tous les anti-virus démon
+fonctionnent tous sous le même que l'utilisateur / groupe
+<p>
+Si ce n'est pas spécifié, dansguardian par défaut
+à fonctionner comme groupe et quel que soit l'utilisateur
+ont été construits en
+(en général soit nobody / personne ou nouser / nogroup).
+Il est probablement préférable de préciser explititly
+certains utilisateurs userid / groupid
+de chance que les permissions de fichiers en tant que de besoin
+à faire de la construction dans des milieux de travail.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

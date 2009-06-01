@@ -1,0 +1,65 @@
+<header>Modify Contents Of A List</header>
+  <div style="max-Width: 40em">
+<p>
+Much of the frequently-changed configuration of DansGuardian is in the form of "lists".
+Frequently the lists are quite lengthy. 
+There are lists of many things, including sites, URLs, extensions, and phrases.
+<p>
+Most of the lists are used to "pre-vett" user requests
+before actually fetching the requested page
+and vetting its content.
+Lists of items that should always be fetched and
+should bypass content checking start with 'exception...'.
+Lists of items that should never be fetched
+(and so content checking never performed) start with 'banned...'.
+Lists of items that should always be fetched 
+but should then be subjected to content checking anyway start with 'grey...'.
+<p>
+By manipulating the content of these lists,
+you can change the behavior of your DansGuardian dramatically.
+Usually routine administration of a DansGuardian filter
+will consist exclusively of changing the content of various lists.
+<p>
+The location of each list can be controlled with a config option.
+But as there's never any good reason 
+to use anything other than the default name and location of each list,
+such config options are not even listed by this tool.
+<p>
+After you modify a list, 
+DansGuardian will continue to behave the old way
+until it's told to re-read the list files.
+You can instruct DansGuardian to start using the modified list right away
+and without interrupting existing user&hArr;web connections,
+by using DansGuardian's "gentle" reload.
+Depending on a Webmin DansGuardian module option
+(and on your Webmin permissions),
+Webmin may automatically tell DG to re-read the list files
+for you every time you change any of the list files.
+If so, a <span style='color: magenta'>magenta message</span>
+will tell you the reload has been done for you.
+<p>
+If the soft reload doesn't happen automatically,
+you may need to explicitly execute one.
+Soft reload is available through this Webmin DansGuardian Module interface
+(so there's no need to use any other interface or to exit and come back).
+It's available through a tab or hyperlink on every page,
+and is named something like "Reload DG Groups".
+<hr>
+If you add a new .Include'd list,
+give it a name whose left part is the name of 
+its parent list (the list that .Include's it).
+For example, if you add a special file for some 'bannedsitelist' items,
+name it something like 'bannedsitelistproxies'.
+(Notice the pattern '<i>bannedsitelist</i>proxies'.)
+<p>
+New files named in this way will be given
+the same file access permissions
+as their parent list,
+and will be searched at the same time as their parent list.
+If you create a new list file but name it some other way,
+searches may not find items in the new file,
+and Webmin permissions may not allow you to edit the file,
+effectively making it useless,
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

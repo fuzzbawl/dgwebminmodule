@@ -1,0 +1,364 @@
+<header>Analyser dansguardian Logfiles</header>
+<div style="max-Width: 40em">
+<p>
+<small><i>dansguardian&nbsp;Logfile&nbsp;Analyzer
+a été écrit par Jimmy&nbsp;Myrick
+comme un programme autonome et libérée Octobre&nbsp;10&nbsp;2005.
+Le programme a ensuite été incorporée dans
+Webmin&nbsp;dansguardian&nbsp;Module,
+où elle a été renforcée par Chuck&nbsp;Kollars
+en Janvier&nbsp;2009.</i></small>
+<p>
+<small><i>requêtes à propos de cette Webmin dansguardian&nbsp;Module
+sont les bienvenus sur la même liste, comme des requêtes
+dansguardian sur lui-même
+(actuellement, via http://tech.groups.yahoo.com/group/dansguardian/).</i></small>
+<br>
+<h4>Overview</h4>
+<p>
+Ce programme permettra d'examiner les fichiers journaux créés par filtrage dansguardian
+logiciel (http://www.dansguardian.org).
+<p>
+Différents moyens de filtrage (de recherche) les critères peuvent être spécifiés.
+Le filtrage (de recherche) sont les critères
+cumulative (additionnés). Par exemple, en spécifiant une plage de dates
+et une adresse IP ne sera <u>entrées qui correspondent à la fois</u> critères. Si
+vous voulez voir toutes les entrées du journal, ne spécifient pas de critères de filtrage à tous les
+(changement de la date portée à «tous» et d'accepter tous les autres paramètres par défaut).
+<p>
+Pas de tri est fait sur les résultats. Cela est d'assurer un
+recherche rapide, utiliser seulement un montant raisonnable de la mémoire,
+et de «nourrir» le navigateur peridically de l'information
+si un délai ne se produit pas. Qu'est-ce que cela signifie, c'est que lorsque organisé
+dans l'ordre alphabétique par nom, vos fichiers de log
+devrait aussi être aussi être dans l'ordre chronologique.
+Ce programme suppose que tous les compressé (. Gz) fichiers log
+sont dans l'ordre alphabétique, après tout non les fichiers journaux,
+mai et de ne pas fonctionner proprement, si cette hypothèse n'est pas satisfaite.
+<p>
+Par rapport aux versions précédentes, les options ont été simplifiés
+un peu de temps, les rapports a été sensiblement élargi.
+Comme le coût de ces changements, d'analyse de fichier journal nécessite désormais toujours
+considérablement la vitesse du processeur et de RAM. Cette version de dansguardian
+Log File Analysis mai ne fonctionne pas bien sur les petits ordinateurs lents.
+<h4>Description</h4>
+<h5>Matches RegExp</h5>
+<p>
+Chaque fois que les entrées des journaux individuels sont affichés,
+expression régulière match complet d'information
+peuvent également être inclus dans la fenêtre d'affichage
+si une expression régulière a été activé.
+L'appariement partie de l'URL sera affiché dans une couleur différente
+que le reste de l'URL,
+ainsi vous pouvez voir exactement quelle partie de l'URL
+l'expression régulière correspondant.
+L'expression régulière seront également affichés.
+L'écran même de tenter de montrer
+correspondant à "des mots", à condition que les mots peuvent être identifiés.
+<p>
+Bien que l'affichage d'une expression régulière correspondant à l'information
+est très complet,
+il utilise uniquement les informations du journal
+et n'a donc aucune incidence sur la performance dansguardian.
+Le journal d'information est généralement passé
+car il n'a pas beaucoup de sens pour l'homme.
+En fait, il est tellement complet qu'il peut même être utilisé comme ceci
+à reconstruire complètement la réalité matches.
+<h5>Langues</h5>
+<p>
+La langue du fichier journal est traité et indiqués séparément
+de la langue de ce programme (module Webmin dansguardian outil d'analyse de fichier journal) lui-même.
+En d'autres termes, il ya <i>deux</i> de langues
+qui contrôlent les différents aspects de la langue utilisée par ce
+Programme d'analyse de fichier journal.
+<p>
+Habituellement, les fichiers journaux sont censés être dans n'importe quelle langue est spécifié
+dans dansguardian.conf.
+Donc, chaque fois que le traitement des fichiers journaux écrits par dansguardian,
+Ce fichier journal Analyzer utilise tous la même langue de traduction
+dansguardian que lui-même.
+Si le fichier de configuration de dansguardian n'est pas disponible
+dans la situation normale
+-comme c'est parfois le cas lors de l'exécution de cette analyse de fichier journal
+sur un autre ordinateur que dansguardian -
+le chemin d'accès au fichier journal de langue fichier de traduction
+peut être spécifiée directement au lieu
+Webmin dansguardian dans "le module de configuration".
+(En tout cas, vous devrez sans doute
+copier le fichier de traduction de langue dansguardian
+à l'ordinateur où vous exécutez Webmin,
+peut-être dans le même lieu ou peut-être dans un emplacement différent.)
+<p>
+Langue qui est spécifique à ce programme (analyse de fichier journal) lui-même
+(plutôt que d'origine avec dansguardian et figurant dans les fichiers journaux)
+est assurée par le mécanisme de la langue ordinaire Webmin.
+<h5>quel ordinateur</h5>
+<p>
+Cette version de l'analyseur de fichier journal dansguardian
+<i>ne pas</i> besoin d'être exécuté sur le même ordinateur
+qui fonctionne sur dansguardian.
+Il doit
+<ul>
+<li>une copie des fichiers de log produit par dansguardian à analyser
+<li>une copie du fichier de traduction des messages dansguardian
+pour la langue qui a été utilisée par dansguardian quand il a créé les fichiers de log
+<li>dans de nombreux cas, une copie de dansguardian.conf
+<li>Webmin un cadre de travail et ce module Webmin dansguardian
+</ul>
+Il n'est pas besoin d'un cours d'exécution ou de la copie runable dansguardian binaire.
+Elle n'est pas non plus besoin de rien de tout dansguardian distribution d'archive.
+<p>
+Souvent, la façon la plus simple pour copier tous les fichiers de configuration nécessaires (et plus)
+est de simplement copier tous &lt;marmonnent&gt;/etc/dansguardian
+<u>seulement à une profondeur de trois</u>.
+Une copie de pleine profondeur comporterait les phraselists et de listes noires.
+Il travail, mais il serait trop grand et lourd.
+<h5>Batch Opération</h5>
+<p>
+Bien que ce journal outil d'analyse est généralement utilisé interactivement,
+il est aussi possible de lancer et de distribuer ces rapports
+sans surveillance dans un mode batch.
+Un exemple de script batch pour le fonctionnement
+est inclus dans la distribution de
+ce module Webmin.
+On peut y accéder facilement via l'hyperlien au bas de la
+rapport de menu.
+Instructions pour la personnalisation et l'utilisation sont inclus dans les commentaires
+dans ce fichier de script shell.
+<h5>comprimé Log Files</h5>
+<p>
+Ce programme peut lire et de traiter directement compressé (zippé)
+fichiers de log,
+à condition qu'ils soient présents et que vous cochez l'option de les inclure.
+Il n'y a aucune raison pour décompresser les fichiers de log
+ou d'utiliser tout autre outil de même que celui-ci.
+<p>
+Compressée des fichiers de log sont ignorées <i>par défaut</i>
+sur l'hypothèse qu'ils sont les restes de la rotation du fichier log
+et ne sont pas pertinentes pour le rapport actuel.
+Si cette opération par défaut ne répond pas à vos besoins,
+vous pouvez remplacer par une boîte de contrôle seulement.
+<p>
+Ce programme suppose que l'ordre alphabétique,
+non tous les fichiers journaux sont compressés avant tout les fichiers de log.
+C'est le cas de régimes de rotation connue log.
+<h5>configuration</h5>
+<p>
+Cet outil prend la suite de paramètres de configuration.
+Il mai de ne pas produire les résultats complets de billes de bois 
+qui ont été produites en utilisant d'autres configurations.
+<ul style='list-style-type: none'>
+<li>logexceptionhits=2 (ou 1)
+<li>showweightedfound=on
+<li>LogLevel=2 ou LogLevel=3
+<li>logfileformat=1(natif) ou logfileformat=2(CSV) ou logfileformat=4(délimité par des tabulations)
+</ul>
+<p>
+Ces autres paramètres de configuration mai également affecter les
+l'apparence ou le contenu du journal d'analyse des rapports.
+Les rapports de s'adapter à toute la valeur de ces options,
+changer l'apparence si nécessaire.
+<ul style='list-style-type: none'>
+<li>loguseragent
+<li>anonymizelogs
+<li>maxlogitemlength
+<li>logclienthostnames
+</ul>
+<h4>Menu - Demande de filtres</h4>
+<p>
+Ils vous permettent de restreindre vos rapports à des sous-entrées du journal.
+Seules les entrées du journal qui passent tous les filtres spécifié
+seront inclus dans les rapports.
+<h5>Dates</h5>
+<p>
+Sélectionnez les dates qui limitent les entrées du journal qui sera inclus dans le rapport.
+Si spécifié, la date de début exclut toutes les entrées du journal, avant cette date,
+(date exacte résultats sont inclus).
+Si spécifié, la date de fin exclut toutes les entrées du journal après cette date
+(date exacte résultats sont inclus).
+Si les deux dates de début et de fin sont indiquées,
+toutes les entrées du journal en dehors de cette période sera exclue.
+Sélection TOUS dans l'un des champs de date effectivement
+éliminer, soit la date de début ou de la date de fin de restriction.
+<p>
+Une technique consiste à préciser la même date
+à la fois de début et de fin.
+Cela a pour effet d'inclure dans le rapport
+uniquement les entrées du journal de ce jour.
+<h5>Adresse IP</h5>
+<p>
+Entrez une adresse IPv4 à correspondre à la source (navigateur) ordinateur.
+<br>Exemple: 10.0.0.1
+<p>
+Ou entrer une adresse IPv4 / masque pour tous les ordinateurs sur l'ensemble d'un sous-réseau.
+<br>Exemple: 10.0.0.1/24 (ou équivalent 10.0.0.1/255.255.255.0)
+<h5>Nom d'utilisateur</h5>
+<p>
+Entrez un nom d'utilisateur de match.
+Une forme d'authentification doit être activé dans dansguardian pour que cela fonctionne.
+Si les noms d'utilisateurs ne sont pas affichées lors de la recherche sans critères,
+puis auth n'est probablement pas activé.
+Se reporter à des instructions sur la façon de faire.
+<p>
+Si les noms d'utilisateurs sont imprimées que les adresses IP,
+auth puis par ordinateur a été activé dans dansguardian.
+Ce filtre fonctionne si vous spécifiez une adresse IP,
+mais il ne fera rien de plus (et parfois moins)
+que la précédente adresse IP de filtre.
+<h5>partielle de chaîne d'agent</h5>
+<p>
+Pour extraire uniquement les demandes d'un type particulier de source,
+entrer dans un extrait de texte qui se produit dans la chaîne de l'agent de ce type de source
+mais pas dans d'autres chaînes de l'agent.
+Les matchs sont insensibles à la casse.
+Un extrait d'être jumelés doivent être une seule phrase contiguë
+dans l'ordre exact précisé.
+Comme agent HTTP chaînes ne sont pas normalisés
+et sont extrêmement variables,
+à savoir ce que d'entrer
+vous aurez habituellement besoin de faire tourner un pré-rapport
+demander l'affichage de l'agent d'information pour les demandes individuelles,
+puis essayer de trouver une chaîne qui sélectionne les demandes qui vous intéresse
+mais pas d'autres demandes.
+<p>
+Voici quelques exemples:
+La chaîne 'Mozilla' permet de sélectionner tous Netscape, Mozilla, Firefox, et de la mer Monkey navigateurs.
+La chaîne 'Firefox/1.5.0.1' choisira une des anciennes version de Firefox navigateurs.
+La chaîne 'Gecko' permet de sélectionner tous les navigateurs qui utilisent une technologie d'affichage.
+La chaîne 'Windows' dans la plupart des cas de sélectionner n'importe quel navigateur fonctionnant sur une plate-forme Windows, mais pas une plate-forme Macintosh ou Linux.
+Rappelez-vous qu'il est assez facile pour les
+toute chaîne de match aussi accidentellement plus de demandes que de ceux que vous avez pour but de sélectionner.
+Et rappelez-vous que certaines chaînes, notamment celles qui donnent le type ou la version OS -
+mai avec certains navigateurs mais pas avec les autres.
+<p>
+Dans tous les cas, d'autres navigateurs qui sont "semblant" d'être celui que vous voulez sélectionner
+seront également inclus dans les matches.
+Comme presque tous les navigateurs permettent à l'utilisateur de spécifier un autre agent de chaîne à être falsifiés,
+ces résultats ne peuvent pas être définitive et ne devrait jamais être interprétée comme certains.
+Heureusement, dans la pratique, peu d'utilisateurs toujours indiquer un autre agent string
+même si leur navigateur accepte un.
+Ainsi, vous pouvez utiliser l'agent string matches pour obtenir une
+bon sens de ce que sont les navigateurs utilisés sur votre réseau,
+même si vous ne pouvez pas être sûr, dans chaque cas.
+<h5>Poids</h5>
+<p>
+Choisissez une direction (supérieure ou égale, ou inférieure ou égale)
+alors entrer un score numérique.
+Les demandes qui ne sont pas numérisées phrase (généralement parce que
+ils ont été exclus ou refusé en fonction de leur URL)
+sont traités comme si leur poids / score était de 0.
+<h5>catégorie, type MIME, Filtre Groupe</h5>
+<p>
+Utilisez les listes déroulantes à droite pour sélectionner ce qui correspond à.
+Il sera copié dans le champ texte à gauche
+lorsque vous sélectionnez un élément dans la liste déroulante, en cliquant dessus.
+<p>
+Les listes déroulantes présenter ce que la
+effectivement été vu dans vos journaux,
+afin qu'ils offrent toutes les options que vous voulez.
+Si les listes déroulantes semblent incomplètes,
+lancer le rapport, une fois sans ce filtre,
+puis revenir en arrière et se préparent à lancer une deuxième fois.
+Les nouvelles listes déroulantes comprendra toutes les options
+qui apparaît dans les données.
+<p>
+Si une liste déroulante est indésirable en elle et que vous voulez commencer,
+cochez les Arrivée à Reset ... case dans la section Options futures.
+La liste déroulante sera effacée, la prochaine fois
+vous vous préparez à exécuter un rapport, il sera vide.
+<h5>action</h5>
+<p>
+Entrez une action de match.
+Utilisez la liste déroulante pour sélectionner l'action de match. Les actions sont les
+cas particulier des demandes enregistrées par dansguardian. Pour voir tous les matches de
+Acceptés ou rejetés ou EXCEPTION,
+sélectionnez "autorisés" ou "ALL NIER" ou "toutes les exceptions". Seul un
+ACTION peut être considérée à la fois, et de nombreuses options sont très restrictives.
+Par exemple, si "l'interdiction de site" est sélectionné,
+alors seulement les demandes qui ont été REFUSE REFUSE
+parce que d'un site dans une liste de sites interdits seront affichés.
+Pas d'autres REFUSÉES demandes seront indiqués.
+<h4>Menu - Options de rapport</h4>
+<h5>Sommaire</h5>
+<p>
+Sélection de ces options présentent un rapport de synthèse pour le nombre
+des sites inscrits. Le haut de la page 1 à 100 sites sélectionnés mai.
+<p>
+Une fois le résumé s'affiche, vous avez mai "étudier" la raison pour laquelle un site a été
+refusé / autorisé et qui / ce que la machine a été la visite du site. Il vous suffit de cliquer
+sur la "Trace" dans le cadre du lien "enquêter" la colonne et les résultats seront
+montré.
+<p>
+Attention: Si vous choisissez de filtre pour que REFUSE de montrer et de vérifier
+un résumé de permis, il n'y aura pas de résultats. Ceci est exact.
+Si vous ne voyez pas les résultats escomptés, revenir en arrière et de vérifier la
+critères de filtre qui a été entré.
+<h5>Oui ou Non-options</h5>
+<p>
+Également afficher les détails des demandes individuelles
+<br>&nbsp; - Cochez cette case pour chaque cause
+demande que les filtres passe que vous avez spécifié
+non seulement d'être inclus dans les tableaux de synthèse
+mais aussi être affichés individuellement.
+Ce n'est généralement pas nécessaire.
+Lorsque vous cliquez sur l'un des éléments dans l'un des rapports de synthèse,
+vous verrez alors en détail toutes les demandes individuelles
+derrière la ligne du rapport, qui est généralement satisfaisante.
+<p>
+Dans chaque demande, les informations, les informations correspondent à une expression régulière
+<br>&nbsp; - Cochez cette case pour cause
+affichage des demandes individuelles
+d'inclure les informations correspondent à une expression régulière
+(si elle touche la disposition de la demande).
+Même s'il est assez obscure,
+cette information peut être très utile dans les deux
+l'identification de problèmes de correspondance
+et d'aider à orienter
+la construction et de l'utilisation des expressions régulières.
+<p>
+En invidual demande de détails, notamment la phrase correspondant à l'information
+<br>&nbsp; - Cochez cette case pour cause
+affichage des demandes individuelles
+d'inclure la phrase correspondant à l'information
+(si elle touche la disposition de la demande).
+Le signe moins signifie que le mot est un "goodphrase"
+que la réduction plutôt qu'à une augmentation de calcul du poids ou du score.
+Une virgule sépare des mots ou des phrases
+que tous ont eu lieu quelque part sur la page Web.
+Par exemple <i>&lt;ruche&gt;,&lt;esprit&gt;&lt;-50&gt;</i>
+dans un fichier phraselist
+sera affichée ici <i>(-ruche, esprit)</i>.
+<p>
+Dans les informations nécessaires, notamment l'agent de chaîne d'information
+<br>&nbsp; - Cochez cette case pour cause
+affichage des demandes individuelles
+à la demande "agent" string.
+Bien que le format exact de l'agent string
+n'est pas normalisée
+et même si dans la pratique, l'agent les chaînes sont extrêmement variables,
+il est presque toujours suffisante pour les utiliser au moins identifier les navigateurs.
+<p>
+Tourner les URL en liens
+<br>&nbsp; - Cochez cette case pour la cause de l'URL
+dans le rapport qui sera cliquable.
+En règle générale, cette option doit être cochée pour que les rapports
+interactive, vous vous lancez
+(c'est pourquoi il est cochée par défaut).
+Pour les rapports qui sont distribués à d'autres,
+cette option doit généralement être décochée.
+<p>
+Inclure les fichiers GZip
+<br>&nbsp; - Cochez cette case pour cause compressé (*. gz) logfiles
+dans le répertoire de log à être inclus dans l'analyse.
+<h4>Menu - Future Options</h4>
+<p>
+Les listes déroulantes de la catégorie, type MIME, et le Groupe de filtre
+sont constitués en rappelant les valeurs qui ont fait
+été vu dans vos journaux.
+Si pour une raison quelconque, l'une des listes déroulantes
+est pleine de déchets et que vous voulez recommencer,
+utiliser ces options pour réinitialiser chaque liste déroulante
+à son premier vide.
+<hr
+</div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

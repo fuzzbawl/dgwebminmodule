@@ -1,0 +1,24 @@
+<header>Use Non-standard Delimiter When Constructing URLs For The CGI Reporting Program</header>
+  <div style="max-Width: 40em">
+<p>
+A non-standard delimiter (something other than the usual <code>&amp;</code> and <code>=</code>)
+will only be used in conjunction with <i>accessdeniedaddress</i>.
+Hence it will have no effect if <i>reportinglevel</i> is 3.
+<p>
+To facilitate embedding the full banned URL
+within the URL that's passed to <i>accessdeniedaddress</i> without causing confusion,
+the delimiter within the query part of the URL can use the two-character sequences
+<code>::</code> (instead of <code>&amp;</code)
+and <code>==</code> (instead of <code>=</code>.
+Your dansguardian.pl-like CGI script will of course have to parse the query part of the URL
+using these alternate delimiters.
+<p>
+Turn this on if your CGI script requires it
+or you find it makes coding your CGI script easier.
+Note though that while this solves the problem of confusion
+and can be made compatible with most CGI programs,
+it's totally non-standard and will not be supported
+by utility subroutines or libraries.
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

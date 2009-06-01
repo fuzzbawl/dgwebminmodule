@@ -1,0 +1,29 @@
+<header>Temporary Denied/Infected Page Bypass</header>
+  <div style="max-Width: 40em">
+<p>
+This provides a link on the denied page to bypass the ban for a few minutes.  To be
+secure it uses a random hashed secret generated at daemon startup.  You define the
+number of seconds the bypass will function for before the deny will appear again.
+<p>
+To allow the link on the denied page to appear you will need to not only change this option
+but also edit the template.html.
+<p>
+Possible values are:
+<ul style='list-style-type: none'>
+<li>0 : disable the bypass option entirely
+<li>-1 : enable the bypass option, but require the separate dansguardian.pl-like CGI program
+to generate a valid link
+(to make separate bypass key generation possible,
+the <i>bypasskey</i> option must be a non-random value)
+<li><i>n</i> : seconds for which the bypass option will remain enabled
+(example: 300 is 5 minutes)
+<p>
+The same functionality is provided for pages that 
+are virus infected (rather than denied because of content)
+by the configuration option <i>infectedbypass</i>,
+with the same possible settings.
+</ul>
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

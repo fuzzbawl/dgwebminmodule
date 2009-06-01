@@ -1,0 +1,42 @@
+<header>¿Cómo lista de ficheros para el filtro de varios grupos están relacionados</header>
+   <div style="max-Width: 40em">
+<p>
+Esta es una opción conveniente para Webmin etc
+A pesar de que está almacenado en dansguardian.conf,
+que significa <u>nada</u> DansGuardian a sí mismo.
+<p>
+Algunos archivos de la lista que será compartido por todos los grupos de filtro de no importa qué
+(esta opción no les afecta).
+Muchos archivos de lista, aunque será diferente para cada grupo de filtro,
+y esta opción controla la forma en que se relacionarán.
+<p>
+Una vez que esto está establecido y la lista de los archivos copiados o vinculados en su caso,
+esta opción más probable es que no <u></u> ser cambiado.
+Cambiando sobre la marcha puede resultar en una configuración
+que tiene grandes defectos y tiene poco o ningún sentido.
+<p>
+Los valores posibles son:
+<ul style='list-style-type: none'>
+<li>1: lista de archivos anidados
+<p>esto significa cada una de las listas de archivos afectarán no sólo a
+su propio filtro de grupo, sino también todos los demás grupos de filtro
+a continuación (o superior) que. Así, por ejemplo si el filtro de los grupos
+"temps", "empleados", "administradores", y "ejecutivos", cualquier
+cambio de la excepción ... listas para "administradores" también
+automáticamente afectar "ejecutivos", y cualquier cambio en la
+prohibido ... listas para "administradores" también automáticamente
+afectan a los "empleados" y "tiempo".
+<li>2: lista de archivos separados
+esto significa <p>cada filtro grupo se dará
+propia completamente independiente de las listas,
+que no afecta ni se verán afectados
+por cualquier otro filtro de grupo
+<li>3: lista de archivos comunes
+esto significa <p>cada filtro grupo tiene sus propias listas,
+sin embargo, también <u></u> una lista de referencias que es común
+filtro a todos los grupos. En otras palabras hay común
+"base" de listas en las que los grupos entonces elaborar filtro.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Cerrar ventana</a>

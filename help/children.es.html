@@ -1,0 +1,122 @@
+<header>Niño Procesos</header>
+   <div style="max-Width: 40em">
+<p>
+La mayoría de las aplicaciones que continuamente manejan un gran
+número de solicitudes
+tienen algún tipo de mecanismo de subproceso.
+Con cada solicitud que se maneja por un subproceso diferente,
+incluso si algo inesperado
+provoca una de las solicitudes para ir radicalmente mal,
+que sólo se bloquea un subproceso que
+pero no toda la aplicación.
+En este caso, cada subproceso de DansGuardian para el manejo de una solicitud
+es visible para el sistema operativo como un "proceso hijo".
+(Un par de otros procesos DansGuardian
+serán visibles para el sistema operativo también.)
+<p>
+En DansGuardian, hay varios parámetros relacionados con
+el número de procesos hijos "que se ocupan de las solicitudes individuales.
+Apropiado de ajuste de estos parámetros puede afectar a su rendimiento.
+Es como el caso de que el aumento de las cifras de velocidad
+hasta el funcionamiento de grandes sistemas (hasta un punto).
+Pero un mayor número utilizará más memoria,
+y si el tamaño total de todos los procesos más DansGuardian Calamar
+derrames de más de memoria real en la memoria virtual,
+velocidad puede disminuir notablemente.
+Así que hay un equilibrio.
+<p>
+Probablemente quiera sintonizar <i>maxchildren</i>
+a ser aproximadamente la misma que su número máximo de usuarios simultáneos.
+Y puede que quiera sintonizar <i>minsparechildren</i> por lo que es demasiado
+sobre el número de usuarios que suelen empezar
+actividad al mismo tiempo.
+Si aumenta cualquiera de estos parámetros,
+es posible que tenga que aumentar también los otros parámetros proporcionalmente.
+<p>
+Los parámetros incluyen:
+<ul style='list-style-type: none'>
+<li><u>prefork Niños</u>
+<br>
+Establece el número mínimo de procesos hijo a desovar a la vez
+cuando DansGuardian necesidades para desovar al menos una.
+Desovando varios subprocesos a la vez
+algunas acciones generales y evita la necedad
+spawing subprocesos de uno en uno
+aunque se necesitan varios.
+<br>
+En los grandes sitios que usted podría querer intentar 10.
+<br>
+Por defecto = 6
+<p>
+<li><u>mínima de repuesto niños</u>
+<br>
+Establece el número mínimo de procesos hijo que se le mantenga
+dispuesto en la reserva en caso de que un montón de usuarios
+llegan todos a la vez.
+<br>
+En los grandes sitios puede que desee intentar 8.
+<br>
+Por defecto = 4
+<p>
+<li><u>mínima niños</u>
+<br>
+Establece el número mínimo de procesos para mantener
+tanto para manejar solicitudes activas y por lista en reserva para futuras solicitudes.
+Esto controla el número de procesos hijos se
+DansGuardian generado cuando primero se inicia.
+Que controle efectivamente la pequeña huella
+de un sistema que es momentáneamente inactivo.
+<br>
+En los grandes sitios que usted podría querer intentar 32.
+<br>
+Por defecto = 8
+<p>
+<li><u>máxima de repuesto niños</u>
+<br>
+Establece el número máximo de procesos para mantener en reserva
+para las futuras peticiones a pesar de que no están haciendo nada en este momento.
+Cuando más de esta cantidad de procesos son inactivos,
+DansGuardian voluntad de sacrificio de algunos de ellos.
+Esta es la cantidad de capacidad DansGuardian
+debe mantener listo en mano después de un pico de carga.
+Para conseguir un rendimiento óptimo de este podría ser necesario sobre la misma
+como el número máximo de usuarios cada vez que inicio la actividad a la vez.
+<br>
+En los grandes sitios que usted podría querer intentar 64.
+<br>
+Por defecto = 32
+<p>
+<li><u>máxima de los niños</u>
+<br>
+Establece el <b>máximo</b> número de subprocesos que pueden existir,
+Este número es infinito, no sólo por dos razones:
+<ol>
+<li>un límite <b>prevenir ataques de DoS</b> de
+matar el servidor con demasiadas generado procesos.
+<li>un límite <b>evitar el agotamiento de RAM</b>
+por lo que el servidor no golpear a muerte
+incluso bajo muy alta carga.
+</ol>
+En los grandes sitios que usted podría querer a duplicar o triplicar esta cifra.
+<p>
+<li><u>la edad máxima de los niños</u>
+<br>
+Establece la edad máxima de un niño antes de que DansGuardian croaks.
+Este es el número de conexiones que manejar antes de salir.
+Periódicamente deshacerse de los niños y los procesos de desove nuevos
+es un mecanismo de seguridad en caso de que existan "fugas de memoria"
+u otros errores en los procesos hijos
+que sólo se hacen visibles cuando el proceso se ejecuta durante mucho tiempo.
+<br>
+Si su sistema está plagado por la inestabilidad,
+intentar reducir este parámetro.
+Si la estabilidad no es un problema, pero es un rendimiento máximo,
+intente aumentar este parámetro.
+<br>
+En los grandes sitios que usted podría querer intentar 10000.
+<br>
+Por defecto = 500
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Cerrar ventana</a>

@@ -1,0 +1,51 @@
+<header>Auth Plug-Ins</header>
+  <div style="max-Width: 40em">
+<p>
+These auth plugins provide various kinds of user (or computer) 
+authentication or authorization.
+Normally all that's needed is to enable/disable (uncomment/comment) them,
+which can be done via the "plugins" tab in the main config editing task window.
+(The order of their listing is important.
+But the config file already lists these plugins
+in the only reasonable order,
+so no ability to change the order is included here.)
+<p>
+Auth methods can be categorized as follows:
+<ul>
+<li>identify user
+<ul>
+<li>require assistance from local proxy (Squid?)
+<br><small><u>(these options will <i>never</i> fully work in a "transparent-intercepting" environment)</u></small>
+<ul>
+<li><b>Basic</b> longstanding external web standard
+<li><b>Digest</b> more secure challenge-response W3C standard, may not be fully supported everywhere
+<li><b>NTLM </b>the Microsoft way
+</ul>
+<li>do not require any assistance
+<ul>
+<li><b>ident</b> the most easily spoofable
+</ul>
+</ul>
+<li>identify computer
+<ul>
+<li><b>IP</b>
+</ul>
+</ul>
+Each plugin has a config of its own.
+In most cases these configs never need to be changed at all, 
+(The one exception is in some cases detailed editing of the 
+<i>ipgroups</i> file that's subsidiary to the IP auth plugin will be necessary.)
+If one of the configs does need to be changed,
+you can access the config file for editing through the plugin config editing tool.
+<p>
+Some of the options may say <i>#!! Not compiled !!</i>.
+If so, no config combination can ever enable any of these options on your system.
+To make such options available, you must get both a DansGuardian executable
+that includes support for the option and config files that match it.
+One way to do this is to rebuild DansGuardian from source.
+Rebuilding includes running ./configure,
+compiling, linking, and installing;
+it should not be undertaken lightly.
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

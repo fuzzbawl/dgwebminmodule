@@ -1,0 +1,37 @@
+<header>How The Default Filter Group (f1) Will Be Used</header>
+  <div style="max-Width: 40em">
+<p>
+This is a convenience option for Webmin etc.
+Although it's stored in dansguardian.conf, 
+it currently means <u>nothing</u> to DansGuardian itself.
+<p>
+With multiple filtergroups,
+whenever DansGuardian cannot identify a user,
+that user is assigned to the "default" filter group - f1.
+The inability to identify the user might mean
+this is a new user,
+or this is a guest user,
+or the configuration is not complete,
+or there was an execution error,
+or ...
+<p>
+In many cases the default filter group is given
+no web access at all.
+That way if there's a problem,
+the user will attend to it right away
+since they can't access the web in the meantime.
+In some other cases the default filter group
+is used for "most" users. This reduces the
+size of your configuration since you only need 
+to list users who should <u>not</u> 
+be assigned to the default filter group.
+<p>
+This option tells the Filter Groups Setup which of the 
+two possible uses of the default filter group you wish to use.
+If it is on/checked, the default filter group will be given no web access at all.
+If on the other hand it's off/unchecked, 
+the default filter group will be available for further configuration. 
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

@@ -1,0 +1,25 @@
+<header>Ponderação Embutido URL</header>
+   <div style="max-Width: 40em">
+<p>
+Quando definido para algo maior do que zero, esta opção faz URLs embutidos dentro de um
+HTML da página (a partir de links, imagens tags, etc) para ser extraído e confrontados com os
+bannedsitelist e bannedurllist. Cada um link para uma página causas proibiu o montante fixado
+aqui para ser adicionado à página da ponderação.
+O comportamento desta opção no que se refere às múltiplas ocorrências de um site / URL é
+afectados pela weightedphrasemode definição.
+<ul style='list-style-type: none'>
+<li>0: desativar opção
+<li><i>n</i>: pontuação para cada proibido hiperlink
+</ul>
+<p>
+(Atualmente, esse recurso usa expressões regulares que necessitam da biblioteca PCRE.
+Como tal, ela só está disponível se o seu DansGuardian foi construída para incluir
+PCRE apoio.
+Você pode verificar executando <code>dansguardian-v</code> e procurando quer
+uma definição para <code>- enable-pcre =yes</code>.
+ou a ausência de qualquer <code>- enable-pcre</code> instalação.)
+<p>
+(Esta opção é altamente intensivo da CPU.)
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

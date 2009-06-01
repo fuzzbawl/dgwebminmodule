@@ -1,0 +1,284 @@
+<header>Module Webmin dansguardian Améliorations de la version précédente</header>
+   <div style="max-Width: 40em">
+<h4>La plupart des améliorations importantes</h4>
+<ul>
+<li>
+Log Analysis est considérablement élargie,
+indiquant notamment le détail des expressions régulières matches.
+En plus de produire plus finement filtré
+et des rapports plus détaillés,
+Log Analysis travaille maintenant dans un couple des environnements
+qui ne sont pas typiques pour les modules Webmin:.
+<ul>
+<li>
+Log Analysis peut être utilisé
+<i>sur un ordinateur différent</i> que celui où
+dansguardian production s'exécute. Vous pouvez copier les logs
+à partir de votre serveur de production vers un autre ordinateur,
+et d'analyser les journaux là-bas.
+Ainsi, l'analyse de logs ne doivent pas affecter les performances
+du serveur de production.
+<li>
+Aussi Log Analysis peut être automatiquement activé pour
+produire des rapports de lot sans surveillance.
+Le fait que Log Analysis est intégré dans Webmin
+ne pas se limiter à une utilisation interactive.
+</ul>
+<li>
+L'accent est mis sur «groupe de filtres multiples configurations.
+Dansguardian la capacité de traiter différemment les différents utilisateurs
+est un élément central de cet outil de gestion.
+Il peut aussi bien créer des fichiers de configuration
+et de modifier les fichiers de configuration
+d'une manière qui est très conscient des filtres multiples groupes.
+<li>
+Tant l'activation et la configuration de tous les
+Dansguardian «plugins» sont entièrement pris en charge par ce module.
+Les plugins peuvent être mis en place pour fournir des
+différentes saveurs de "auth", auxiliaires
+l'analyse de contenu tels que les outils anti-virus,
+et de télécharger des améliorations.
+</ul>
+<h4>Requirements</h4>
+<p>
+Contrairement aux versions précédentes de ce module
+ou la plupart des autres modules Webmin,
+Ce module utilise JavaScript fortement.
+En fait,
+vous n'aurez probablement pas même être en mesure d'utiliser ce module Webmin
+si vous désactivez JavaScript dans votre navigateur.
+<p>
+Cette version de ce module se concentre sur
+convivialité
+au détriment d'une augmentation substantielle des exigences de CPU et de RAM.
+À condition que ce module est exécuté sur un ordinateur moderne avec
+adéquate CPU et RAM, tout fonctionne bien.
+Mais ce module ne sera probablement pas accomplir de façon adéquate
+sur un ancien petit ordinateur lent,
+même si elle a les versions précédentes
+de ce module, okay.
+<h4>secondaire Enhancements</h4>
+<p>
+Comme avant, normalement les fichiers de configuration sont modifiés avec
+menus qui s'affichent chaque option séparément.
+Maintenant, si quelque chose se passe mal avec les menus, il est toujours possible
+d'éditer tous les fichier de configuration directement et manuellement aussi.
+Il n'est plus jamais une raison de recourir à un non-Webmin
+parce que l'outil de configuration est "coincé".
+<p>
+Sauvegarde automatique et la capacité de revenir à
+chaque version de chaque fichier de configuration ou de la liste.
+Toujours être en mesure de revenir à une version précédente de cette façon
+est une sorte de «défaire» caractéristique.
+<p>
+Presque toutes les conditions d'erreur non seulement un utilisateur de notification
+mais aussi des indications sur la façon de résoudre le problème.
+Lorsque des modifications à la Webmin "module de config" sont proposés,
+un lien vers le "module de configuration" est inclus
+droit dans le message d'avertissement.
+Les utilisateurs n'ont pas besoin de deviner ou de cliquer sur autre chose ailleurs.
+En effet universel "annuler" est maintenant disponible.
+<h4>Traductions</h4>
+<p>
+Plusieurs langues sont supportées en utilisant les
+Webmin mécanisme standard.
+Bien que pauvre, il espère que ces traductions sont néanmoins
+assez bonne pour être utile.
+Si vous n'aimez pas un de traduction, faire un meilleur
+et à contribuer afin de l'inclure dans une future version de ce module.
+Vous pouvez remplacer uniquement certaines parties d'une traduction existante.
+Il n'est pas nécessaire de remplacer le tout à la fois.
+<p>
+Il semble qu'un malaise traduction serait particulièrement utile,
+mais malheureusement il n'est pas encore disponible.
+Si une traduction partielle malais ont contribué,
+il sera utilisé là où il était disponible,
+et la norme Webmin mécanisme automatiquement à une autre langue
+en d'autres lieux.
+<h4>Log Analysis Enhancements détaillée</h4>
+<h5>Logs dans toutes les langues</h5>
+<p>
+Les fichiers journaux peuvent être pleinement et de manière sensée lire
+quelle que soit la langue dansguardian écrivit po
+Tous les menus et les filtres rapidement et automatiquement
+s'adapter à la langue que les journaux ont été enregistrées en
+(qui ne doivent pas être les
+même langage utilisé par elle-même Webmin
+-bien sûr, il est souvent).
+L'outil d'analyse de Log réutilise le même <i>messages</i>
+fichier utilisé par dansguardian, afin
+tout reste toujours en synchronisation automatique.
+<h5>Regular Expression  Match</h5>
+Chaque fois que les détails des entrées de journal
+sont inclus dans un rapport,
+expression régulière correspondant à l'information
+seront également affichés.
+L'écran affiche une expression régulière qui correspond,
+exactement quelle partie de l'URL, il correspond,
+et dans de nombreux cas, même les mots dans le match.
+<h5>Tableaux de synthèse</h5>
+<p>
+Les résumés sont prévues non seulement pour les permis
+et <i>Denied</i>, mais aussi pour les demandes
+Exception demande. Cela vous permet de
+voir en un coup d'oeil
+si la plupart des travaux sont effectués par la phrase
+la numérisation du contenu ou de la vérification
+Contre les listes noires d'URL, et ainsi de suite.
+<h5>de filtrage</h5>
+<h6>supplémentaires Filtres</h6>
+Le filtrage peut être effectué par le poids (score).
+<h6>Expanded Filtre</h6>
+<p>
+Le filtre IP domaine peut désormais être utilisé
+pour spécifier un groupe d'ordinateurs (un sous-réseau)
+ainsi que un seul ordinateur.
+<p>
+Le nom de domaine (site) nom de domaine maintenant en charge
+correspondances partielles ainsi que la pleine matches.
+Par exemple, vous pouvez maintenant spécifier «facebook.com»
+et de la faire correspondre à l'ensemble des www.facebook.com,
+upload.facebook.com, friends.facebook.com,
+et ainsi de suite.
+<h6>Filtrage Listes</h6>
+Il est maintenant possible de filtrer par
+catégorie, type MIME, ou de filtrer le nom du groupe
+même si le contenu de ces champs
+est différente à chaque installation.
+Le filtre menu local construit une liste de tous les
+valeurs qui ont été considérées,
+alors les valeurs disponibles pour être utilisées.
+<h6>Par action filtrage</h6>
+La liste des actions possibles a été élargi
+pour être complet et d'être indépendante du langage.
+<h5>Unattended Batch Opération</h5>
+Alors que la production interactive de rapports est
+de toute évidence fait par le biais de Webmin,
+ce module reconnaît qu'il ya un besoin de
+sans surveillance automatique en lots de production de rapports aussi.
+Ainsi, tous les mêmes rapports qui peuvent être produites interactive
+peuvent également être produits dans un lot environnement.
+Comme la mise en place automatique de l'exécution et la distribution
+de rapports peut être un peu délicat,
+un exemple de script et détaillées sont incluses.
+Un lien cliquable juste en dessous du menu sur la même page
+Connectez-vous interactif qui lance l'analyse peut être utilisé
+d'écrire une copie du rapport de l'échantillon de script batch
+là où vous le désirez.
+<h4>filtres multiples Groupes</h4>
+<p>
+Mise en place plusieurs groupes de filtre peut être intimidant,
+comme la plus simple façon de le faire
+crée un grand nombre de fichiers
+le tout dans un répertoire.
+Donc, ce module comprend une alternative automatique.
+Il suffit d'indiquer ce que vous voulez filtrer les groupes d'être nommé
+et comment vous voulez que les fichiers d'être liées,
+et cet outil permettra de créer ou de copier tous les fichiers nécessaires.
+Aussi, un bloc de commentaire en expliquant exactement ce que chaque fichier est pour
+sera automatiquement ajouté à son sommet.
+<p>
+Cette configuration ne doit être faite une fois,
+après quoi l'option de configuration de ce module
+sera grisé.
+Mais il fait encore une fois
+est si importante et peut être si lourde
+que ce module peut le faire automatiquement pour vous.
+<h4>Recherche détaillée Enhancements</h4>
+<p>
+La recherche est maintenant de son propre outil
+plutôt que d'être greffé sur une fonction d'un autre outil.
+<p>
+Une grande variété de choses peuvent être recherchées pour intelligemment:
+mots, de phrases, d'un domaine (d'accueil) le nom, l'URL, et même modèle.
+On peut chercher et trouver une expression régulière
+simplement en tapant l'expression littérale.
+Il n'y a pas besoin d'utiliser un étrange syntaxe pour la recherche,
+pas simplement à traduire certains caractères.
+Recherche d'une phrase prend automatiquement en compte
+éventuellement différente de l'ordre des mots.
+Taper juste "Jack sauté" sera automatiquement
+recherche pour "sauté Jack" aussi.
+<p>
+Pour chaque fichier dans lequel un ou plusieurs matches a été trouvée,
+si oui ou non le fichier de filtre s'applique à chaque groupe seront présentés.
+Ainsi, si le contenu d'un fichier s'appliquent à certains groupes de filtre
+mais pas d'autres, il sera immédiatement clair.
+Filtrer les groupes sont classés par nom de groupe de filtre
+(si le groupe a un nom),
+ce qui rend plus facile à comprendre l'affichage
+seulement par les regards jetés à elle.
+<h4>Enseignement Enhancements</h4>
+<p>
+Têtes et pieds de page sont plus cohérentes,
+comme l'affichage de messages d'alerte.
+Tant la version dansguardian et le module Webmin version
+sont affichés sur chaque page, et toujours au même endroit.
+<p>
+Test de l'environnement
+et l'affichage de messages d'alerte si quelque chose ne semble pas juste
+ont été considérablement élargies.
+<p>
+Tout a changé dans la ligne de chaque fichier est commenté avec
+la date et l'horodatage indiquant quand il a été changé.
+<p>
+Insertion d'options dans les fichiers de configuration
+est semi-intelligente, et les nouvelles options ne sont pas
+tout juste pile à la fin du fichier.
+Si l'option existe déjà
+mais a ensuite été commentée
+et maintenant, est ajouté le dos,
+la nouvelle option sera immédiatement suivi l'ancien commentaire
+n'importe où dans le fichier.
+<p>
+Chaque fois que des filtres multiples groupes existent,
+filtre tous les groupes sont inscrits à côté de l'autre
+(souvent en onglets sur la même page).
+Et ils sont souvent appelées par leur nom attribué
+plutôt que de 'f1', 'f2', 'f3', et ainsi de suite.
+<p>
+Pour modifier le fichier de configuration,
+options de configuration sont réparties sur un grand nombre d'onglets de menu.
+Pour les moments où vous connaissez le nom de l'option
+vous voulez modifier
+mais je ne sais pas qui c'est sur l'onglet,
+il ya une option qui énumère chercheur toutes les options
+et saute immédiatement à l'onglet à droite lorsque vous sélectionnez un.
+<p>
+Chaque environnement limitation,
+comme l'absence ou de non exécutable dansguardian dansguardian fichier de configuration,
+désactive seulement les outils.
+Limitations non plus de désactiver le module
+si vous ne pouvez pas exécuter quoi que ce soit.
+<p>
+Toutes les options indiquées plugin, même si elles sont en commentaires.
+<p>
+Certains paramètres par défaut qui varient d'un système à l'autre
+car ils sont compilés en sont néanmoins
+correctement reflétée dans les outils de modification de configuration.
+En particulier, de nombreux chemins par défaut du système de fichiers
+sont adaptés à la dansguardian.
+Si un autre paquet dansguardian construit avec des paramètres différents sont obtenus,
+Ce module va tenter de s'adapter à la refléter.
+<p>
+Tenter d'ajuster automatiquement à des chemins différents
+(tel que /usr/local/etc/dansguardian/... c. /etc/dansguardian/...).
+Fournir une fonctionnalité complète, indépendamment de ce que les chemins sont en cours d'utilisation.
+<p>
+Passez à l'affichage initial
+même si les chemins sont incorrectes.
+De là, un appui au moyen de Webmin pour modifier le "module de config"
+nécessaire de préciser que les chemins.
+<p>
+Option des valeurs dans les fichiers de configuration sont cités intelligemment.
+Numéros courts et non-spatiales chaînes ne sont pas placés entre guillemets,
+tandis que plus des chaînes et des chaînes avec des espaces.
+<p>
+Comme auparavant, tous les fichiers seront lus et compris
+indépendamment du fait qu'ils utilisent les fins de lignes DOS ou Unix en ligne terminaisons.
+Quoi de nouveau, c'est que tous les fichiers modifiés seront toujours écrites avec les fins de lignes Unix,
+même si elles ont été modifiées dans un navigateur Web
+fonctionnant sur un ordinateur Windows.
+<hr
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

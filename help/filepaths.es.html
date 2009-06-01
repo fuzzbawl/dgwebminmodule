@@ -1,0 +1,49 @@
+<header>Archivo Senderos</header>
+   <div style="max-Width: 40em">
+La ruta completa a un archivo
+(por ejemplo <code>/usr/local/etc/dansguardian/archivo</code>).
+<p>
+En la mayoría de los casos ninguno de los caminos se debe cambiar.
+Todos los valores por defecto sigue el mismo patrón
+y normalmente no debe ser anulado por separado.
+<p>
+(Los archivos en <code>/usr/share</code> son copias adicionales de los originales.
+Si un fichero es irremediablemente desordenados,
+puede copiar uno de estos y empezar otra vez.
+Ellos, por supuesto, tienen los mismos nombres que los
+archivos que estamos acostumbrados a ver y editar.
+Estos ficheros son utilizados no <u></u> a todos por un sistema de funcionamiento DansGuardian.
+Como estos archivos son sólo para la recuperación, <b>ellos no cambian</b>.)
+<p>
+La mayoría de DansGuardian archivo las rutas comienzan con un "prefijo"
+esa es la misma para casi todos los caminos en que
+ejemplo de DansGuardian.
+El prefijo se suele
+ya sea <code>/usr/local</code> o "" (nada),
+causando el ejemplo a ser por defecto
+<code>/usr/local/etc/dansguardian/archivo</code>
+o
+<code>/etc/dansguardian/archivo</code>.
+<p>
+El prefijo de ruta se establece cuando se construye DansGuardian
+(el 'configurar' es el nombre <code>parámetro - prefix</code>).
+<u>Que no se puede cambiar</u> sin tener que recompilar DansGuardian.
+Usted puede determinar qué fue construido en el prefijo
+su ejemplo de DansGuardian ejecutando
+<code>dansguardian&nbsp;-v</code>
+(el parámetro puede no aparecer si es ajustado a
+<code>/usr/local</code>).
+<p>
+<i>languagedir</i> es donde se almacenan los idiomas para la internacionalización.
+Este directorio es especialmente importante para un par de razones:
+<ol>
+<li>La plantilla HTML reportinglevel utiliza cuando se fija a 3
+reside dentro de este directorio por defecto.
+<li>El archivo de texto llamado <i>traducciones de mensajes</i> --
+utilizados por la internacionalización de DansGuardian reside en este directorio.
+Este mismo archivo también es utilizado por la capacidad de análisis de registro
+DansGuardian Webmin de este módulo.
+</ol>
+<hr>
+  </div>
+<a href="javascript:window.close()">Cerrar ventana</a>

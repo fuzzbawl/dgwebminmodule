@@ -1,0 +1,26 @@
+<header>Filter Groups List</header>
+  <div style="max-Width: 40em">
+<p>
+This is the list that contains the mapping of users to filter groups.
+It is used by almost all the auth plugin methods
+(it is <I>not</i> used by auth plugin methods -such as IP auth-
+that identify computers rather than users).
+<p>
+It is used only if there is more than one filter group
+(i.e. <i>filtergroups</i> has a value greater than one).
+In systems without multiple filter groups,
+everyone is always assigned to filter group <i>f1</i>
+and this list file is not consulted.
+<p>
+The format of each entry is <u><i>user</i></u>=filter<u><i>1-99</i></u>
+where 1-99 are the filter groups.
+(Usually only a handful of filter groups are used,
+but DansGuardian allows up to 99 filter groups 
+so as to never be the cause of a limitation.)
+As an example, an entry might look like:
+<br><code>
+danielg=filter2
+</code>
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

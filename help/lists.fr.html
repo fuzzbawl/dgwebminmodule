@@ -1,0 +1,65 @@
+<header>Modifier Contenu d'une liste</header>
+   <div style="max-Width: 40em">
+<p>
+Une grande partie de la configuration a changé fréquemment de dansguardian est sous la forme de «listes».
+Fréquemment les listes sont très longues.
+On y trouve des listes de beaucoup de choses, y compris les sites, les URL, extensions, et des phrases.
+<p>
+La plupart des listes sont utilisées pour "pré-Vett" les demandes des utilisateurs
+avant d'aller chercher la page demandée
+et l'examen de son contenu.
+Listes d'éléments qui doivent toujours être récupérés et
+contournement de vérification du contenu doivent commencer par 'exception...'.
+Listes des articles qui ne devraient jamais être récupéré
+(et donc jamais effectué de vérification du contenu) commencent avec 'interdit...'.
+Listes d'éléments qui doivent toujours être récupérés
+mais devrait ensuite être soumis à la vérification du contenu de toute façon commencer par 'gris...'.
+<p>
+En manipulant le contenu de ces listes,
+vous pouvez modifier le comportement de votre dansguardian de façon spectaculaire.
+Habituellement, l'administration de routine d'un filtre dansguardian
+sera composé exclusivement de l'évolution du contenu des différentes listes.
+<p>
+L'emplacement de chaque liste peut être contrôlé avec une option de configuration.
+Mais comme il n'y a jamais de bonne raison
+d'utiliser autre chose que le nom par défaut et l'emplacement de chaque liste,
+ces options de configuration ne sont pas encore répertoriés par cet outil.
+<p>
+Après avoir modifié la liste,
+Dansguardian continuera à se comporter à l'ancienne
+jusqu'à ce qu'il soit dit de re-lecture de la liste des fichiers.
+Vous pouvez charger dansguardian pour commencer à utiliser la liste modifiée immédiatement
+et sans interruption utilisateur existant &hArr; connexions Web,
+dansguardian en utilisant la "douceur" reload.
+En fonction d'un module Webmin dansguardian option
+(et sur votre Webmin autorisations),
+Webmin mai automatiquement dire DG de relire la liste des fichiers
+pour vous à chaque fois que vous modifiez des fichiers de la liste.
+Si c'est le cas, un <span style='color: magenta'>magenta message</span>
+vous le recharger a été fait pour vous.
+<p>
+Si le soft ne se recharge automatiquement,
+mai-vous besoin d'exécuter une explicitement.
+Soft recharge est disponible par le biais de ce module d'interface Webmin dansguardian
+(il n'est donc pas nécessaire d'utiliser une autre interface ou à la sortie et le retour).
+Il est disponible par le biais d'un onglet ou de lien hypertexte sur chaque page,
+et est nommé quelque chose comme "Recharger DG groupes".
+<hr>
+Si vous ajoutez un nouveau. Include'd liste,
+lui donner un nom dont la partie gauche est le nom de
+sa mère (la liste. Inclure tout).
+Par exemple, si vous ajoutez un fichier spécial pour certains «bannedsitelist objets,
+nom de quelque chose comme 'bannedsitelistproxies'.
+(Avis de la structure '<i>bannedsitelist</i>proxies'.)
+<p>
+Nouveaux fichiers nommé de cette manière sera donnée
+le même accès au fichier
+que la liste de leurs parents,
+et seront recherchés en même temps que la liste de leurs parents.
+Si vous créez un nouveau fichier de liste de nom, mais il une autre manière,
+mai recherches ne trouvez pas les articles dans le nouveau fichier,
+Webmin et autorisations mai vous permet pas d'éditer le fichier,
+efficacement ce qui en fait inutile,
+<hr
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

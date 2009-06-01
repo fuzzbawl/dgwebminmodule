@@ -1,0 +1,37 @@
+<header>¿Cómo El Grupo de filtro por defecto (f1) se utilizarán</header>
+   <div style="max-Width: 40em">
+<p>
+Esta es una opción conveniente para Webmin etc
+A pesar de que está almacenado en dansguardian.conf,
+que significa <u>nada</u> DansGuardian a sí mismo.
+<p>
+Con múltiples filtergroups,
+DansGuardian cuando no puede identificar a un usuario,
+que el usuario está asignado a la "por defecto" filtro de grupo - f1.
+La incapacidad para identificar al usuario podría significar
+este es un nuevo usuario,
+o se trata de un usuario invitado,
+o la configuración no es completa,
+o hubo un error de ejecución,
+o ...
+<p>
+En muchos casos, el filtro de grupo por defecto se da
+sin acceso web a todos.
+De esta forma si hay un problema,
+el usuario va a asistir a ella de inmediato
+ya que no pueden acceder a la web en el ínterin.
+En algunos otros casos, el filtro de grupo por defecto
+se utiliza para "la mayoría de los usuarios. Esto reduce la
+tamaño de su configuración, ya que sólo necesitan
+a la lista los usuarios que no deben <u></u>
+ser asignado al grupo por defecto del filtro.
+<p>
+Esta opción le dice al filtro que el programa de instalación de grupos de la
+dos posibles usos de los filtros por defecto del grupo que desea utilizar.
+Si se encuentra en / marcada, el filtro por defecto del grupo no se dará acceso a la web en absoluto.
+Si, por otra parte puede estar en off / sin marcar,
+el grupo por defecto del filtro estará disponible para más de configuración.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Cerrar ventana</a>

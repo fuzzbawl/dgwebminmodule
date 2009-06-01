@@ -1,0 +1,35 @@
+<header>afficher ou modifier la traduction des messages</header>
+   <div style="max-Width: 40em">
+   <p>
+Dansguardian peuvent se présenter dans différentes langues
+en fonction du réglage de sa langue option.
+Habituellement, il vous suffit de sélectionner la langue que vous préférez et l'utiliser.
+<p>
+Si vous voulez changer ou améliorer
+la traduction pour une langue particulière,
+utiliser cet outil pour éditer le fichier de traduction des messages.
+Le format du fichier est
+<br><code>programKey =translatedMessage</code>.
+Le <i>programKey</i> s le message tags sont utilisés par le code du programme.
+Ils doivent rester les mêmes pour toutes les langues, si dansguardian
+pouvez trouver le message quelle que soit la langue qu'il utilise.
+Le <i>translatedMessage</i> s sont des morceaux de texte
+que sont l'affichage à l'utilisateur dansguardian.
+Ils seront différents pour chaque langue.
+<p>
+Si vous modifiez ce fichier, et si on analyse les logs sur un autre ordinateur,
+assurez-vous de copier le fichier modifié à l'ordinateur aussi.
+Sinon, cet ordinateur mai de ne pas être en mesure d'analyser les logs
+écrit avec la version révisée du message traductions.
+<p>
+L'utilisation de cet outil pour modifier la langue de traduction dansguardian
+mai avoir des conséquences imprévues.
+Souvent, il fonctionnera mieux d'accepter une traduction optimale
+plutôt que d'essayer de "corriger" il.
+Afin d'éviter les abus de cet outil, il suffit de le rendre invisible.
+Faites de cet outil invisible en désactivant son autorisation pour chaque utilisateur
+dans leur 'Configuration du module',
+accessible par les utilisateurs Webmin.
+<hr
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

@@ -1,0 +1,364 @@
+<header>Analizar DansGuardian LogFiles</header>
+<div style="max-Width: 40em">
+<p>
+<small><i>DansGuardian&nbsp;bitácoras&nbsp;Analizador
+fue originalmente escrita por Jimmy&nbsp;Myrick
+como un programa independiente y liberado octubre&nbsp;10&nbsp;2005.
+El programa fue posteriormente incorporado en
+Webmin&nbsp;DansGuardian&nbsp;Módulo,
+donde fue reforzada por Chuck&nbsp;Kollars
+en enero&nbsp;de&nbsp;2009.</i></small>
+<p>
+<small><i>consultas acerca de este DansGuardian Webmin&nbsp;Módulo
+son bienvenidos en la misma lista de correo como las consultas
+DansGuardian sobre sí mismo
+(en la actualidad a través de http://tech.groups.yahoo.com/group/dansguardian/).</i></small>
+<br>
+<h4>Visión general</h4>
+<p>
+Este programa examinará los registros de los archivos creados DansGuardian filtrado
+software (http://www.dansguardian.org).
+<p>
+Diferentes filtros (búsqueda) se pueden especificar los criterios.
+El filtrado (búsqueda) son criterios
+acumulativas (sumadas). Por ejemplo, especificando un rango de fechas
+y una dirección IP sólo mostrará las entradas que coinciden con los <u>dos</u> criterios. Si
+que desea ver todas las entradas del registro, no se especifica ningún criterio de filtrado en todas las
+(cambiar el rango de fechas a "todos" y aceptar todos los demás valores por defecto).
+<p>
+La clasificación no se realiza sobre los resultados. Esto es para asegurar una
+búsqueda rápida, use sólo una razonable cantidad de memoria,
+y "pienso", el navegador con la información peridically
+por lo que un tiempo no se produce. Lo que esto significa es que si se
+en orden alfabético por el nombre, los archivos de registro
+También debería también estar en orden cronológico.
+Este programa asume que todos los comprimidos (. Gz) los archivos de registro
+son en orden alfabético, después de todo sin comprimir archivos de registro,
+y puede no funcionar limpiamente si esta hipótesis no se cumple.
+<p>
+En comparación con versiones anteriores, las opciones se han simplificado
+un poco de tiempo la presentación de informes se ha ampliado de manera significativa.
+Como el costo de estos cambios, el análisis del archivo de registro ahora siempre requiere
+considerable la velocidad de la CPU y RAM. Esta versión de DansGuardian
+Análisis del archivo de registro pueden no funcionar bien en pequeñas computadoras lentas.
+<h4>Descripción</h4>
+<h5>RegExp Coincidencias</h5>
+<p>
+Siempre que las entradas de registro se muestran,
+completo de expresión regular coincide con la información
+también puede ser incluido en la pantalla
+si una expresión regular se ha activado.
+La parte correspondiente de la URL que se muestra en un color diferente
+que el resto de la URL,
+así que usted puede ver exactamente qué parte de la URL
+la expresión regular coincidente.
+El real de expresiones regulares también se mostrará.
+La pantalla incluso intento de mostrar
+que coinciden con "palabras", a condición de palabras individuales pueden ser identificados.
+<p>
+Aunque la pantalla de una expresión regular que combine la información
+es muy completa,
+utiliza solamente la información del registro
+y así no tiene ningún impacto en el rendimiento DansGuardian.
+La información de registro que se suele pasar más de
+porque no tiene mucho sentido para los seres humanos.
+De hecho es tan completa que incluso puede ser usado como este
+para reconstruir completamente el partidos.
+<h5>Idiomas</h5>
+<p>
+El idioma del archivo de registro se maneja y se especifican por separado
+de la lengua de este programa (DansGuardian Webmin módulo herramienta de análisis del archivo de registro) en sí.
+En otras palabras hay <i>dos</i> configuración de idioma diferente
+que controlan diferentes aspectos de la lengua utilizada por el presente
+Análisis del archivo de registro del programa.
+<p>
+Normalmente los archivos de registro se espera que estén en el idioma especificado
+en dansguardian.conf.
+Así que cuando la manipulación de archivos de registro por escrito DansGuardian,
+Este archivo de registro utiliza el Analizador de todos el mismo idioma traducciones
+DansGuardian como propio.
+DansGuardian Si el archivo de configuración no está disponible
+ubicación en el normal
+-como sucede a veces cuando se ejecuta este archivo de registro de análisis
+en un ordenador distinto DansGuardian -
+la ruta de acceso al archivo de registro de archivo de traducción de idiomas
+puede ser especificado directamente
+DansGuardian Webmin en el "módulo de configuración".
+(En cualquier caso, probablemente necesite
+DansGuardian copiar el archivo de traducción de idiomas
+a la computadora donde se ejecuta Webmin,
+tal vez en el mismo lugar, o tal vez en un lugar diferente.)
+<p>
+Lenguaje que es específico de este programa (análisis del archivo de registro) se
+(en lugar de con DansGuardian originarios y que figuran en los archivos de registro)
+es manejado por el mecanismo ordinario de Webmin idioma.
+<h5>¿Qué PC</h5>
+<p>
+Esta versión del archivo de registro DansGuardian Analizador
+<i>que no</i> es necesario que se ejecute en el mismo equipo
+DansGuardian que se ejecuta en.
+Es necesario
+<ul>
+<li>una copia de los archivos de registro producidos por DansGuardian para ser analizados
+<li>una copia del archivo de traducción DansGuardian mensajes
+para el idioma que está en uso por DansGuardian cuando creó los archivos de registro
+<li>en muchos casos, una copia de dansguardian.conf
+<li>Webmin un marco de trabajo y este módulo DansGuardian Webmin
+</ul>
+No <i>no</i> necesitan un runable o copia de la DansGuardian binario.
+Tampoco necesita algo de cualquier distribución DansGuardian tarball.
+<p>
+A menudo, la forma más sencilla de copiar todos los archivos de configuración necesarios (y más)
+es simplemente copia de todos los &lt;balbucear&gt;/etc/dansguardian
+<u>sólo a una profundidad de tres</u>.
+Una copia completa de la profundidad que incluyen la phraselists y listas negras.
+Es el trabajo, pero sería innecesariamente grande y pesado.
+<h5>Lote Operación</h5>
+<p>
+Si bien este instrumento de análisis del registro se suele utilizar interactivamente,
+también es posible ejecutar y distribuir esos informes
+desatendido en un proceso discontinuo.
+Un ejemplo de script de shell para la operación de los lotes
+se incluye en la distribución de
+este módulo Webmin.
+Se puede acceder fácilmente a través del hipervínculo en la parte inferior de la
+informe menú.
+Instrucciones para la personalización y el uso se incluyen en los comentarios
+en ese archivo de script de shell.
+<h5>comprimido los archivos de registro</h5>
+<p>
+Este programa puede leer directamente y el proceso comprimido (gzip)
+archivos de registro,
+siempre que se presente y compruebe la opción de incluirlos.
+No hay razón para descomprimir los archivos de registro
+o utilizar cualquier otra herramienta, junto con éste.
+<p>
+Comprimido los archivos de registro se saltan <i>por defecto</i>
+en el supuesto de que son restos de registro de la rotación
+y no son relevantes para el presente informe.
+Si esta operación por defecto no satisface sus necesidades,
+puede anular por tan sólo un cuadro de control.
+<p>
+Este programa asume que cuando se ordenan alfabéticamente,
+sin todos los archivos de registro ante cualquier comprimido los archivos de registro.
+Este es el caso del conocido registro de sistemas de rotación.
+<h5>Configuración</h5>
+<p>
+Esta herramienta supone los siguientes ajustes de configuración.
+Es posible que no producen resultados completos 
+con los registros que se han producido con otras configuraciones.
+<ul style='list-style-type: none'>
+<li>logexceptionhits=2 (o 1)
+<li>showweightedfound=on
+<li>loglevel=2 o loglevel=3
+<li>logfileformat=1(nativo) o logfileformat=2(CSV) o logfileformat=4(delimitado por tabuladores)
+</ul>
+<p>
+Estas otras opciones de configuración también pueden afectar a la
+apariencia o el contenido de los informes de análisis de registro.
+Los informes se adaptará a cualquier valor de estas opciones,
+cambiar la apariencia de ser necesario.
+<ul style='list-style-type: none'>
+<li>loguseragent
+<li>anonymizelogs
+<li>maxlogitemlength
+<li>logclienthostnames
+</ul>
+<h4>Menú - Solicitud de filtros</h4>
+<p>
+Estos le permiten restringir su informes a subconjuntos específicos de las entradas del registro.
+Sólo aquellas entradas de registro que pasan todos los filtros especificados
+se incluirán en los informes.
+<h5>Fechas</h5>
+<p>
+Seleccione las fechas en que restringir las entradas de registro que se incluirán en el informe.
+Si se especifica, la fecha de inicio todas las entradas del registro excluye antes de esa fecha
+(fecha exacta partidos están incluidos).
+Si se especifica, la fecha de finalización de todas las entradas del registro excluye después de esa fecha
+(fecha exacta partidos están incluidos).
+Si ambas fechas de inicio y final se especifican,
+todas las entradas del registro fuera de ese rango de fechas serán excluidas.
+TODOS en la selección de cualquiera de los campos de fecha de manera efectiva
+o bien eliminar la fecha de inicio o la fecha de finalización de la restricción.
+<p>
+Una técnica común consiste en especificar la misma fecha
+tanto para inicio y fin.
+Esto tiene el efecto de incluir en el informe
+sólo entradas de registro de que un día.
+<h5>Dirección IP</h5>
+<p>
+Introduzca una dirección IPv4 para que coincida con la fuente (navegador) ordenador.
+<br>Ejemplo: 10.0.0.1
+<p>
+O introduzca una dirección IPv4 / máscara para que coincida con todos los ordenadores de toda una subred.
+<br>Ejemplo: 10.0.0.1/24 (o equivalente 10.0.0.1/255.255.255.0)
+<h5>Nombre de usuario</h5>
+<p>
+Introduzca un nombre de usuario a partido.
+Algún tipo de autoridades deben estar habilitadas en DansGuardian para que esto funcione.
+Si los nombres de usuario no se muestran cuando se pongan en venta sin ningún tipo de criterios,
+auth entonces es muy probable que no habilitadas.
+Refiérase a las instrucciones adecuadas sobre cómo hacerlo.
+<p>
+Si los nombres de usuario son mostrados como direcciones IP,
+auth entonces por ordenador se ha habilitado en DansGuardian.
+Este filtro funciona si especifica una dirección IP,
+pero no hacer nada más (ya veces menos)
+que el anterior campo de filtro de dirección IP.
+<h5>Cadena de agente de parcial</h5>
+<p>
+Para extraer sólo las peticiones de un determinado tipo de fuente,
+introducir un fragmento de texto que se produce en la cadena de agente de este tipo de fuente
+pero no en otro agente cadenas.
+Los partidos se mayúsculas y minúsculas.
+Un fragmento de código a ser debe ser una única frase contigua
+exactamente en el orden especificado.
+Como HTTP agente cadenas no están normalizados
+y son muy variables,
+de averiguar lo que hay que entrar
+por lo general primero tiene que ejecutar un pre-informe
+visualización del agente que solicita la información para las solicitudes individuales,
+a continuación figura una cadena que selecciona las solicitudes que le interesa
+pero no otras solicitudes.
+<p>
+He aquí algunos ejemplos:
+La cadena 'Mozilla' seleccionará todos Netscape, Mozilla, Firefox y Mar Mono navegadores.
+La cadena 'Firefox/1.5.0.1' seleccionará una particular versión antigua de Firefox navegadores.
+La cadena 'Gecko' seleccionará todos los navegadores que utilizan una tecnología de pantalla.
+La cadena 'Windows', en la mayoría de los casos seleccionar cualquier navegador se ejecuta en una plataforma Windows, pero no una plataforma de Macintosh o Linux.
+Recuerde que es bastante fácil de
+también a cualquier cadena accidentalmente coincidan con más solicitudes que las que sólo significa seleccionar.
+Y recuerda que algunas cadenas, especialmente las de tipo OS o versión -
+puede funcionar con algunos navegadores, pero no con otros.
+<p>
+En todos los casos, otros navegadores que son "pretender" ser el único que desea seleccionar
+También se incluirán en los partidos.
+Como casi todos los navegadores permiten al usuario especificar una cadena de agente alterno a ser falseadas,
+estos partidos no puede ser definitiva y nunca debe ser interpretada como ciertas.
+Afortunadamente, en la práctica pocos usuarios especificar una cadena de agente alterno
+a pesar de su navegador acepte una.
+Así que usted puede utilizar con seguridad la cadena coincide con el agente para obtener una
+buen sentido de lo que los navegadores se utilizan en la red,
+aunque no se puede estar seguro en cada caso individual.
+<h5>Peso</h5>
+<p>
+Seleccione una dirección (mayor o igual, o inferior o igual)
+también introducir un puntaje numérico.
+Pide que no se exploró la frase (en general, porque
+Salvo que se les niega o sobre la base de su URL)
+son tratados como si su peso / puntuación es 0.
+<h5>Categoría, Tipo MIME, Grupo Filtro</h5>
+<p>
+Utilice las listas desplegables de la derecha para seleccionar qué partido.
+Será copiado en el campo de texto a la izquierda
+cuando se seleccione un elemento de la lista desplegable haciendo clic en él.
+<p>
+Las listas desplegables de la presente lo
+sido visto en sus logs,
+por lo que suelen ofrecer todas las opciones que desee.
+Si las listas desplegables parecen ser incompleta,
+ejecutar el informe una vez que sin este filtro,
+luego vuelve y listo para que lo ejecute en un segundo tiempo.
+Las nuevas listas desplegables se incluyen todas las opciones
+que apareció en los datos.
+<p>
+Si una lista desplegable se basura en ella y que desea comenzar de nuevo,
+comprobar la adecuada Compruebe Restabl ... en el cuadro de opciones para el futuro sección.
+La lista desplegable se borrará, por lo que la próxima vez
+te preparas para ejecutar un informe que estará vacía.
+<h5>Acción</h5>
+<p>
+Introduzca una acción de partido.
+Utilice la lista desplegable para seleccionar la acción a su altura. Las acciones son la
+caso registrados por DansGuardian solicitudes. Para ver todos los partidos para
+Autorizados o rechazados o excepción,
+seleccione "ALL ADMITIDOS" o "TODO denegado" o "todas las excepciones". Sólo una
+ACCIÓN puede ser visto en un tiempo, y muchas opciones son muy restrictivas.
+Por ejemplo, si "sitio prohibido" es seleccionado,
+NEGADO sólo pide que se les negó
+a causa de un sitio que se está en una lista de sitios prohibidos se mostrará.
+Ningún otro NEGADO solicitudes será mostrada.
+<h4>Menú - Informe Opciones</h4>
+<h5>Resumen Información</h5>
+<p>
+La selección de estas opciones se mostrará un informe de síntesis para el número
+de los sitios inscritos. La parte superior de 1 a 100 sitios pueden ser seleccionados.
+<p>
+Una vez que aparece la pantalla de resumen, puede "investigar" por qué un sitio se
+denegado / permitidos y que / lo que la máquina se encontraba de visita en el sitio. Simplemente haga clic en
+sobre la "Trace" en el marco del vínculo "investigar" la columna y los resultados se
+muestra.
+<p>
+Precaución: Si selecciona sólo NEGADO filtro para mostrar y comprobar
+para permitir un resumen, no habrá ningún resultado. Esto es correcto.
+Si no ve los resultados que espera, volver atrás y comprobar la
+criterios de filtro que se inscribió.
+<h5>Sí o No Opciones</h5>
+<p>
+También muestran detalles de las solicitudes individuales
+<br>&nbsp; - Al activar esta casilla hará que cada
+solicitud que pasa los filtros que se especifica
+no sólo se incluirán en los cuadros de resumen
+pero también se mostrarán por separado.
+Esto generalmente no es necesario.
+Al hacer clic en cualquiera de los elementos en uno de los informes de síntesis,
+usted entonces ver en detalle todas las peticiones individuales
+detrás de esa línea del informe, que es en general satisfactoria.
+<p>
+En cada solicitud de información, incluir la expresión regular coincide con la información
+<br>&nbsp; - Al activar esta casilla hará que
+visualización de las solicitudes individuales
+a fin de incluir la expresión regular coincide con la información
+(si es que afecta a la disposición de la solicitud).
+Aunque es bastante arcanos,
+esta información puede ser muy útil en ambos
+identificación de problemas de coincidencia de más de
+y ayudando a dirigir
+la construcción y el uso de expresiones regulares.
+<p>
+En invidual solicitar más información, incluir la frase correspondiente información
+<br>&nbsp; - Al activar esta casilla hará que
+visualización de las solicitudes individuales
+frase para incluir la información correspondiente
+(si es que afecta a la disposición de la solicitud).
+El signo menos significa la palabra es un "goodphrase"
+que redujo en lugar de aumentar el cálculo de la puntuación o el peso.
+Una coma separa las palabras o frases
+que todos se produjo en algún lugar de la página web.
+Por ejemplo <i>&lt; colmena &gt;,&lt;cuenta&gt;&lt;-50&gt;</i>
+en un archivo phraselist
+se mostrará aquí como <i>(-colmena, cuenta)</i>.
+<p>
+En cada solicitud de información, incluir información de la cadena de agente
+<br>&nbsp; - Al activar esta casilla hará que
+visualización de las solicitudes individuales
+para incluir la petición "agente" cadena.
+Aunque el formato exacto de la cadena de agente
+no está
+y aunque en la práctica agente cadenas son muy variables,
+casi siempre es adecuado para uso a identificar, al menos, los navegadores.
+<p>
+A su vez la URL en enlaces
+<br>&nbsp; - Al activar esta casilla hará que la URL del
+en el informe que se puede hacer clic.
+En general, esta opción debe ser verificado por los informes
+ejecutar interactivamente ti
+(por eso la marcada por defecto).
+Para los informes que se distribuyen a los demás,
+esta opción debería estar sin marcar.
+<p>
+GZip incluir los archivos de registro
+<br>&nbsp; - Al activar esta casilla hará que comprimido (*. gz) los ficheros de registro
+en el directorio de 'log' para ser incluidos en el análisis.
+<h4>Menú - opciones para el futuro</h4>
+<p>
+Las listas desplegables de la categoría, tipo MIME, y el Grupo de filtro
+se construyen por recordar los valores que han
+hemos visto en sus logs.
+Si por alguna razón una de las listas desplegables
+está llena de basura y que desea volver a empezar,
+utilizar estas opciones para reiniciar cada lista desplegable
+vacío a su estado inicial.
+<hr>
+</div>
+<a href="javascript:window.close()">Cerrar ventana</a>

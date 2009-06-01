@@ -1,0 +1,77 @@
+<header>Informes "Acceso denegado" a los usuarios</header>
+   <div style="max-Width: 40em">
+<p>
+DansGuardian tiene dos métodos diferentes para la presentación de informes ha negado el acceso a los usuarios.
+(Estos ajustes son para la presentación de un "acceso denegado" para los usuarios.
+Ellos no tienen ningún efecto en lo que sucede en el registro o la forma.)
+<p>
+En la mayoría de los casos usted debe usar los nuevos y más rápidos y más limpios
+Método de archivo HTML.
+No requiere tener un servidor web o la creación de un programa CGI,
+y es más fácil de personalizar la página de acceso denegado.
+Establecer <i>reportinglevel</i> a 3,
+permitir <i>accessdeniedaddress</i> para ser ignorado,
+y dejar <i>htmltemplate</i> por defecto a su habitual
+<code>PREFIX / <i>languagedir</i> / <i>idioma</i> / template.html</code>.
+<p>
+Utilice el método de señalar mayores <i>accessdeniedaddress</i>
+en su propia instalación de un "dansguardian.pl"-como
+secuencia de comandos en su propio servidor web en sólo inusual
+, cuando por circunstancias especiales que necesita la máxima flexibilidad.
+<p>
+Aunque por defecto, todos los grupos de filtro de uso los mismos parámetros
+acceso denegado al informe,
+es posible para cada grupo de filtro que tiene su propia configuración.
+Por ejemplo, es posible tener diferentes grupos de filtro
+utilizar diferentes <i>htmltemplate</i> de archivos, incluidos algunos de "Bypass"
+instalación y otros no.
+En el caso de que anula habituales no son necesarios,
+acaba de especificar los ajustes de vez en dansguardian.conf.
+Para proporcionar diferentes configuraciones para diferentes grupos de filtro,
+especificar la configuración en cada uno de dansguardianf <i>N</i>. conf
+archivos.
+<p>
+Los parámetros son:
+<ul style='list-style-type: none'>
+Nivel de presentación de informes <li><u></u>
+<ul style='list-style-type: none'>
+<li>-1 = registro, pero no bloquear (Stealth mode)
+<li>0 = Diga "Acceso denegado"
+<li>1 = Informe, pero no por qué lo niega frase
+<li>2 = Informe completo
+<li>3 = Uso de plantillas HTML archivo (Acceso denegado Dirección será ignorado)
+</ul>
+El valor por defecto es 3, que especifica el uso de un archivo HTML
+(en lugar de un programa CGI)
+y normalmente es apropiado.
+<p>
+<li><u>Ruta del archivo de plantillas en HTML</u>
+<br>
+Sólo útil cuando <i>reportinglevel</i> se establece en 3
+<u>y</u> filtro de algunos grupos tienen su propia página de acceso denegado.
+Permite que el archivo HTML para ser leído desde una ubicación alternativa
+en lugar de la habitual
+<code>PREFIX / <i>languagedir</i> / <i>idioma</i> / template.html</code>.
+<br>
+Si se especifica, este debe ser una ruta completa que comienza con "/".
+Aunque parcial caminos no puede causar un error de sintaxis en todos los casos,
+al final no van a funcionar bien.
+<p>
+Acceso denegado <li><u>Dirección</u>
+<br>
+Utilizarse sólo cuando <i>reportinglevel</i> es <u>no</u> ajustado a 3,
+ignorado lo contrario.
+La dirección de su presentación de informes script CGI que se instala y se están ejecutando
+en su propio servidor web.
+Su servidor web no tiene ninguna conexión a DansGuardian
+distintos de los proporcionados a través de esta URL.
+Así que su servidor web pueden o no estar en ejecución en
+en el mismo equipo que su DansGuardian.
+<br>
+Esta debe ser una URL completa que comienza con "http://".
+Aunque parcial URL no puede causar un error de sintaxis en todos los casos,
+al final no van a funcionar bien.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Cerrar ventana</a>

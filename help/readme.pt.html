@@ -1,0 +1,284 @@
+<header>Webmin DansGuardian Módulo Acessórios De Versão Anterior</header>
+   <div style="max-Width: 40em">
+<h4>mais significativas Acessórios</h4>
+<ul>
+<li>
+Log Análise é significativamente aumentada,
+inclusive mostrando os detalhes de expressão regular jogos.
+Além de produzir mais finamente filtrada
+e relatórios mais detalhados,
+Log Análise já funciona em alguns ambientes
+que não são típicos para Webmin módulos:.
+<ul>
+<li>
+Análise Log pode ser usado
+<i>em um computador diferente</i> do que a um caso
+produção DansGuardian corre. Você pode copiar os logs
+a partir de servidor de produção para outro computador,
+e analisar os logs lá.
+Assim, analisando registros não precisam de afetar o desempenho
+do servidor em produção.
+<li>
+Análise Log também pode ser activada automaticamente, a
+autônoma lote produzir relatórios.
+O facto de Análise Log está embutido no Webmin
+não é restringir a utilização interactiva.
+</ul>
+<li>
+Foco é sobre "filtros múltiplos grupo 'configurações.
+DansGuardian da capacidade para tratar diferentes utilizadores diferente
+é um foco central do presente instrumento de gestão.
+Pode configurar ambas as config
+config e modificar arquivos
+de uma forma que é muito consciente dos filtros múltiplos grupos.
+<li>
+Tanto configuração e ativação de todas as diferentes
+DansGuardian 'plugins' são totalmente apoiadas por este módulo.
+Plugins podem ser configurados para fornecer
+diversos tipos de "autoridades", auxiliares
+conteúdo digitalização ferramentas como anti-virus,
+e importar acessórios.
+</ul>
+<h4>Requisitos</h4>
+<p>
+Ao contrário de versões anteriores deste módulo
+Webmin ou a maioria dos outros módulos,
+este módulo utiliza JavaScript fortemente.
+De fato,
+você provavelmente não vai mesmo ser capaz de usar este módulo Webmin
+se você desligar o JavaScript no seu navegador.
+<p>
+Esta versão deste módulo centra-se em
+user-friendliness
+à custa de um aumento substancial das exigências da CPU e memória RAM.
+Desde este módulo é executado em um computador moderno com
+adequada CPU e memória RAM, tudo funcionará bem.
+Mas este módulo provavelmente não irá desempenhar adequadamente
+sobre um velho lento pequeno computador,
+mesmo que corriam versões anteriores
+deste módulo ok.
+<h4>Secundário Acessórios</h4>
+<p>
+Tal como antes, normalmente config são editadas com
+menus que são apresentados separadamente cada opção.
+Agora, se alguma coisa correr mal com os menus, é sempre possível
+para editar todos os arquivos diretamente e configuração manualmente também.
+Não há cada vez mais um motivo para recorrer a um não-Webmin
+ferramenta, porque a configuração está "preso".
+<p>
+Salvar automático e capacidade para reverter a
+cada versão de cada ficheiro config ou lista.
+Sempre a possibilidade de voltar para uma versão anterior desta forma
+é uma espécie de "desfazer" característica.
+<p>
+Quase todas as condições de erro incluir não apenas um usuário notificação
+mas também indicações sobre a forma de resolver o problema.
+Quando muda para o Webmin "módulo config" são sugeridos,
+um hiperlink para o "módulo config" está incluído
+direito na mensagem de aviso.
+Os usuários não precisam adivinhar ou a clicar em outra coisa em outro lugar.
+Em um efeito universal "desfazer" funcionalidade já está disponível.
+<h4>Traduções</h4>
+<p>
+Vários idiomas são suportados usando o
+Webmin mecanismo padrão.
+Embora pobre, é esperado, no entanto, estas traduções são
+bom o suficiente para ser útil.
+Se você não gostar de um transation, fazer uma melhor um
+e que contribuam para a inclusão em uma futura versão deste módulo.
+Você pode substituir apenas algumas partes de uma tradução já existente.
+Não há necessidade de substituir a coisa toda de uma vez.
+<p>
+Ao que parece, um malaio tradução seria especialmente útil,
+mas infelizmente não é ainda disponível.
+Se um parcial malaio tradução foram contribuíram,
+seria utilizada sempre que estava disponível,
+eo padrão do Webmin mecanismo seria automaticamente retroceder para outro idioma
+em outros lugares.
+<h4>Análise detalhada Log Acessórios</h4>
+<h5>Logs em qualquer idioma</h5>
+<p>
+Os arquivos de log pode ser lido integralmente e sensata
+independentemente da língua que eles escreveram DansGuardian pol
+Todos os menus e os filtros de forma rápida e automaticamente
+adaptar-se a linguagem que os logs foram registradas em
+(que não precisam de ser o
+mesma linguagem utilizada por ela própria Webmin
+-apesar de, muitas vezes, é claro.)
+O Log Análise ferramenta re-usa o mesmo <i>mensagens</i>
+arquivo utilizado pelo DansGuardian, assim
+tudo sempre fica em sincronia automaticamente.
+Expressões Regulares <h5>Jogos</h5>
+Sempre que os detalhes de cada uma das entradas do log
+estão incluídas em um relatório,
+expressão regular correspondência informação
+também serão exibidos.
+O display irá mostrar qual expressão regular correspondência,
+exactamente o que parte do URL que corresponder,
+e, em muitos casos, até mesmo palavras individuais envolvidos no jogo.
+<h5>Resumo Quadros</h5>
+<p>
+Sínteses são fornecidos não só para <i>Permitido</i>
+e <i>Negado</i>, mas também para os pedidos
+<i>Exceção</i> pedidos. Isto permite-lhe
+ver num ápice
+se a maior parte do trabalho está sendo feito pela frase
+digitalização de conteúdo ou por controlo
+URLs contra listas negras e assim por diante.
+<h5>Filtragem</h5>
+<h6>filtros adicionais</h6>
+Filtragem de agora pode ser feita por peso (pontuação).
+<h6>Expandida Filtros</h6>
+<p>
+Os filtros de IP do campo agora podem ser utilizados
+para especificar um grupo de computadores (uma sub-rede)
+bem como apenas um computador.
+<p>
+O domínio (site) Nome do campo agora suporta
+fósforos parciais, bem como o pleno jogos.
+Por exemplo, você pode agora especificar facebook.com
+e têm que corresponder todos de www.facebook.com,
+upload.facebook.com, friends.facebook.com,
+e assim por diante.
+<h6>Listas Filtragem</h6>
+É agora possível filtrar por
+categoria, tipo MIME, ou filtro nome do grupo
+embora o conteúdo desses campos
+é diferente em cada instalação.
+O filtro menu acumula uma lista de todos os locais
+valores que tenham sido observados,
+em seguida, faz os valores disponíveis para serem utilizados.
+<h6>Filtragem por ação</h6>
+A lista de possíveis ações foi expandida
+para ser completa e ser independente de linguagem.
+<h5>Unattended Lote Operação</h5>
+Embora a produção de relatórios é interativo
+mais obviamente feito através do Webmin,
+reconhece este módulo, há uma necessidade de
+autônoma lote geração automática de relatórios também.
+Assim, todos os relatórios que o mesmo pode ser produzido interativamente
+também pode ser produzido em um lote ambiente.
+Como configurar a execução automática e distribuição
+de relatórios pode ser um pouco complicado,
+um script e instruções detalhadas estão incluídos.
+A clickable link logo abaixo do menu à mesma página
+que lança interactivo Análise Log pode ser usado
+de escrever uma cópia do relatório a amostra do lote script
+sempre que você desejar.
+<h4>filtros múltiplos Grupos</h4>
+<p>
+Criação de filtros múltiplos grupos pode ser intimidante,
+como a forma mais simples de fazê-lo
+cria uma enorme quantidade de arquivos
+todos em um diretório.
+Portanto, este módulo inclui uma alternativa automatizada.
+Basta especificar o que deseja que o filtro de grupos para ser nomeado
+e como você deseja que os arquivos a serem relacionados,
+e esta ferramenta irá criar ou copiar todos os arquivos necessários.
+Além disso, um bloco comentário explicando exactamente o que cada arquivo é para
+serão adicionados automaticamente ao seu topo.
+<p>
+Esta configuração só precisa ser feito uma vez,
+após o qual a opção de configuração deste módulo
+será apresentada em cinza.
+Mas, fazendo isso mesmo só uma vez
+é tão importante e pode ser tão onerosa
+que este módulo pode fazer isso para você automaticamente.
+<h4>Pesquisa detalhada Acessórios</h4>
+<p>
+A pesquisa está agora a sua própria ferramenta
+em vez de ser uma função enxertado qualquer outro instrumento.
+<p>
+Uma grande variedade de coisas que podem ser pesquisados para inteligentemente:
+palavras, frases, ao domínio (host) nome, URL, e mesmo padrão.
+Pode-se procurar e encontrar qualquer expressão regular
+apenas digitando a expressão regular literalmente.
+Não há necessidade de utilizar qualquer estranha sintaxe para pesquisar,
+Nem só de traduzir alguns caracteres.
+Procurando uma frase automaticamente toma conta
+possivelmente diferentes palavra de ordem.
+Se você digitar apenas "Jack saltou" irá automaticamente
+pesquisa por "saltou Jack" também.
+<p>
+Para cada arquivo no qual um ou mais jogos foi encontrado,
+ou não o arquivo filtro aplica-se a cada grupo serão apresentados.
+Portanto, se o conteúdo de um arquivo se aplicam a alguns grupos filtro
+mas não para outros, ele será imediatamente claro.
+Filtrar grupos estão listados pelo nome do grupo filtro
+(se o grupo tem um nome),
+tornando mais fácil para compreender o visor
+apenas por olhos nisso.
+<h4>Terciário Acessórios</h4>
+<p>
+Page cabeçalhos e rodapés são mais consistentes,
+como é a exibição de mensagens de alerta.
+Tanto a versão e os DansGuardian Webmin Módulo versão
+são exibidos em cada página, e sempre no mesmo lugar.
+<p>
+Testando o ambiente
+e visualização de mensagens de alerta quando algo não parece certo
+foram grandemente ampliadas.
+<p>
+Cada linha em cada arquivo modificado é comentado com
+uma data-e-hora carimbo indicando quando foi alterado.
+<p>
+Inserção das opções existentes no config
+é feita semi-inteligente, tão novas opções não
+tudo amontoam no final do arquivo.
+Se a opção existia anteriormente
+mas foi, então, comentou a
+e agora está a ser adicionado de volta,
+a nova opção será imediatamente o antigo comentário
+em qualquer parte do arquivo.
+<p>
+Sempre filtros múltiplos grupos existentes,
+todos os grupos estão listados filtro lado a lado
+(muitas vezes como guias na mesma página).
+E eles são, maioritariamente referido pelo seu nome atribuído
+em vez de 'f1', 'f2', 'f3', e assim por diante.
+<p>
+Para modificar o arquivo de configuração,
+opções de configuração são repartidos por um grande número de menu separadores.
+Para aqueles momentos em que você sabe o nome da opção
+pretende modificar
+mas não sei o que ele está no guia,
+há uma opção localizador, que enumera todas as opções
+e salta imediatamente para a direita quando você seleciona uma guia.
+<p>
+Cada ambiente limitação,
+como a não DansGuardian executável ou não DansGuardian config arquivo,
+desactiva apenas os instrumentos relevantes.
+Limitações deixaram desactivar todo o módulo
+assim você não pode executar qualquer coisa.
+<p>
+Todas as opções mostradas plugin mesmo se actualmente comentou fora.
+<p>
+Alguns padrões que variam de um sistema para o próximo
+porque são elaboradas, no entanto, estão em
+correctamente reflectidos na configuração modificação ferramentas.
+Em particular muitos caminhos sistema de arquivos padrão
+são personalizados de acordo com o local DansGuardian.
+Se um pacote diferente DansGuardian construída com configurações diferentes é obtida,
+Este módulo irá tentar ajustar a refletir isso.
+<p>
+Tentativa de ajustar automaticamente a diferentes caminhos
+(tais como /usr/local/etc/dansguardian/... x /etc/dansguardian/...).
+Fornecer a funcionalidade completa, independentemente do que caminhos que estão em uso.
+<p>
+Avance para o ecrã inicial
+mesmo caminhos estão incorretas.
+A partir daí, o apoio do Webmin usando para editar o "módulo config"
+como necessário especificar os caminhos corretos.
+<p>
+Opção valores são cotados em config inteligência.
+Números e não curto espaço cordas não estão fechados entre aspas,
+enquanto mais cordas e cordas com espaços são.
+<p>
+Como antes, todos os ficheiros irá ser lido e entendido
+independentemente de eles usam DOS line endings ou Unix linha terminações.
+O que é novo é que todos os arquivos modificados serão sempre por escrito com o Unix linha terminações,
+mesmo que tenham sido modificadas dentro de um navegador web
+rodando em um computador Windows.
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

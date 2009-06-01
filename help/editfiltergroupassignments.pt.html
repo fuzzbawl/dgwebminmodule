@@ -1,0 +1,44 @@
+<header>Filtro Grupo Atribuições</header>
+   <div style="max-Width: 40em">
+<p>
+Quando os usuários são identificados, eles podem ser atribuídas
+filtro para diferentes grupos.
+Cada grupo tem o seu próprio filtro configuração.
+O <i>filtros múltiplos Grupos</i> é como característica executando várias
+cópias do DansGuardian em paralelo de uma só vez,
+e inteligentemente dinamicamente atribuir cada utilizador
+um para a direita.
+<p>
+Os usuários podem ser identificados, quer pela do indivíduo
+Nome de usuário ou pelo endereço IP do computador.
+(A maioria dos métodos que identificam pessoas por usuário
+exigem também algumas intervenções do local proxy [Squid?].)
+Normalmente instalações identificar os utilizadores, quer pelo usuário
+IP ou por computador, e não alguma combinação.
+De fato, em muitos casos, apenas um único authplugin de qualquer tipo é ativado.
+<p>
+Após os usuários são identificados, duas listas de controlo
+o mapeamento de usuários a filtrar grupos.
+Um deles (.../ listas / filtergroupslist) é utilizado para a identificação pelo usuário,
+e, em muitos casos, a maioria ou todos os controles da cessão.
+As outras listas (.../ / authplugins / ipgroups) é utilizado para identificação por computador endereço IP.
+<p>
+A sintaxe geral de ambos os ficheiros é o mesmo:
+<u><i>identificador</i></u>=filter<u><i>1-99</i></u>
+1-99 onde estão o filtro de grupos.
+Para a identificação pelo usuário, <i>identificador</i> é o nome de usuário,
+assim um exemplo entrada poderiam ser:
+<pre>
+danielg=filter2
+</pre>
+Para a identificação por computador, <i>identificador</i> é um endereço IP individual,
+um intervalo de endereços IP, endereço IP ou uma sub-rede,
+assim o exemplo entradas podem ser:
+<pre>
+192.168.0.100=filter1
+192.168.0.200-192.168.0.230=filter2
+192.128.1.0/24=filter3
+</pre>
+<hr>
+</div>
+<a href="javascript:window.close()">Fechar janela</a>

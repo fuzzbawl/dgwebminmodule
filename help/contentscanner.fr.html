@@ -1,0 +1,43 @@
+<header>Content Scanner plug-ins</header>
+   <div style="max-Width: 40em">
+<p>
+Ces plugins l'analyse de contenu de fournir les capacités pour effectuer divers types de
+contenu supplémentaire scans dansguardian communiqués avant un fichier à un utilisateur.
+Souvent, tout ce qui est nécessaire pour activer / désactiver (décommentez / commentaire) individuelles,
+qui peut être fait par le "plugins" dans l'onglet de configuration de montage principale tâche fenêtre.
+Ils sont utilisés principalement pour <u>anti-virus</u> scanning.
+<p>
+Ne pas <b></b><u>permettre à la fois</u><i>clamav</i> et <i>clamdscan</i> en même temps.
+Ils fournissent environ la même fonctionnalité,
+de sorte que les deux tout simplement l'utilisation d'un lot supplémentaire de ressources CPU
+sans une meilleure protection contre les virus.
+Le <i>clamdscan</i>, la méthode est plus souple
+et de préférence dans tous les cas.
+Le <i>clamav</i>, la méthode - qui peut également compliquer la construction --
+est présent principalement pour la compatibilité ascendante.
+(L'option - enable-clamav construire option est <u>pas</u> nécessaires à l'utilisation <i>clamdscan</i>;
+<u>uniquement</u> l'option - enable-clamd construire option est nécessaire.)
+<p>
+Si vous souhaitez mettre en ½uvre un scanner qui n'est pas inclus
+dans la liste des pré-options fournies (par exemple, certains
+autre type d'anti-virus, ou un autre type de scanner entièrement
+tels que celui qui cherche à distinguer des images pornographiques),
+<i>utiliser la commande</i> choix.
+
+<p>
+Chaque plugin a une configuration qui lui est propre.
+Dans de nombreux cas, ces configurations n'ont pas besoin d'être changé,
+Si l'une des configs ne doivent être modifiées,
+vous pouvez accéder au fichier de configuration pour l'édition par le biais du plugin config outil d'édition.
+<p>
+Certaines des options mai dire <i>#!! Non compilé! </I>.
+Si tel est le cas, aucune combinaison de configuration ne peut jamais permettre à l'une de ces options sur votre système.
+Afin de rendre ces options disponibles, vous devez obtenir un exécutable dansguardian
+qui inclut le support de l'option et les fichiers de configuration que l'égaler.
+Une façon de le faire est de reconstruire dansguardian de source.
+La reconstruction inclut l'exécution. / Configure,
+la compilation, de liens, et l'installation;
+il ne doit pas être pris à la légère.
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

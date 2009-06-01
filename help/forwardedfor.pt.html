@@ -1,0 +1,16 @@
+<header>Adicionar X-transmitido-Por: Header</header>
+   <div style="max-Width: 40em">
+Se, ele adiciona um <i>X-Forwarded-For:</i>
+linha para o cabeçalho solicitação HTTP cabeçalho bloco.
+As informações adicionais no novo cabeçalho
+pode fazer algumas seqüências de Squid ACLs trabalhar mais facilmente.
+<p>
+Às vezes, o cabeçalho adicionado também será transmitida
+sobre o local através de procuração para o site,
+assim, possivelmente expondo alguns de seus endereços IP internos
+e assim permitindo que websites para separar seus usuários.
+Tais pass-through pode ser eliminada no Squid 3.1 e posterior
+, especificando <i>forwarded_for&nbsp;delete</i> no squid.conf.
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

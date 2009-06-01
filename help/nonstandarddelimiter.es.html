@@ -1,0 +1,24 @@
+<header>Utilice Delimitador no estándar en la construcción de las URL de la presentación de informes del Programa CGI</header>
+   <div style="max-Width: 40em">
+<p>
+Un delimitador no estándar (algo fuera de lo habitual <code>&amp;</code> y <code>=</code>)
+sólo se utilizará en conjunción con <i>accessdeniedaddress</i>.
+Por lo tanto, no tendrá ningún efecto si <i>reportinglevel</i> 3.
+<p>
+Para facilitar la plena integración de URL prohibidas
+dentro de la URL que pasó a <i>accessdeniedaddress</i> sin causar confusión,
+el delimitador en la consulta de la URL puede utilizar las dos secuencias de caracteres
+<code>::</code> (en lugar de <code>&amp;</code)
+y <code>==</code> (en lugar de <code>=</code>.
+Su dansguardian.pl-como script CGI, por supuesto, tiene que analizar la pregunta parte de la URL
+el uso de estos delimitadores suplentes.
+<p>
+A su vez esta en su script CGI si lo requiere
+o que le sea de codificación hace más fácil su script CGI.
+Nota, sin embargo, que mientras este se soluciona el problema de la confusión
+y puede ser compatible con la mayoría de los programas CGI,
+es totalmente no estándar y no se apoya
+utilidad por subrutinas o bibliotecas.
+<hr>
+  </div>
+<a href="javascript:window.close()">Cerrar ventana</a>

@@ -1,0 +1,26 @@
+<header>Filtro Grupos Lista</header>
+   <div style="max-Width: 40em">
+<p>
+Esta es la lista que contiene los mapas de usuarios para filtrar grupos.
+Es utilizado por casi todos los métodos de autentificación de plugin
+(es <I> no</i> utilizada por autoridades plugin métodos, como el IP-auth -
+que identifican a los ordenadores en lugar de los usuarios).
+<p>
+Se utiliza sólo si hay más de un filtro de grupo
+(es decir, <i>filtergroups</i> tiene un valor mayor que uno).
+En los sistemas sin filtros múltiples grupos,
+todo el mundo es siempre para filtrar el grupo asignado <i>f1</i>
+y esta lista no se consulta el archivo.
+<p>
+El formato de cada entrada es <u><i>de usuario</i></u>=filter<u><i>1-99</i></u>
+1-99, donde están los grupos de filtro.
+(Por lo general, sólo un puñado de grupos de filtro se utilizan,
+DansGuardian pero permite filtrar hasta 99 grupos
+a fin de no ser la causa de una limitación.)
+Como ejemplo, una entrada puede tener un aspecto como:
+<br><code>
+danielg=filter2
+</code>
+<hr>
+  </div>
+<a href="javascript:window.close()">Cerrar ventana</a>

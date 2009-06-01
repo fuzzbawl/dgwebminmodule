@@ -1,0 +1,364 @@
+<header>Analisar DansGuardian Logfiles</header>
+<div style="max-Width: 40em">
+<p>
+<small><i>DansGuardian&nbsp;Logfile&nbsp;Analyzer
+foi originalmente escrita por Jimmy&nbsp;Myrick
+como um programa autônomo e liberado out&nbsp;10&nbsp;2005.
+O programa foi mais tarde incorporada
+o Webmin&nbsp;DansGuardian&nbsp;Módulo,
+onde foi reforçada por Chuck&nbsp;Kollars
+em janeiro&nbsp;2009.</i></small>
+<p>
+<small><i>Consultas sobre este Webmin DansGuardian&nbsp;Módulo
+são bem-vindos na mesma lista como consultas
+DansGuardian sobre si mesmo
+(actualmente através http://tech.groups.yahoo.com/group/dansguardian/).</i></small>
+<br>
+<h4>Resumo</h4>
+<p>
+Este programa irá analisar logs arquivos criados pelo DansGuardian filtragem
+software (http://www.dansguardian.org).
+<p>
+Diferentes filtragem (pesquisa) Os critérios podem ser especificados.
+O filtro (pesquisa) Os critérios são
+cumulativas (somados). Por exemplo, especificando um intervalo de datas
+e um endereço IP será exibido somente entradas que correspondem <u>tanto</u> critérios. Se
+você quiser ver todas as entradas de log, não especificar quaisquer critérios de filtragem em todos os
+(mudar o intervalo de data para 'todos' e aceitar todos os demais padrões).
+<p>
+Não triagem é feita sobre os resultados. Isto é para assegurar um
+busca rápida, utilize somente uma quantidade razoável de memória,
+e "alimentos" do navegador peridically com informações
+assim um timeout não ocorre. O que isto significa é que, quando dispostas
+em ordem alfabética pelo nome, seus ficheiros
+também deve ser igualmente em seqüência cronológica.
+Este programa assume todos compactado (. Gz) log
+alfabeticamente são afinal descompactado arquivos de log
+e podem não funcionar se limpa este pressuposto não está preenchido.
+<p>
+Comparado com as versões anteriores, as opções foram simplificadas
+um pouco enquanto a informação tem sido significativamente expandida.
+Dado que o custo dessas mudanças, log análise agora exige sempre
+consideravelmente a velocidade da CPU e memória RAM. Esta versão do DansGuardian
+Log File Analysis não pode correr bem em pequenos computadores lentos.
+<h4>Descrição</h4>
+<h5>regexp Jogos</h5>
+<p>
+Sempre individuais entradas de log são exibidas,
+completa expressão regular corresponde informações
+também podem ser incluídos no visor
+se uma expressão regular foi activada.
+A parte correspondente do URL será mostrado em uma cor diferente
+do que o resto da URL,
+assim você pode ver exatamente qual a parte da URL
+a expressão regular correspondência.
+A própria expressão regular também serão exibidas.
+O display irá mesmo tentativa de mostrar
+matching "Palavras", desde palavras individuais podem ser identificadas.
+<p>
+Embora a exposição de expressão regular correspondência informação
+é muito completo,
+ele usa apenas a informação de log
+e por isso não tem qualquer impacto sobre o desempenho DansGuardian.
+As informações de log é normalmente transmitida através
+porque não faz muito sentido para os seres humanos.
+Na verdade ele é tão completo que pode mesmo ser utilizado como este
+para reconstruir completamente a verdadeira jogos.
+<h5>Idiomas</h5>
+<p>
+O idioma do arquivo de log é manuseado e especificadas separadamente
+a partir da linguagem do presente programa (módulo Webmin DansGuardian Log File Analysis ferramenta) em si.
+Em outras palavras, existem <i>duas </i> diferentes configurações de idioma
+que controlam diferentes aspectos da linguagem utilizada por este
+Análise do arquivo de programa.
+<p>
+Normalmente os arquivos de log são esperados para estar em qualquer língua é especificado
+em dansguardian.conf.
+Então, sempre que manusear os ficheiros escritos por DansGuardian,
+Este ficheiro Analyzer utiliza todos a mesma língua traduções
+como DansGuardian si.
+Se o DansGuardian ficheiro de configuração não está disponível
+na localização normal
+-como é o caso, por vezes, quando executar este Log File Analysis
+em um computador diferente do que DansGuardian -
+o caminho para o arquivo de log tradução ficheiro
+vez pode ser especificado diretamente
+no Webmin DansGuardian "módulo config".
+(Em qualquer caso, você provavelmente precisará
+copie o arquivo DansGuardian tradução
+para o computador onde você executar Webmin,
+talvez no mesmo local ou talvez em um local diferente.)
+<p>
+Língua que é específica para este programa (Log File Analysis) própria
+(e não originários com DansGuardian e incluídas nos arquivos de log)
+é tratado pela linguagem regular Webmin mecanismo.
+<h5>Que Computador</h5>
+<p>
+Esta versão do DansGuardian Log File Analyzer
+<i>que não</i> precisa ser executado no mesmo computador
+que funciona em DansGuardian.
+É preciso
+<ul>
+<li>uma cópia dos arquivos de log produzido por DansGuardian a ser analisado
+<li>uma cópia do arquivo DansGuardian mensagens tradução
+para a linguagem que estava em uso por DansGuardian quando ele criou os arquivos de log
+<li>em muitos casos, uma cópia do dansguardian.conf
+<li>um trabalho e este quadro Webmin DansGuardian módulo Webmin
+</ul>
+Ele faz <i>não</i> necessidade de corrida runable ou cópia do DansGuardian binário.
+Também não se precisar de alguma coisa a partir de qualquer distribuição DansGuardian tarball.
+<p>
+Muitas vezes a forma mais fácil de copiar todos os arquivos necessários configuração (e mais)
+é simplesmente copiar todos os &lt;balbuciar&gt;/etc/dansguardian
+<u>apenas a uma profundidade de três</u>.
+Uma cópia completa de profundidade seria incluir o phraselists e listas negras.
+Tratar-se-ia trabalhar, mas seria desnecessariamente grandes e pesadas.
+<h5>Lote Operação</h5>
+<p>
+Embora esta ferramenta de análise log é normalmente utilizado interativamente,
+também é possível executar e distribuir esses relatórios
+autônoma em um modo batch.
+Um exemplo de shell script para a operação do lote
+está incluído na distribuição de
+Webmin este módulo.
+Ela pode ser facilmente acessado através do link na parte inferior da
+relatório menu.
+As instruções para customização e utilização são incluídos nos comentários
+nesse shell script arquivo.
+<h5>Comprimido Log Files</h5>
+<p>
+Este programa pode ler e processar directamente comprimido (gzipped)
+arquivos de log
+desde que estejam presentes e você marcar a opção de incluí-las.
+Não há nenhuma razão para descompactar os arquivos de log
+ou usar qualquer outra ferramenta, juntamente com um presente.
+<p>
+Comprimido ficheiros são ignorados por omissão 
+partindo do pressuposto de que eles são restos de log rotação
+e não são relevantes para o presente relatório.
+Se esta operação padrão não satisfizer as suas necessidades,
+você pode substituí-la por apenas verificar uma caixa.
+<p>
+Este programa assume que quando ordenada alfabeticamente,
+todos os ficheiros descomprimidos vir antes de qualquer comprimido arquivos de log.
+É o caso da conhecida log regimes de rotação.
+<h5>Configuração</h5>
+<p>
+Esta ferramenta assume as seguintes definições de configuração.
+Não pode produzir resultados completos com registros 
+que foram produzidas utilizando outras configurações.
+<ul style='list-style-type: none'>
+<li>logexceptionhits=2 (ou 1)
+<li>showweightedfound =on
+<li>loglevel=2 ou loglevel=3
+<li>logfileformat=1(nativo) ou logfileformat=2(CSV) ou logfileformat=4(delimitado por tabulações)
+</ul>
+<p>
+Essas outras opções de configuração pode também afectar o
+aparência ou o conteúdo do Log Análise relatórios.
+Os relatórios deverão adaptar-se a qualquer valor destas opções,
+mudar aparência, se necessário.
+<ul style='list-style-type: none'>
+<li>loguseragent
+<li>anonymizelogs
+<li>maxlogitemlength
+<li>logclienthostnames
+</ul>
+<h4>Menu - Pedido de filtros</h4>
+<p>
+Estes permitem-lhe restringir seus relatórios específicos para os subconjuntos de entradas de log.
+Apenas as entradas de log que passam todos os filtros especificados
+serão incluídas nos relatórios.
+<h5>Datas</h5>
+<p>
+Seleccione as datas que restringir entradas de log que serão incluídos no relatório.
+Se especificada, a data de início exclui todas as entradas de log antes dessa data
+(data exacta correspondências estão incluídas).
+Se especificada, a data final exclui todas as entradas de log após essa data
+(data exacta correspondências estão incluídas).
+Se ambas as datas inicial e final são especificados,
+todas as entradas de log fora desse período será excluído.
+Seleção TODOS, em qualquer um dos campos de data será eficaz
+quer eliminar a data de início ou a data final restrição.
+<p>
+Uma técnica comum é especificar a mesma data
+tanto para iniciar e terminar.
+Isto tem o efeito de incluir no relatório
+apenas entradas de log de que um dia.
+<h5>Endereço IP</h5>
+<p>
+Digite um endereço IPv4 para coincidir com a fonte (navegador) computador.
+<br>Exemplo: 10.0.0.1
+<p>
+Ou digite um endereço IPv4 / máscara para corresponder a todos os computadores em uma sub-rede inteira.
+<br>Exemplo: 10.0.0.1/24 (ou equivalently 10.0.0.1/255.255.255.0)
+<h5>Nome de usuário</h5>
+<p>
+Digite um nome de usuário para igualar.
+Alguma forma de autenticação deve ser ativado em DansGuardian para isto funcionar.
+Se usuários não são mostrados quando matching sem quaisquer critérios,
+auth então é mais provável não ativado.
+Consulte as instruções adequadas sobre como fazer isso.
+<p>
+Se usuários são impressos como endereços IP,
+então auth-a-computador foi ativado no DansGuardian.
+Este filtro irá funcionar se você especificar um endereço IP,
+mas não vai fazer nada mais (e por vezes menos)
+Endereço IP do que o anterior filtro campo.
+<h5>parcial Agent String</h5>
+<p>
+Para extrair apenas os pedidos a partir de um determinado tipo de fonte,
+introduza um trecho do texto que ocorre na seqüência do agente que tipo de fonte
+mas não em outro agente cordas.
+Jogos são caso insensitivo.
+Um trecho a ser objecto deve ser uma única frase contíguas
+na exata ordem especificada.
+Como agente HTTP strings não são padronizados
+e são wildly variável,
+para descobrir o que entra
+você normalmente precisa para executar um pré-relatório
+requerente exibir informações de um agente para solicitações individuais,
+então descobrir um string que selecciona os pedidos que você está interessado em
+mas não a outros pedidos.
+<p>
+Aqui estão alguns exemplos:
+A string 'Mozilla' irá selecionar todos Netscape, Mozilla, Firefox e no mar Macaco navegadores.
+A string 'Firefox/1.5.0.1' irá selecionar uma particular versão antiga do Firefox.
+A string 'Gecko' irá selecionar todos os browsers que utilizam uma tecnologia especial visor.
+A string 'Windows', na maior parte dos casos, seleccione qualquer navegador rodando em uma plataforma Windows, mas não uma plataforma Macintosh ou Linux.
+Lembre-se que é bastante fácil para
+qualquer seqüência de também acidentalmente jogo mais pedidos do que apenas aqueles que você significou para selecionar.
+E lembre-se que algumas cadeias, especialmente aqueles que dão SO tipo ou versão -
+podem trabalhar com alguns navegadores, mas não com os outros.
+<p>
+Em todos os casos, outros navegadores que "fingem" ser o que você deseja selecionar um
+também será incluído no jogo.
+Como quase todos os navegadores permitem ao utilizador especificar um agente suplente string para ser falsificado,
+estes jogos não pode ser definitiva e nunca deve ser interpretada como certa.
+Felizmente, na prática, alguns usuários nunca especificar um agente suplente string
+apesar de o seu navegador aceitaria um.
+Assim você pode usar com segurança agente seqüência jogos para obter uma
+bom senso do que navegadores são usados em sua rede,
+mesmo que você não pode ser determinado, em qualquer caso individual.
+<h5>Peso</h5>
+<p>
+Escolha uma direção (igual ou superior, ou igual ou inferior)
+em seguida, entra também uma pontuação numérica.
+Os pedidos que não foram digitalizados frase (normalmente devido a
+eles foram excluídos ou negada com base em sua URL)
+são tratados como se seu peso / pontuação foi de 0.
+<h5>categoria, tipo de MIME, Filtro Grupo</h5>
+<p>
+Use as listas drop-down à direita para seleccionar o que pretende igualar.
+Será copiado para o campo de texto à esquerda
+quando você selecionar um item da lista drop-down, clicando sobre ela.
+<p>
+As listas drop-down apresentar o que há de
+efectivamente sido visto em seus registros,
+pelo que geralmente oferecem todas as opções que você deseja.
+Se as listas drop-down parece estar incompleto,
+executar o relatório, uma vez sem este filtro,
+em seguida, voltar atrás e ficar pronto para executá-lo uma segunda vez.
+As novas listas drop-down irá incluir todas as opções
+que apareceram nos dados.
+<p>
+Se uma lista drop-down recebe lixo nele e pretende começar fresco,
+verificar a verificação adequada para repor ... caixa na secção Opções do Futuro.
+A lista drop-down serão apurados, de modo que a próxima vez
+você prepare-se para executar um relatório que será vazia.
+<h5>Acção</h5>
+<p>
+Digite uma acção de jogo.
+Use a lista suspensa para selecionar o recurso ao jogo. As ações são o
+caso especial pedidos autenticado pelo DansGuardian. Para ver todos os jogos para
+Permitidas ou proibidas ou excepcional,
+seleccione "ALL ALLOWED" ou "ALL negado" ou "todas as excepções". Apenas um
+AÇÃO pode ser visto em um tempo, e muitas opções são muito restritivas.
+Por exemplo, se "banido do site" é selecionado,
+então só negado os pedidos que foram recusadas
+por causa de um site a ser banido do site em uma lista que será mostrado.
+Nenhum outro negado os pedidos serão apresentados.
+<h4>Menu - Relatório Opções</h4>
+<h5>Resumo de Informações</h5>
+<p>
+A seleção dessas opções será exibido um relatório de síntese para o número
+dos sítios inscritos. O topo de 1-100 sites podem ser selecionados.
+<p>
+Uma vez que o ecrã de resumo, você pode "investigar" porque era um sítio
+negado / permitido eo que / máquina que estava visitando o site. Basta clicar
+sobre a "Trace" link sob o título "investigar" coluna e os resultados serão
+mostrado.
+<p>
+Cuidado: Se você selecionar para filtrar para apenas negado e marque para mostrar
+um resumo do permitido, não haverá qualquer resultado. Isso é correto.
+Se você não ver os resultados que esperava, voltar e verificar o
+filtro critérios que foram inseridos.
+<h5>sim-ou-Não Opções</h5>
+<p>
+Também mostrar detalhes de cada um dos pedidos
+<br>&nbsp; - Ao marcar esta caixa fará com que cada
+pedido que passa pelos filtros que você especificou
+para não apenas ser incluídos no resumo quadros
+mas também ser exibidas individualmente.
+Isso geralmente não é necessária.
+Quando você clica em qualquer um dos itens em um resumo dos relatórios,
+então você vai ver em pormenor todos os pedidos individuais
+por trás dessa linha do relatório, que é geralmente satisfatória.
+<p>
+Em um pedido individual pormenores, incluir expressão regular corresponde informações
+<br>&nbsp; - Ao marcar esta caixa fará com que
+afixação dos pedidos individuais
+Correspondência de expressão regular para incluir informações
+(se ele afetou a disposição do pedido).
+Embora seja bastante arcano,
+esta informação pode ser muito útil em ambos os
+identificação através de correspondência de problemas
+e ajudando a orientar
+a construção e utilização de expressões regulares.
+<p>
+Em invidual solicitar informações, incluir frase correspondência informação
+<br>&nbsp; - Ao marcar esta caixa fará com que
+afixação dos pedidos individuais
+incluir a frase correspondente informação
+(se ele afetou a disposição do pedido).
+Um sinal de menos significa a palavra é um "goodphrase"
+que reduziu em vez de aumentarem o cálculo do peso ou pontuação.
+Uma vírgula separa as palavras ou frases
+todos os que ocorreram em algum lugar na página web.
+Por exemplo <i>&lt;colméia&gt;,&lt;mente&gt;&lt;-50&gt;</i>
+em um arquivo phraselist
+será exibido aqui como <i>(-colméia, mente)</i>.
+<p>
+Em um pedido individual detalhes, agente seqüência incluem informações
+<br>&nbsp; - Ao marcar esta caixa fará com que
+afixação dos pedidos individuais
+para incluir o requerente "agente" string.
+Embora o exato formato do agente string
+não é padronizado
+e, embora na prática agente cordas são extremamente variáveis,
+é quase sempre suficiente para usá-los para, pelo menos, identificar especial navegadores.
+<p>
+Vire URL's em links
+<br>&nbsp; - Ao marcar esta caixa fará com que o URL's
+no relatório a ser clicáveis.
+Em geral, esta opção deve ser marcada para os relatórios
+você execute interativamente yourself
+(é por isso que é verificado por defeito).
+Para os relatórios que são distribuídos para os outros,
+Esta opção deve ser geralmente desmarcada.
+<p>
+Incluir gzip ficheiros
+<br>&nbsp; - Ao marcar esta caixa fará com que compactado (*. gz) logfiles
+no logfile diretório para ser incluída na análise.
+<h4>Menu - Futuro Opções</h4>
+<p>
+As listas drop-down para a categoria, tipo de MIME, e Filtro Grupo
+são construídas por lembrar que valores foram efectivamente
+sido visto em seus registros.
+Se por alguma razão uma das listas drop-down
+está cheio de lixo e quiser recomeçar,
+utilizar estas opções para repor cada lista drop-down
+ao seu estado inicial vazio.
+<hr>
+</div>
+<a href="javascript:window.close()">Fechar janela</a>

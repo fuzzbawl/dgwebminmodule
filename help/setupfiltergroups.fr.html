@@ -1,0 +1,54 @@
+<header>Set-Up Config-&amp;-Liste des fichiers pour de multiples groupes de filtre</header>
+   <div style="max-Width: 40em">
+<p>
+Ce processus doit être effectuée une fois
+filtres multiples groupes sont d'abord mis en ½uvre.
+Une fois le filtre de multiples groupes sont mis en place,
+ce processus ne doivent être effectuées de nouveau.
+<p>
+Mise en place tous les fichiers de plusieurs groupes de filtre
+sans cette aide peut être assez intimidant.
+Cela rend le processus de configuration simple.
+<p>
+Même si elle est automatisée,
+le processus est quelque peu déstabilisant.
+Ainsi, il ne doit pas être exécutée
+est en cours d'exécution lorsque dansguardian
+ni lorsque vous aurez besoin d'utiliser dansguardian
+pour la production en quelques minutes.
+<p>
+Il vous sera demandé pour les différents éléments d'information
+de sorte que le processus sait comment mettre en place
+plusieurs groupes de filtre pour votre environnement.
+Il vous sera demandé ce schéma général que vous voulez utiliser,
+si vous souhaitez réserver un filtre de groupe pour le «non» l'accès à Internet,
+si vous souhaitez réserver un filtre de groupe pour "toutes" les accès à Internet,
+ce que chaque filtre doit être le nom du groupe,
+et si les différentes listes doivent être stockés par groupe de filtre
+ou filtre à tous les groupes devraient utiliser une liste de partage.
+<p>
+Les régimes sont possibles:
+<ul style='list-style-type: none'>
+<li>1: liste des fichiers imbriqués
+<p>cette liste signifie que chaque fichier ne concernent pas seulement les
+son propre filtre de groupe, mais aussi tous les autres groupes de filtre
+ci-dessous (ou dessus), il. Ainsi, par exemple, si votre filtre des groupes
+"temps", "salariés", "gestionnaires" et "dirigeants", toute
+changement à l'exception ... des listes de «gestionnaires» sera également
+affecter automatiquement "cadres", ainsi que toute modification de la
+interdites ... des listes de «gestionnaires» sera automatiquement
+d'affecter des "employés" et "temps".
+<li>2: liste des fichiers
+<p>signifie que chaque filtre groupe sera donnée
+complètement indépendante des listes propres,
+qui ne touchent ni être touchés
+par tout autre filtre de groupe
+<li>3: liste des fichiers communs
+<p>signifie que chaque filtre a ses propres listes,
+mais il a également <u></u> référence à une liste qui est commun
+filtre à tous les groupes. En d'autres termes, il existe des
+"base" des listes sur lesquelles les différents groupes ont ensuite élaborer filtre.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

@@ -1,0 +1,63 @@
+<header>View or Edit Filter Group Configuration</header>
+  <div style="max-Width: 40em">
+  <p>
+View or edit the settings
+of most of the per-filter group configuration options.
+Each existing filter group displays one "tab" of configuration options
+in this user interface.
+Select the tab corresponding to the group you want to view or change. 
+(All the config options from each dansguardianf<i>N</i>.conf filter group config file
+are on just one tab,
+so once you've found the right filter group you won't need to
+switch tabs again.)
+<p>
+The Filter Group's name is displayed as the very first option at the top of each tab.
+In most cases it should not be changed.
+<p>
+The currently active setting is shown with a border around it.
+As you make proposed changes, the border may move.
+<p>
+For each option, the "Set?" checkbox shows whether or not
+some setting for the option is present in the config file.
+(This allows the cases of empty values 
+such as 0 or 'off' and of the complete absence
+of any specification for the option
+to be distinguished unambiguously.)
+To change whether or not an option setting is present,
+click on the checkbox.
+<p>
+If an option setting is (or will be) present, the "Filter Group Value" area
+will show its value. The "Filter Group Value" area near the left will have a border around it
+so you can more easily discern which options are (or will be) present.
+If on the other hand the option Set? is <i>not</i> checked,
+reference will be made to either a system-wide value, or to a default value if there is one.
+The border will move to either the "All Groups" area or the "Default" area at the right.
+<p>
+You cannot change either of these values with this tool, but you can read what they are.
+For the options at the bottom of each tab,
+use the "View/Edit System-Wide Base Config" tool
+and select its "Reporting" tab
+and set system-wide values,
+then return to this tool to make use of the new values.
+Defaults cannot be changed at all.
+<p>
+(The "default" value is the compiled-in value
+that will actually be used if the option isn't specified.
+It is often <i>not</i> the recommended value
+nor the one that appears in default config files.) 
+<p>
+If the border disappears when you uncheck the Set? box,
+it means there is neither a system-wide "all groups" setting nor a default,
+and so the option will be undefined.
+<p>
+The 'htmltemplate' option will only be used
+if the 'reportinglevel' option is set to "use HTML template file".
+Similarly the 'accessdeniedaddress' and 'nonstandarddelimiter'
+options will only be used
+if the 'reportinglevel' option is <i>not</i> set to "use HTML template file".
+However these relationships are not reflected in the display.
+Instead, all options will always be displayed
+even though some of them may not be used.
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

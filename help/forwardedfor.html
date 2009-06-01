@@ -1,0 +1,16 @@
+<header>Add X-Forwarded-For: Header</header>
+  <div style="max-Width: 40em">
+If on it adds an <i>X-Forwarded-For:</i>
+header line to the HTTP request header block. 
+The additional information in the new header
+may make some sequences of Squid ACLs work more easily.
+<p>
+Sometimes the added header will also be passed
+on through the local proxy to the website,
+thus possibly exposing some of your internal IP addresses
+and so allowing websites to disentangle your users.
+Such pass-through can be eliminated in Squid 3.1 and later
+by specifying <i>forwarded_for&nbsp;delete</i> in squid.conf.
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

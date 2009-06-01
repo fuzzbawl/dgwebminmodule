@@ -1,0 +1,25 @@
+<header>Pondération Embedded Web</header>
+   <div style="max-Width: 40em">
+<p>
+Lorsqu'il est réglé à quelque chose de plus grand que zéro, cette option URL embarqués dans un
+page HTML (à partir de liens, l'image des balises, etc) pour être extraits et contrôlés contre les
+bannedsitelist et bannedurllist. Chaque lien vers une page interdite causes du montant fixé
+ici pour être ajouté à la page de la pondération.
+Le comportement de cette option en ce qui concerne les multiples occurrences d'un site / URL est
+touchés par la mise en weightedphrasemode.
+<ul style='list-style-type: none'>
+<li>0: désactiver l'option
+<li><i>n</i>: pour chaque client interdit hyperlien
+</ul>
+<p>
+(Actuellement, cette fonction utilise les expressions régulières qui nécessitent la bibliothèque PCRE.
+Comme telle, elle n'est disponible que si votre dansguardian a été construit à
+PCRE support.
+Vous pouvez le vérifier en exécutant <code>dansguardian-v</code> et à la recherche d'une
+un cadre de <code>- enable-pcre =yes</code>.
+ou l'absence de toute <code>- enable-pcre</code> réglage.)
+<p>
+(Cette option est très intensive du CPU).
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

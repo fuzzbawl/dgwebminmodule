@@ -1,0 +1,24 @@
+<header>Utilisation non-standard lors de la construction de Delimiter URL pour le Programme de rapports CGI</header>
+   <div style="max-Width: 40em">
+<p>
+A non-standard delimiter (quelque chose d'autre que l'habituelle <code>&amp;</code> et <code>=</code>)
+ne sera utilisé en conjonction avec <i>accessdeniedaddress</i>.
+Dès lors, il n'aura aucun effet si <i>reportinglevel</i> est de 3.
+<p>
+Afin de faciliter la pleine intégration des URL interdites
+dans l'URL qui est transmise à <i>accessdeniedaddress</i> sans causer de la confusion,
+la requête à l'intérieur de la partie de l'URL peut utiliser les deux séquences de caractères
+<code>::</code> (au lieu de <code>&amp; </code)
+et <code>==</code> (au lieu de <code>=</code>.
+Votre dansguardian.pl comme script CGI faudra, bien sûr, à analyser la requête de la partie Web
+Remplaçant l'utilisation de ces délimiteurs.
+<p>
+Tournez sur votre script CGI, si elle exige
+ou vous trouverez de codage rend votre script CGI facile.
+Notez bien que si cela résoud le problème de la confusion
+et peut être rendue compatible avec la plupart des programmes CGI,
+il est totalement non-standard et ne sera pas soutenu
+par l'utilité sous-routines ou des bibliothèques.
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

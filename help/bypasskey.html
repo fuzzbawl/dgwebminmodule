@@ -1,0 +1,29 @@
+<header>Temporary Denied/Infected Page Bypass Secret Key</header>
+  <div style="max-Width: 40em">
+<p>
+Bypass functionality uses a hashed secret key 
+to provide security.
+<p>
+With reporting level 3 and the HTML template,
+maximum security is provided by using a different
+hashed secret key each time. 
+This behavior of choosing a fresh key every time is specified by
+omitting this option (or specifying it as the empty string).
+<p>
+With reporting level values other than 3 and CGI programs
+that must generate the bypass URL,
+such randomization won't work.
+So it's possible rather than generating a random key each time
+to explicitly specify one key to be used every time. 
+It must be more than 8 chars, for example
+<br>bypasskey&nbsp;=&nbsp;'Mary had a little lamb.'</code>
+or <code>bypasskey&nbsp;=&nbsp;'76b42abc1cd0fdcaf6e943dcbc93b826'</code>.
+<p>
+The same functionality is provided for pages that 
+are virus infected (rather than denied because of content)
+by the configuration option <i>infectedbypasskey</i>,
+with the same possible settings.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

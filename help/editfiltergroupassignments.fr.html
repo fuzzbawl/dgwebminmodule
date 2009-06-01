@@ -1,0 +1,44 @@
+<header>Filtre Groupe Missions</header>
+   <div style="max-Width: 40em">
+<p>
+Une fois que les utilisateurs sont identifiés, ils peuvent être assignés
+filtre à différents groupes.
+Chaque filtre groupe a sa propre configuration.
+Le <i>filtres multiples Groupes</i> comme la course est fonction de plusieurs
+des copies de dansguardian en parallèle à la fois,
+dynamiquement et intelligemment l'attribution à chaque utilisateur
+à la bonne.
+<p>
+Les utilisateurs peuvent être identifiés soit par la personne
+nom d'utilisateur ou par l'adresse IP de l'ordinateur.
+(La plupart des méthodes qui permettent d'identifier les personnes par nom d'utilisateur
+également besoin de l'aide de la proxy local [Squid?].)
+Généralement installations d'identifier les utilisateurs par nom d'utilisateur
+ou par IP, et non une combinaison.
+En fait, dans de nombreux cas, un seul authplugin de tout type est activée.
+<p>
+Lorsque les utilisateurs sont identifiés, deux listes de contrôle
+la cartographie des utilisateurs de filtrer les groupes.
+L'un d'eux (.../ lists / filtergroupslist) est utilisée pour l'identification par nom d'utilisateur,
+et dans de nombreux cas, la plupart ou la totalité des contrôles de l'affectation.
+Les autres listes (.../ / authplugins / ipgroups) est utilisée pour l'identification par adresse IP.
+<p>
+La syntaxe générale de ces fichiers est le même:
+<u><i>identifiant</i></u>=filter<u><i>1-99</i></u>
+1-99, où sont le filtre groupes.
+Pour l'identification par l'utilisateur, <i>identifiant</i> est le nom d'utilisateur,
+donc un exemple d'entrée peut être:
+<pre>
+danielg=filter2
+</pre>
+Pour l'identification par l'ordinateur, <i>identifiant</i> est une adresse IP,
+une plage d'adresses IP, adresse IP ou un sous-réseau,
+si par exemple les entrées peuvent être:
+<pre>
+192.168.0.100=filter1
+192.168.0.200-192.168.0.230=filter2
+192.128.1.0/24=filter3
+</pre>
+<hr>
+</div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

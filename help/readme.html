@@ -1,0 +1,284 @@
+<header>Webmin DansGuardian Module Enhancements From Previous Verison</header>
+  <div style="max-Width: 40em">
+<h4>Most Significant Enhancements</h4>
+<ul>
+<li>
+Log Analysis is greatly expanded,
+including showing the details of regular expression matches.
+Besides producing more finely filtered
+and more detailed reports,
+Log Analysis now works in a couple environments
+that are not typical for Webmin modules:.
+<ul>
+<li>
+Log Analysis can be used 
+on a <i>different computer </i> than the one where
+production DansGuardian runs. You can copy the logs
+from your production server to some other computer,
+and analyse the logs there.
+Thus analyzing logs need not affect the performance
+of the production server.
+<li>
+Also Log Analysis can be automatically activated to
+produce unattended batch reports.
+The fact that Log Analysis is embedded in Webmin
+does not restrict it to interactive use.
+</ul>
+<li>
+Focus is on 'multiple filter group' configurations.
+DansGuardian's ability to treat different users differently
+is a central focus of this management tool. 
+It can both set up config files
+and modify config files
+in a way that's very aware of multiple filter groups.
+<li>
+Both activation and configuration of all the various 
+DansGuardian 'plugins' are fully supported by this module.
+Plugins can be set up to provide
+various flavors of "auth", auxiliary
+content scanning tools such as anti-virus,
+and download enhancements.
+</ul>
+<h4>Requirements</h4>
+<p>
+Unlike previous versions of this module
+or most other Webmin modules,
+this module uses JavaScript heavily.
+In fact, 
+you probably won't even be able to use this Webmin module
+if you turn off JavaScript in your browser.
+<p>
+This version of this module focuses on
+user-friendliness
+at the expense of substantially increased CPU and RAM requirements.
+Provided this module is executed on a modern computer with
+adequate CPU and RAM, everything will work okay.
+But this module will probably not perform adequately
+on an old slow small computer, 
+even though it ran previous versions 
+of this module okay.
+<h4>Secondary Enhancements</h4>
+<p>
+As before, normally config files are edited with
+menus that display each option separately.
+Now if something goes wrong with the menus, it's always possible
+to edit every config file directly and manually too.
+There's no longer ever a reason to resort to a non-Webmin
+tool because the configuration is "stuck".
+<p>
+Automatic save and ability to revert to
+every version of every config or list file.
+Always being able to go back to a previous version this way
+is a sort of "undo" feature.
+<p>
+Almost all error conditions include not only a user notification
+but also pointers on how to fix the problem.
+Where changes to the Webmin "module config" are suggested,
+a hyperlink to the "module config" is included
+right in the warning message.
+Users don't need to guess or to click something else somewhere else.
+In effect a universal "undo" feature is now available.
+<h4>Translations</h4>
+<p>
+Several different languages are supported using the 
+standard Webmin mechanism.
+While poor, it's hoped these translations are nevertheless
+good enough to be helpful.
+If you don't like a transation, make a better one
+and contribute it for inclusion in a future version of this module.
+You can replace only some parts of an existing translation.
+There's no need to replace the whole thing all at once.
+<p>
+It appears that a Malay translation would be especially useful,
+but unfortunately it's not yet available.
+If a partial Malay translation were contributed,
+it would be used wherever it was available,
+and the standard Webmin mechanism would automatically fall back to another language 
+in other places.
+<h4>Log Analysis Detailed Enhancements</h4>
+<h5>Logs In Any Language</h5>
+<p>
+The log files can be fully and sensibly read 
+regardless of which language DansGuardian wrote them in.
+All menus and filters quickly and automatically
+adapt to whatever language the logs were recorded in
+(which need not be the
+same language used by Webmin itself
+-although of course it often is.)
+The Log Analysis tool re-uses the same <i>messages</i>
+file used by DansGuardian, so 
+everything always stays in sync automatically.
+<h5>Regular Expression Matches</h5>
+Whenever the details of individual log entries 
+are included in a report,
+regular expression matching information
+will also be displayed.
+The display will show which regular expression matched,
+exactly what part of the URL it matched,
+and in many cases even individual words involved in the match.
+<h5>Summary Tables</h5>
+<p>
+Summaries are provided not only for <i>Allowed</i>
+and <i>Denied</i> requests but also for 
+<i>Exception</i> requests. This allows you to
+see at a glance
+whether most of the work is being done by phrase
+scanning of content or by checking 
+URLs against blacklists and so forth.
+<h5>Filtering</h5>
+<h6>Additional Filters</h6>
+Filtering can now be done by weight(score).
+<h6>Expanded Filters</h6>
+<p>
+The IP filter field can now be used
+to specify a group of computers (a subnet)
+as well as just one computer.
+<p>
+The domain(site) name field now supports
+partial matches as well as full matches.
+For example you can now specify 'facebook.com'
+and have it match all of 'www.facebook.com',
+'upload.facebook.com', 'friends.facebook.com', 
+and so forth.
+<h6>Filtering Lists</h6>
+It's now possible to filter by
+category, MIME type, or filter group name
+even though the contents of these fields
+is different at every installation.
+The filter menu builds up a local list of all
+values that have been seen, 
+then makes those values available to be used.
+<h6>Filtering By Action</h6>
+The list of possible actions has been expanded
+to be complete and to be language-independent.
+<h5>Unattended Batch Operation</h5>
+While interactive production of reports is 
+most obviously done through Webmin,
+this module recognizes there's a need for
+unattended automatic batch generation of reports too.
+Thus all the same reports that can be produced interactively
+can also be produced in a batch environment.
+As setting up automatic execution and distribution 
+of reports can be a little tricky,
+a sample script and detailed directions are included.
+A clickable link just below the menu on the same page
+that launches interactive Log Analysis can be used
+to write a copy of the sample batch report script
+wherever you desire.
+<h4>Multiple Filter Groups</h4>
+<p>
+Setting up multiple filter groups can be daunting,
+as the most straightforward way to do it
+creates a huge number of files
+all in one directory.
+So this module includes an automated alternative.
+Simply specify what you want the filter groups to be named
+and how you want the files to be related,
+and this tool will create or copy all necessary files.
+Also, a comment block explaining exactly what each file is for
+will be automatically added at its top.
+<p>
+This setup only needs to be done once,
+after which the setup option in this module
+will be grayed out.
+But doing it even just once
+is so important and can be so onerous
+that this module can do it for you automatically.
+<h4>Search Detailed Enhancements</h4>
+<p>
+Search is now its own separate tool
+rather than being a function grafted onto some other tool.
+<p>
+A wide variety of things can be searched for intelligently:
+words, phrases, domain(host) name, URL, and even pattern.
+One can search for and find any regular expression
+just by typing the regular expression literally.
+There's no need to use any strange syntax for searching,
+not even just to translate some characters.
+Searching for a phrase automatically takes account
+of possibly different word order.
+Typing just "Jack jumped" will automatically
+search for "jumped Jack" too.
+<p>
+For each file in which one or more matches was found,
+whether or not the file applies to each filter group will be shown.
+So if the contents of a file apply to some filter groups
+but not others, it will be immediately clear.
+Filter groups are listed by filter group name
+(if the group has a name),
+making it easier to understand the display 
+just by glancing at it. 
+<h4>Tertiary Enhancements</h4>
+<p>
+Page headers and footers are more consistent,
+as is the display of warning messages.
+Both the DansGuardian version and the Webmin Module version
+are displayed on every page, and always in the same place.
+<p>
+Testing of the environment
+and display of warning messages if something doesn't seem right
+have been greatly expanded.
+<p>
+Every changed line in every file is commented with
+a date-and-time stamp showing when it was changed.
+<p>
+Insertion of options in existing config files
+is done semi-intelligently, so new options don't
+just all pile up at the very end of the file.
+If the option existed previously 
+but was then commented out
+and now is being added back,
+the new option will immediately follow the old comment
+anywhere in the file.
+<p>
+Whenever multiple filter groups exist,
+all filter groups are listed side by side 
+(often as tabs on the same page).
+And they are mostly referred to by their assigned name
+rather than as 'f1', 'f2', 'f3', and so forth.
+<p>
+For modifying the config file,
+configuration options are spread out over a large number of menu tabs.
+For those times when you know the name of the option
+you want to modify
+but don't know which tab it's on,
+there's an option finder which lists all options
+and jumps immediately to the right tab when you select one.
+<p>
+Each environmental limitation,
+such as no DansGuardian executable or no DansGuardian config file,
+deactivates only the relevant tools.
+Limitations no longer deactivate the entire module
+so you can't run anything at all.
+<p>
+All plugin options shown even if they are currently commented out.
+<p>
+Some defaults that vary from one system to the next
+because they are compiled in are nevertheless
+correctly reflected in the configuration modification tools.
+In particular many default file system paths
+are customized to the local DansGuardian. 
+If a different DansGuardian package built with different settings is obtained,
+this module will attempt to adjust to reflect it.
+<p>
+Attempt to automatically adjust to different paths
+(such as /usr/local/etc/dansguardian/... vs. /etc/dansguardian/...).
+Provide full functionality regardless of what paths are in use.
+<p>
+Proceed to the initial display 
+even if paths are incorrect.
+From there support using Webmin to edit the "module config"
+as necessary to specify the correct paths.
+<p>
+Option values in config files are quoted intelligently.
+Numbers and short non-space strings are not enclosed in quotes,
+while longer strings and strings with spaces are.
+<p>
+As before, all files will be read and understood
+regardless of whether they use DOS line endings or Unix line endings.
+What's new is that all modified files will always be written with Unix line endings,
+even if they were modified inside a web browser
+running on a Windows computer.
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

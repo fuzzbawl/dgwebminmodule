@@ -1,0 +1,122 @@
+<header>Processus enfant</header>
+   <div style="max-Width: 40em">
+<p>
+La plupart des applications qui continue de faire un grand
+nombre de demandes
+avoir une sorte de sous-mécanisme.
+À chaque demande est traitée par une autre sous-,
+même si quelque chose d'inattendu
+l'une des causes les demandes d'aller mal de façon spectaculaire,
+il suffit que l'un sous-hang
+mais pas toute l'application.
+Comme cela se produit, chaque sous-dansguardian pour le traitement de la demande
+est visible à l'OS comme un "processus fils".
+(Un couple d'autres processus dansguardian
+seront visibles à l'OS aussi.)
+<p>
+En dansguardian, il ya plusieurs paramètres liés à la
+le nombre de "fils" qui traitent les demandes individuelles.
+Des réglages de ces paramètres peut affecter les performances.
+C'est à peu près le cas que l'augmentation des chiffres de vitesse
+le fonctionnement du système à grande échelle (jusqu'à un certain point).
+Mais un plus grand nombre va utiliser plus de mémoire,
+et si la taille totale de l'ensemble des processus de plus dansguardian Squid
+déversements réels de la mémoire dans la mémoire virtuelle,
+vitesse mai sensiblement diminuer.
+Il ya donc un équilibre à trouver.
+<p>
+Vous aurez probablement besoin d'ajuster <i>maxchildren</i>
+à peu près le même que votre nombre maximum d'utilisateurs simultanés.
+Et vous voulez mai tune <i>minsparechildren </I> alors il est trop
+sur le nombre d'utilisateurs qui commencent généralement
+activité en même temps.
+Si vous augmentez l'un ou l'autre de ces paramètres,
+mai, vous devez également augmenter proportionnellement les autres paramètres.
+<p>
+Les paramètres suivants:
+<ul style='list-style-type: none'>
+<li><u>prefork Enfants</u>
+<br>
+Définit le nombre minimum d'enfants pour faire naître des processus tout à la fois
+chaque fois que dansguardian besoins pour frayer au moins un.
+Spawning plusieurs à la fois les sous -
+part des frais généraux et d'éviter la stupidité
+de les sous-spawing un à la fois
+même si plusieurs sont nécessaires.
+<br>
+Sur les grands sites, vous pouvez essayer 10.
+<br>
+Default = 6
+<p>
+<li><u>minimum de rechange pour enfants</u>
+<br>
+Définit le nombre minimum de processus enfant à être
+prêt en réserve au cas où tout un tas d'utilisateurs
+arrivent tous à la fois.
+<br>
+Sur les grands sites, vous pouvez essayer 8.
+<br>
+Default = 4
+<p>
+<li><u>minimum Enfants</u>
+<br>
+Définit le nombre minimum de processus pour conserver
+à la fois pour traiter les demandes actives et par prêt en réserve pour de futures demandes.
+Ce contrôle la manière dont de nombreux enfants qui seront
+dansguardian premier engendré lors du démarrage.
+Il contrôle efficacement la manière dont notre empreinte
+d'un système qui est momentanément inactifs.
+<br>
+Sur les grands sites, vous pouvez essayer 32.
+<br>
+Default = 8
+<p>
+<li><u>maximum de rechange pour enfants</u>
+<br>
+Définit le nombre maximum de processus à garder en réserve
+pour les demandes futures, même si elles ne font rien pour le moment.
+Lorsque plus de cela, de nombreux processus sont inactifs,
+Dansguardian va abattre certaines d'entre elles.
+Cette capacité est de savoir combien de dansguardian
+devrait tenir prête à portée de main, après une charge de pointe.
+Pour une performance optimale de ce peut-être besoin d'être sur la même
+comme le nombre maximal d'utilisateurs que jamais commencer l'activité à la fois.
+<br>
+Sur les grands sites, vous pouvez essayer 64.
+<br>
+Default = 32
+<p>
+Maximum <li><u>Enfants</u>
+<br>
+Définit le <b>maximum</b> de les sous qui peuvent exister,
+Ce nombre n'est pas infini, pour deux raisons:
+<ol>
+<li>Une limite <b>empêcher les attaques DoS</b> à partir de
+tuant le serveur avec un trop grand nombre de processus a donné naissance.
+<li>Une limite <b>prévenir l'épuisement de RAM</b>
+de sorte que le serveur ne sera pas de trouver lui-même à la mort
+même sous très forte charge.
+</ol>
+Sur les grands sites, vous pouvez doubler ou tripler ce nombre.
+<p>
+<li><u>âge maximum des enfants</u>
+<br>
+Définit la limite d'âge d'un enfant avant dansguardian croaks il.
+C'est le nombre de connexions qu'ils traitent avant de repartir.
+De temps en temps se débarrasser de l'enfant des processus existants et de nouvelles zones de frai
+est un mécanisme de sécurité au cas où il ya des "fuites de mémoire"
+ou d'autres bugs dans les processus de l'enfant
+qui ne deviennent visibles que lorsque le processus se déroule pendant un temps très long.
+<br>
+Si votre système est en proie à l'instabilité,
+essayer de réduire ce paramètre.
+Si la stabilité n'est pas un problème, mais la performance de pointe est,
+essayez d'augmenter ce paramètre.
+<br>
+Sur les grands sites, vous pouvez essayer 10000.
+<br>
+Default = 500
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

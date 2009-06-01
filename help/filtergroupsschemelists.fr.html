@@ -1,0 +1,42 @@
+<header>Comment Liste des fichiers pour les filtres multiples groupes sont connexes</header>
+   <div style="max-Width: 40em">
+<p>
+C'est une option pratique pour Webmin etc
+Même si elle est stockée dans dansguardian.conf,
+il signifie rien <u></u> dansguardian à lui-même.
+<p>
+Certains dossiers de liste sera partagée par tous les groupes de filtre, quel que soit
+(cette option n'a pas d'incidence sur eux).
+Beaucoup de dossiers de liste mais sera différent pour chaque filtre de groupe,
+et cette option contrôle la manière dont ils seront liés.
+<p>
+Une fois que cela est fixé et la liste des fichiers copiés ou liées, le cas échéant,
+cette option devrait vraisemblablement pas <u></u> être changés.
+Changement à la volée mai résultat dans une configuration
+qui a de grandes lacunes et fait peu ou pas de sens.
+<p>
+Les valeurs possibles sont:
+<ul style='list-style-type: none'>
+<li>1: liste des fichiers imbriqués
+<p>cette liste signifie que chaque dossier ne concernent pas seulement les
+son propre filtre de groupe, mais aussi tous les autres groupes de filtre
+ci-dessous (ou dessus), il. Ainsi, par exemple, si votre filtre des groupes
+"temps", "salariés", "gestionnaires" et "dirigeants", toute
+changement à l'exception ... des listes de «gestionnaires» sera également
+affecter automatiquement "cadres", ainsi que toute modification de la
+interdites ... des listes de «gestionnaires» sera automatiquement
+d'affecter des "employés" et "temps".
+<li>2: liste des fichiers
+<p>signifie que chaque filtre groupe sera donnée
+complètement indépendante des listes propres,
+qui ne touchent ni être touchés
+par tout autre filtre de groupe
+<li>3: liste des fichiers communs
+<p>signifie que chaque filtre a ses propres listes,
+mais il a également <u></u> référence à une liste qui est commun
+filtre à tous les groupes. En d'autres termes, il existe des
+"base" des listes sur lesquelles les différents groupes ont ensuite élaborer filtre.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

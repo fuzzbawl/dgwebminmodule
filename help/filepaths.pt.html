@@ -1,0 +1,49 @@
+<header>Arquivo Caminhos</header>
+   <div style="max-Width: 40em">
+O caminho completo para um ficheiro
+(por exemplo <code>/ usr / local / etc / dansguardian / arquivo</code>).
+<p>
+Na maioria dos casos, nenhum dos caminhos deve ser mudado.
+Todos os padrões seguem o mesmo padrão
+e, geralmente, não deve ser ultrapassado individualmente.
+<p>
+(Os arquivos sob <code>/ usr / share</code> são extra cópias dos originais.
+Se um arquivo fica irremediavelmente confuso,
+você pode copiar um destes e começar tudo.
+Eles evidentemente têm os mesmos nomes como o
+arquivos que você está acostumado a ver e editar.
+Esses arquivos são usados <u>não</u> a todos por um sistema executando o DansGuardian.
+Como esses arquivos são somente para a recuperação, <b>não alterá-los</b>.)
+<p>
+A maioria dos caminhos DansGuardian arquivo começa com um "prefixo"
+esse é o mesmo para quase todos os caminhos em que
+instância do DansGuardian.
+O prefixo é normalmente
+quer <code>/ usr / local</code> ou "" (nada),
+causando o exemplo padrão para ser
+<code>/ usr / local / etc / dansguardian / arquivo</code>
+ou
+<code>/ etc / dansguardian / arquivo</code>.
+<p>
+O caminho está definido quando prefixo DansGuardian é construída
+(o 'configure' parâmetro é chamado <code>- prefix</code>).
+É <u>não pode ser alterado</u> sem recompilar DansGuardian.
+Você pode determinar qual o prefixo foi construído em
+a instância do DansGuardian executando
+<code>dansguardian&nbsp;-v</code>
+(o parâmetro não pode aparecer se ele é definido como
+<code>/ usr / local</code>).
+<p>
+<i>languagedir</i> é onde as línguas são armazenados para a internacionalização.
+Este diretório é especialmente importante para um jovem de razões:
+<ol>
+O HTML <li>modelo utilizado quando reportinglevel é definido como 3
+reside dentro desta directoria por omissão.
+<li>O arquivo de texto chamado <i>traduções mensagens</i> --
+utilizados por DansGuardian de internacionalização reside neste diretório.
+Este mesmo arquivo também é utilizado pela Log Análise capacidade
+Webmin DansGuardian deste módulo.
+</ol>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

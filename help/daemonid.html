@@ -1,0 +1,25 @@
+<header>Daemon User/Group</header>
+  <div style="max-Width: 40em">
+Like all processes,
+the DansGuardian server/daemon process 
+has a <u>user</u> and <u>group</u>.
+The user/group of each process
+controls how the operating system grants permissions to it,
+particularly access to various files and directories.
+Typically operation is simplest 
+if DansGuardian, its local proxy backend (for example Squid),
+and any anti-virus daemon
+all run as the same user/group
+<p>
+If not specified, DansGuardian will default
+to running as whatever user and group
+were built in
+(typically either nobody/nobody or nouser/nogroup).
+It's probably better to explititly specify
+some user userid/groupid 
+than to chance file permissions as necessary
+to make the built in settings work.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

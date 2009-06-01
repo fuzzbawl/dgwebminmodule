@@ -1,0 +1,40 @@
+<header>View or Edit Filter Group Configuration Lists</header>
+  <div style="max-Width: 40em">
+  <p>
+The operation of DansGuardian is extensively
+configured through various lists (sites, URLs, extensions, etc.).
+There is just one system-wide copy of some of these lists,
+while many others have a different copy for each filter group.
+This tool allows you to select one of the existing filter groups,
+then select one of its lists,
+and then edit it.
+<p>
+Most of the routine configuration of DansGuardian
+will be done using this tool.
+<p>
+<u>The appearance of these lists will be dramatically different</u>
+depending on the setting of the 'Include "fixed" lists in displays'
+configuration option. 
+Click on "module config" near the top left, and flip the
+setting the other way so you can see both appearances.
+Then choose which setting you prefer
+and set the module config option appropriately.
+<hr>
+If you add a new list,
+give it a name whose left part is the name of 
+it's parent list (the list that .Include's it).
+For example, if you add a special file for some 'bannedsitelist' items,
+name it something like 'bannedsitelistproxies'.
+(Notice the pattern '<i>bannedsitelist</i>proxies'.)
+<p>
+New files named in this way will be given
+the same file access permissions
+as their parent list,
+and will be searched at the same time as their parent list.
+If you create a new list file but name it some other way,
+searches may not find items in the new file,
+and Webmin permissions may not allow you to edit the file,
+effectively making it useless,
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

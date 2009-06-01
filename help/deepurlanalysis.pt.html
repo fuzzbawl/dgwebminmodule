@@ -1,0 +1,25 @@
+<header>Deep URL Análise</header>
+   <div style="max-Width: 40em">
+<p>
+Quando esta opção está ativada, DansGuardian olha para dentro de outras URLs URLs, e
+verifica o interior URLs contra bannedsitelist (e exceptionsitelist)
+e bannedurllist (e exceptionurllist).
+Isto é especialmente útil para bloquear imagens originárias de sites proibidos
+de aparecer no Google Imagens resultados de pesquisa, como o original URLs são
+embutido na miniatura solicitações GET.
+<p>
+A utilidade desta opção para limitar a utilização de proxies anónimos é menos clara.
+<p>
+Esta opção não sequer tentar identificar "obfuscated" URLs,
+tais como aqueles tratados com
+codificação hexadecimal, base64 codificação, ou mesmo rot13 codificação.
+Tais codificações de URLs, normalmente realizada com Javascript, são bastante comuns.
+<p>
+Nota também existem razões legítimas para terem um URL dentro de outra URL,
+por exemplo, a mais segura, com precisão, e facilmente transmitir "referrer"
+informação a serviço de websites.
+Se os problemas são rastreadas para esta opção,
+considerar experimentar com apenas transformando-off.
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

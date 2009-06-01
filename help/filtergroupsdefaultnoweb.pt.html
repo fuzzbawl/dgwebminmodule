@@ -1,0 +1,37 @@
+<header>Como O Grupo Padrão de filtro (F1) será utilizado</header>
+   <div style="max-Width: 40em">
+<p>
+Esta é uma opção para conveniência Webmin etc
+Embora ele é armazenado em dansguardian.conf,
+que actualmente significa <u>nada</u> para DansGuardian si.
+<p>
+Com múltiplas filtergroups,
+DansGuardian sempre que não pode identificar um usuário,
+que o usuário é atribuído ao "padrão" filtro grupo - f1.
+A incapacidade de identificar o usuário pode significar
+este é um novo usuário,
+ou este é um hóspede usuário,
+ou a configuração não está completa,
+ou houve um erro execução,
+ou ...
+<p>
+Em muitos casos, o padrão filtro grupo é dado
+sem acesso à Web a todos.
+Dessa forma, se houver um problema,
+o usuário irá assistir a ela imediatamente
+uma vez que não pode acessar a web no mesmo período.
+Noutros casos, o padrão filtro grupo
+é utilizada para "a maioria dos" usuários. Isto reduz o
+tamanho de sua configuração uma vez que você só precisa
+para listar os usuários que não devem <u></u>
+ser atribuída ao padrão filtro grupo.
+<p>
+Esta opção indica que o filtro Grupos configuração do
+duas utilizações possíveis do grupo padrão filtro que deseja usar.
+Se é sobre / marcada, o filtro padrão grupo será dado nenhum acesso à Web a todos.
+Se, por outro lado, é desligado / desmarcado,
+o padrão filtro grupo estará disponível para novas configurações.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

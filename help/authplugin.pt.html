@@ -1,0 +1,51 @@
+<header>Auth plug-ins</header>
+   <div style="max-Width: 40em">
+<p>
+Estes auth plugins fornecer vários tipos de usuário (ou computador)
+autenticação ou autorização.
+Normalmente tudo o que é necessário para activar / desactivar (descomentar / comentário) deles,
+que pode ser feito através do "plugins" guia nos principais config edição tarefa janela.
+(A ordem da sua lista é importante.
+Mas o arquivo de configuração já enumera esses plugins
+na única forma razoável,
+assim não há possibilidade de alterar a ordem é incluído aqui.)
+<p>
+Auth métodos podem ser categorizadas como segue:
+<ul>
+<li>identificar usuário
+<ul>
+<li>necessitar de assistência do local proxy (Lula?)
+<br><small><u>(estas opções serão <i>nunca</i>, em um trabalho completamente "transparente-interceptor" ambiente)</u></small>
+<ul>
+<li><b>Básicas</b> longa web externo padrão
+<li><b>Digest</b> mais seguras desafio-resposta padrão W3C, pode não ser totalmente suportados em todos os lugares
+<li><b>NTLM</b> da Microsoft maneira
+</ul>
+<li>não exigem qualquer assistência
+<ul>
+<li><b>ident</b>, o mais fácil spoofable
+</ul>
+</ul>
+<li>identificar computador
+<ul>
+<li><b>IP</b>
+</ul>
+</ul>
+Cada plugin tem uma configuração própria.
+Na maioria dos casos, estas configs nunca devem ser alterados a todos,
+(A única exceção é em alguns casos detalhados edição do
+<i>ipgroups</i> que o arquivo da filial para o IP auth plugin será necessária.)
+Se uma das configs não necessitam de ser alterados,
+você pode acessar o arquivo de configuração para a edição através do plugin config edição ferramenta.
+<p>
+Algumas das opções podem dizer <i>#! Não compilado! </I>.
+Se assim for, não podemos jamais permitir que config combinação qualquer destas opções em seu sistema.
+Para fazer essas opções disponíveis, você deve obter tanto um executável DansGuardian
+que inclui suporte para a opção e config que igualar.
+Uma maneira de fazer isso é reconstruir DansGuardian da fonte.
+Reconstruindo inclui executando. / Configure,
+compilação, ligação e instalação;
+não deve ser empreendida de ânimo leve.
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

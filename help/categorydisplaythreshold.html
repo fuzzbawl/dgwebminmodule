@@ -1,0 +1,20 @@
+<header>Which Categories To Announce on Access Denied</header>
+  <div style="max-Width: 40em">
+<p>
+This option only applies to pages blocked by weighted phrase filtering.
+It defines the minimum score that must be accumulated within a particular
+category in order for it to show up on the access denied pages' category list.
+<p>
+Regardless of the setting, 
+all categories under which the page scores positively will be logged; those
+that were not displayed to the user will appear in brackets in the log.
+<p>
+Possible values are:
+<ul style='list-style-type: none'>
+<li>-1 : display only the highest scoring category on the access denied page
+<li>0 : display all categories on the access denied page (default)
+<li><i>n</i> : minimum score for a category to be displayed on the access denied page
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

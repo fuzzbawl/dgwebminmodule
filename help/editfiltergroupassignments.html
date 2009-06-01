@@ -1,0 +1,44 @@
+<header>Filter Group Assignments</header>
+  <div style="max-Width: 40em">
+<p>
+Once users are identified, they can be assigned
+to different filter groups.
+Each filter group has its own configuration.
+The <i>Multiple Filter Groups</i> feature is like running several
+copies of DansGuardian in parallel all at once,
+and intelligently dynamically assigning each user 
+to the right one.
+<p>
+Users can be identified either by the individual's
+username or by the computer's IP address.
+(Most of the methods that identify individuals by username
+also require some assistance from the local proxy [Squid?].)
+Typically installations identify users either by username
+or by computer IP, not some combination.
+In fact in many cases only a single authplugin of any type is enabled.
+<p>
+After users are identified, two lists control
+the mapping of users to filter groups.
+One of them (.../lists/filtergroupslist) is used for identification by username,
+and in many cases controls most or all of the assignment.
+The other (.../lists/authplugins/ipgroups) is used for identification by computer IP address.
+<p>
+The general syntax of both files is the same:
+<u><i>identifier</i></u>=filter<u><i>1-99</i></u>
+where 1-99 are the filter groups.
+For identification by user, <i>identifier</i> is the username,
+so an example entry might be: 
+<pre>
+danielg=filter2
+</pre>
+For identification by computer, <i>identifier</i> is an individual IP address,
+a range of IP addresses, or an IP address subnet,
+so example entries might be:
+<pre>
+192.168.0.100=filter1
+192.168.0.200-192.168.0.230=filter2
+192.128.1.0/24=filter3
+</pre>
+<hr>
+</div>
+<a href="javascript:window.close()">Close Window</a>

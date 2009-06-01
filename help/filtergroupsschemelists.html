@@ -1,0 +1,42 @@
+<header>How List Files for Multiple Filter Groups are Related</header>
+  <div style="max-Width: 40em">
+<p>
+This is a convenience option for Webmin etc.
+Although it's stored in dansguardian.conf, 
+it currently means <u>nothing</u> to DansGuardian itself.
+<p>
+Some list files will be shared by all filter groups no matter what
+(this option does not affect them).
+Many list files though will be different for each filter group,
+and this option controls how they will be related.
+<p>
+Once this is set and the list files copied or linked as appropriate,
+this option should most likely <u>not</u> be changed.
+Changing it on the fly may result in a configuration
+that has large flaws and makes little or no sense.
+<p>
+Possible values are:
+<ul style='list-style-type: none'>
+<li>1 : nested list files
+<p>this means each list file will affect not only
+its own filter group but also all other filter groups
+below (or above) it. So for example if your filter groups are 
+"temps", "employees", "managers", and "executives", any 
+change to the exception... lists for "managers" will also 
+automatically affect "executives", and any changes to the
+banned... lists for "managers" will also automatically
+affect "employees" and "temps".
+<li>2 : separate list files
+<p>this means each filter group will be given
+own completely independent lists, 
+which will neither affect nor be affected
+by any other filter group 
+<li>3 : common list files
+<p> this means each filter group has its own lists,
+yet it <u>also</u> references a list which is common
+to all filter groups. In other words there are common
+"base" lists on which individual filter groups then elaborate.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

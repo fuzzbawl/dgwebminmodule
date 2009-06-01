@@ -1,0 +1,42 @@
+<header>Como Lista Arquivos para filtros múltiplos Grupos são relacionados</header>
+   <div style="max-Width: 40em">
+<p>
+Esta é uma opção para conveniência Webmin etc
+Embora ele é armazenado em dansguardian.conf,
+que actualmente significa <u>nada</u> para DansGuardian si.
+<p>
+Alguns lista arquivos serão compartilhados por todos os grupos filtro não importa o que
+(esta opção não afetá-los).
+Muitos arquivos embora lista será diferente para cada filtro grupo,
+e esta opção controla como vão ser relacionados.
+<p>
+Uma vez que isso está definido e que a lista arquivos copiados ou ligadas, se necessário,
+Esta opção deve muito provavelmente <u>não</u> ser alterado.
+Alterá-lo na mosca pode resultar em uma configuração
+que tem grandes falhas e faz pouco ou nenhum sentido.
+<p>
+Os valores possíveis são:
+<ul style='list-style-type: none'>
+<li>1: lista aninhada arquivos
+<p>isto significa cada lista arquivo afectarão não só
+o seu próprio filtro grupo, mas também todos os outros grupos filtro
+abaixo (ou acima)-lo. Assim, por exemplo, se o seu filtro grupos são
+"tempo", "empregados", "gestores", e "executivos", qualquer
+mudança para a excepção ... listas de "gestores" irá também
+automaticamente afecta "executivos", e quaisquer alterações à
+proibidos ... listas de "gestores" também serão automaticamente
+afectar "empregados" e "tempo".
+<li>2: lista separada arquivos
+<p>isto significa cada filtro grupo, será dada
+próprias listas completamente independente,
+que não afecta nem ser afectadas
+por qualquer outro filtro grupo
+<li>3: lista comum arquivos
+<p>isto significa cada filtro grupo tem as suas próprias listas,
+ainda que também <u></u> referências, que é uma lista comum
+filtro para todos os grupos. Em outras palavras, são comuns
+"base", lista na qual cada filtro grupos então elaboradas.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

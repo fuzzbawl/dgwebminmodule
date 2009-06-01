@@ -1,0 +1,77 @@
+<header>Reporting "Access Denied" To Users</header>
+  <div style="max-Width: 40em">
+<p>
+DansGuardian has two different methods for reporting access denied to users.
+(These settings are for presenting an "access denied" page to users.
+They have no effect on what goes in the log or how.)
+<p>
+In most cases you should use the newer and faster and cleaner
+HTML File method.
+It doesn't require having a web server or setting up a CGI program,
+and it's easier to customise the access denied page. 
+Set <i>reportinglevel</i> to 3, 
+allow <i>accessdeniedaddress</i> to be ignored,
+and let <i>htmltemplate</i> default to its usual
+<code> PREFIX/<i>languagedir</i>/<i>language</i>/template.html</code>.
+<p>
+Use the older method of pointing <i>accessdeniedaddress</i> 
+at your own installation of a "dansguardian.pl"-like
+script on your own web server only in unusual
+special circumstances where you require maximum flexibility.
+<p>
+Although by default all filter groups use the same parameters
+to report access denied, 
+it's possible for each filter group to have its own settings.
+For example it's possible to have different filter groups
+use different <i>htmltemplate</i> files, some including a "bypass"
+facility and others not.
+In the usual case where overrides are not needed,
+just specify the settings once in dansguardian.conf.
+To provide different settings for different filter groups,
+specify the settings in the individual dansguardianf<i>N</i>.conf
+files. 
+<p>
+The parameters are:
+<ul style='list-style-type: none'>
+<li><u>Reporting Level</u>
+<ul style='list-style-type: none'>
+<li>-1 = log, but do not block (Stealth mode)
+<li>0 = Just say 'Access Denied'
+<li>1 = Report why but not what denied phrase
+<li>2 = Report fully
+<li>3 = Use HTML Template file (Access Denied Address will be ignored)
+</ul>
+The default is 3, which specifies using an HTML File
+(rather than a CGI program)
+and is usually appropriate.
+<p>
+<li><u>HTML Template File Path</u>
+<br>
+Only useful when <i>reportinglevel</i> is set to 3
+<u>and</u> some filter groups have their own different access denied page.
+Allows the HTML File to be read from an alternate location
+rather than from the usual
+<code>PREFIX/<i>languagedir</i>/<i>language</i>/template.html</code>.
+<br>
+If specified, this must be a complete path starting with "/".
+Although partial paths may not cause a syntax error in all cases,
+in the end they will not work right.
+<p>
+<li><u>Access Denied Address</u>
+<br>
+Used only when <i>reportinglevel</i> is <u>not</u> set to 3,
+ignored otherwise.
+The address of your reporting CGI script which you installed and are executing
+on your own web server.
+Your web server has no connection to DansGuardian 
+other than that provided through this URL.
+So your web server may or may not be running on 
+on the same computer as your DansGuardian.
+<br>
+This must be a full URL starting with "http://".
+Although partial URLs may not cause a syntax error in all cases,
+in the end they will not work right.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

@@ -1,0 +1,26 @@
+<header>Liste des groupes Filter</header>
+   <div style="max-Width: 40em">
+<p>
+C'est la liste qui contient la cartographie des utilisateurs de filtrer les groupes.
+Il est utilisé par presque toutes les méthodes d'authentification plugin
+(il n'est pas auth plugin utilisé par des méthodes telles que IP-auth -
+que plutôt que d'identifier les ordinateurs des utilisateurs).
+<p>
+Il est utilisé seulement si il ya plus d'un filtre de groupe
+(c'est-à-dire <i>filtergroups</i> a une valeur supérieure à un).
+Dans les systèmes sans filtre de multiples groupes,
+tout le monde est toujours attribué à filtre groupe <i>f1</i>
+Cette liste des fichiers n'est pas consulté.
+<p>
+Le format de chaque entrée est <u><i>utilisateur</i></u>=filter<u><i>1-99</i></u>
+1-99, où sont le filtre groupes.
+(Habituellement, seule une poignée de groupes de filtre sont utilisés,
+mais dansguardian permet jusqu'à 99 groupes de filtre
+de manière à ne jamais être la cause d'une limitation.)
+À titre d'exemple, une entrée peut ressembler à:
+<br><code>
+danielg=filter2
+</code>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

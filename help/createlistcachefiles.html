@@ -1,0 +1,24 @@
+<header>Create list cache files</header>
+  <div style="max-Width: 40em">
+<p>
+After processing (typically sorting) each list file,
+create a corresponding cache (.processed) file.
+When restarting, compare the date stamp of the cache file
+with the date stamp of the original list file
+and recreate the cache file only if the original list has been changed recently.
+Otherwise use the cache (.processed)
+<p>
+This will considerably speed up DansGuardian start
+on slower computers.
+A three times (300%) improvement in startup speed is typical.
+Fast computers do not really need this option,
+but it doesn't hurt anything.
+<p>
+(Note that corrupted cache files,
+which are extremely rare but do occur once in a great while,
+can sometimes prevent startup.
+If your DansGuardian suddenly won't start although nothing has changed,
+try removing all the cache [.processed] files.)
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

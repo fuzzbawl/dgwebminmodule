@@ -1,0 +1,29 @@
+<header>Refus temporaire / Infected Page Bypass</header>
+   <div style="max-Width: 40em">
+<p>
+Cela donne un lien sur la page refusé de contourner l'interdiction de quelques minutes. Être
+sûr, il utilise un hasard haché secret généré à démon démarrage. Vous définissez les
+nombre de secondes de la dérivation de fonctionnement de nier devant les apparaîtra de nouveau.
+<p>
+Pour permettre le lien sur la page refusé de comparaître, vous devrez non seulement de modifier cette option
+mais aussi modifier le template.html.
+<p>
+Les valeurs possibles sont:
+<ul style='list-style-type: none'>
+<li>0: désactiver l'option bypass entièrement
+<li>-1: permettre à l'option de contournement, mais il faut le séparer dansguardian.pl comme programme CGI
+pour générer un lien valide
+(pour faire court-circuiter la génération de clés distinctes possible,
+la <i>bypasskey </I> option doit être une non-valeur aléatoire)
+<li><i>n</i>: pour la seconde option qui la rocade restera activé
+(exemple: 300 est de 5 minutes)
+<p>
+La même fonctionnalité est fournie pour les pages qui
+sont infectés par le virus (plutôt que de refuser en raison du contenu)
+par l'option de configuration <i>infectedbypass</i>,
+avec les mêmes réglages possibles.
+</ul>
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

@@ -1,0 +1,16 @@
+<header>Ajouter X-Forwarded-For: Header</header>
+   <div style="max-Width: 40em">
+Si, ajoute-t-il d'un <i>X-Forwarded-For:</i>
+ligne d'en-tête à la demande de bloc d'en-tête HTTP.
+Les informations supplémentaires dans le nouvel en-tête
+mai faire quelques séquences de Squid ACL travailler plus facilement.
+<p>
+Parfois, la tête ajoutée sera également transmis
+par le biais du proxy local pour le site,
+donc peut-être d'exposer certaines de vos adresses IP internes
+et permettant ainsi d'isoler les sites Web de vos utilisateurs.
+Ces passant peuvent être éliminés dans Squid 3.1 et plus tard
+en précisant <i>forwarded_for&nbsp;delete</i> dans squid.conf.
+<hr
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

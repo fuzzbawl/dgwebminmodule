@@ -1,0 +1,363 @@
+<header>Analyze DansGuardian Logfiles</header>
+<div style="max-Width: 40em">
+<p>
+<small><i>DansGuardian&nbsp;Logfile&nbsp;Analyzer 
+was originally written by Jimmy&nbsp;Myrick 
+as a standalone program and released October&nbsp;10&nbsp;2005. 
+The program was later incorporated into
+the Webmin&nbsp;DansGuardian&nbsp;Module,
+where it was enhanced by Chuck&nbsp;Kollars
+in January&nbsp;2009.</i></small> 
+<p>
+<small><i>Queries about this Webmin DansGuardian&nbsp;Module
+are welcome on the same mailing list as queries
+about DansGuardian itself
+(currently via http://tech.groups.yahoo.com/group/dansguardian/).</i></small>
+<br>
+<h4>Overview</h4>
+<p>
+This program will examine logs files created by DansGuardian filtering
+software (http://www.dansguardian.org).
+<p>
+Different filtering (search) criteria can be specified.  
+The filtering (search) criteria are
+cumulative (added together).  For example, specifying a date range
+and an IP address will only show entries that match <u>both</u> criteria.  If
+you want to see all log entries, do not specify any filtering criteria at all
+(change the date range to 'ALL' and accept all other defaults).
+<p>
+No sorting is done on the results.  This is to ensure a 
+fast search, use only a reasonable amount of memory, 
+and "feed" the browser peridically with information
+so a timeout does not occur.  What this means is that when arranged
+in alphabetical order by name, your log files
+should also be also be in chronological sequence.  
+This program assumes all compressed (.gz) log files
+are alphabetically after all uncompressed log files,
+and may not function cleanly if this assumption is not met.
+<p>
+Compared to previous versions, the options have been simplified
+a little while the reporting has been significantly expanded.
+As the cost of these changes, log file analysis now always requires
+considerable CPU speed and RAM. This version of DansGuardian
+Log File Analysis may not run well on small slow computers.
+<h4>Description</h4>
+<h5>RegExp Matches</h5>
+<p>
+Whenever individual log entries are displayed, 
+complete regular expression match information 
+can also be included in the display
+if a regular expression was activated.
+The matching part of the URL will be shown in a different color 
+than the rest of the URL,
+so you can see exactly which part of the URL
+the regular expression matched.
+The actual regular expression will also be displayed.
+The display will even attempt to show
+matching "words", provided individual words can be identified.
+<p>
+Although the display of regular expression matching information
+is very complete,
+it uses only information from the log
+and so has no performance impact on DansGuardian.
+The log information is usually passed over
+because it doesn't make much sense to humans.
+In fact it's so complete it can even be used like this 
+to completely reconstruct the actual matches.
+<h5>Languages</h5>
+<p>
+The language of the Log file is handled and specified separately 
+from the language of this program (Webmin DansGuardian module Log File Analysis tool) itself.
+In other words there are <i>two</i> different language settings
+that control different aspects of language used by this
+Log File Analysis program.
+<p>
+Usually log files are expected to be in whatever language is specified 
+in dansguardian.conf. 
+So whenever handling log files written by DansGuardian, 
+this Log File Analyzer uses all the same language translations
+as DansGuardian itself.
+If the DansGuardian configuration file is not available
+in the normal location
+-as is sometimes the case when running this Log File Analysis 
+on a different computer than DansGuardian-
+the path to the log file language translation file
+can instead be specified directly  
+in the Webmin DansGuardian "module config".
+(In any case you will probably need to 
+copy the DansGuardian language translation file
+to the computer where you run Webmin,
+perhaps in the same location or perhaps in a different location.)
+<p>
+Language that is specific to this program (Log File Analysis) itself
+(rather than originating with DansGuardian and appearing in the log files)
+is handled by the regular Webmin language mechanism.
+<h5>Which Computer</h5>
+<p>
+This version of the DansGuardian Log File Analyzer
+does <i>not</i> need to be run on the same computer
+that DansGuardian runs on.
+It needs
+<ul>
+<li>a copy of the log files produced by DansGuardian to be analyzed
+<li>a copy of the DansGuardian messages translation file 
+for the language that was in use by DansGuardian when it created the log files
+<li>in many cases a copy of dansguardian.conf
+<li>a working Webmin framework and this DansGuardian Webmin module
+</ul>
+It does <i>not</i> need a running or runable copy of the DansGuardian binary.
+Nor does it need anything from any DansGuardian distribution tarball.
+<p>
+Often the easiest way to copy all the needed configuration files (and more)
+is to simply copy all of &lt;mumble&gt;/etc/dansguardian
+<u>only to a depth of three</u>.
+A copy to full depth would include the phraselists and blacklists.
+It would work, but it would be unnecessarily large and cumbersome.
+<h5>Batch Operation</h5>
+<p>
+While this log analysis tool is typically used interactively,
+it's also possible to run and distribute these reports 
+in an unattended batch mode.
+A sample shell script for batch operation
+is included in the distribution of 
+this Webmin module.
+It can be accessed easily via the hyperlink at the bottom of the
+report menu.
+Instructions for customization and use are included in the comments
+in that shell script file.
+<h5>Compressed Log Files</h5>
+<p>
+This program can directly read and process compressed (gzipped)
+log files,
+provided they are present and you check the option to include them.
+There's no reason to decompress the log files
+or to use any other tool along with this one.
+<p>
+Compressed log files are skipped <i>by default</i>
+on the assumption that they're leftovers from log rotation
+and aren't relevant to the current report.
+If this default operation doesn't suit your needs,
+you can override it by just checking one box.
+<p>
+This program assumes that when ordered alphabetically,
+all uncompressed log files come before any compressed log files.
+This is true of known log rotation schemes.
+<h5>Configuration</h5>
+<p>
+This tool assumes the following configuration settings.
+It may not produce complete results with logs that were produced using other configurations.
+<ul style='list-style-type: none'>
+<li>logexceptionhits=2 (or 1)
+<li>showweightedfound=on
+<li>loglevel=2 or loglevel=3
+<li>logfileformat=1(native) or logfileformat=2(CSV) or logfileformat=4(TAB-delimited)
+</ul>
+<p>
+These other configuration settings may also affect the
+appearance or content of the Log Analysis reports.
+The reports will adapt to any value of these options, 
+changing appearance if necessary.
+<ul style='list-style-type: none'>
+<li>loguseragent
+<li>anonymizelogs
+<li>maxlogitemlength
+<li>logclienthostnames
+</ul>
+<h4>Menu - Request Filters</h4>
+<p>
+These allow you to restrict your reports to specific subsets of the log entries.
+Only those log entries that pass all the specified filters
+will be included in the reports.
+<h5>Dates</h5>
+<p>
+Select the dates that restrict which log entries will be included in the report.
+If specified, the start date excludes all log entries before that date
+(exact date matches are included).
+If specified, the end date excludes all log entries after that date
+(exact date matches are included).
+If both start and end dates are specified,
+all log entries outside that date range will be excluded.
+Selecting ALL in any one of the date fields will effectively 
+eliminate either the start date or the end date restriction. 
+<p>
+A common technique is to specify the same date
+for both start and end.
+This has the effect of including in the report
+only log entries from that one day.
+<h5>IP Address</h5>
+<p>
+Enter a IPv4 address to match the source (browser) computer.  
+<br>Example:  10.0.0.1
+<p>
+Or enter an IPv4 address/mask to match all the computers on an entire subnet.
+<br>Example: 10.0.0.1/24 (or equivalently 10.0.0.1/255.255.255.0)
+<h5>Username</h5>
+<p>
+Enter a username to match.  
+Some form of auth must be enabled in DansGuardian for this to work.  
+If usernames are not shown when matching without any criteria, 
+then auth is most likely not enabled.  
+Refer to the appropriate instructions on how to do this.
+<p>
+If usernames are printed as IP addresses, 
+then auth-by-computer has been enabled in DansGuardian.
+This filter will work if you specify an IP address,
+but it will not do anything more (and sometimes less)
+than the previous IP Address filter field.
+<h5>Partial Agent String</h5>
+<p>
+To extract only requests from a particular type of source,
+enter a snippet of text that occurs in the agent string of that type of source
+but not in other agent strings.
+Matches are case insensitive.
+A snippet to be matched must be a single contiguous phrase 
+in the exact order specified.
+As HTTP agent strings are not standardized 
+and are wildly variable,
+to figure out what to enter
+you will usually first need to run a pre-report
+requesting display of agent information for individual requests,
+then figure out a string that selects the requests you are interested in
+but not other requests.
+<p>
+Here are some examples:
+The string 'Mozilla' will select all Netscape, Mozilla, Firefox, and Sea Monkey browsers.
+The string 'Firefox/1.5.0.1' will select one particular old version of Firefox browsers.
+The string 'Gecko' will select all browsers that use a particular display technology.
+The string 'Windows' will in most cases select any browser running on a Windows platform but not a Macintosh or Linux platform.
+Remember that it's fairly easy for 
+any string to also accidentally match more requests than just those you meant to select.
+And remember that some strings -particularly those giving OS type or version-
+may work with some browsers but not with others.
+<p>
+In all cases, other browsers that are "pretending" to be the one you want to select
+will also be included in the matches.
+As almost all browsers allow the user to specify an alternate agent string to be spoofed,
+these matches cannot be definitive and should never be interpreted as certain.
+Fortunately, in practice few users ever specify an alternate agent string
+even though their browser would accept one.
+So you can safely use agent string matches to get a 
+good sense of what browsers are used on your network,
+even though you can't be certain in any individual case.
+<h5>Weight</h5>
+<p>
+Select a direction (greater than or equal, or less than or equal)
+then also enter a numeric score.
+Requests that weren't phrase scanned (usually because
+they were excepted or denied based on their URL)
+are treated as though their weight/score was 0.
+<h5>Category, MIME Type, Filter Group</h5>
+<p>
+Use the drop-down lists at the right to select what to match.
+It will be copied into the text field at the left
+when you select an item from the drop-down list by clicking on it. 
+<p>
+The drop-down lists present what's
+actually been seen in your logs,
+so they will usually offer all the options you want.
+If the drop-down lists appear to be incomplete,
+run the report once without this filter,
+then go back and get ready to run it a second time.
+The new drop-down lists will include all the options
+that appeared in the data.
+<p>
+If a drop-down list gets junk in it and you want to start fresh,
+check the appropriate Check to Reset... box in the Future Options section.
+The drop-down list will be cleared, so the next time
+you get ready to run a report it will be empty. 
+<h5>Action</h5>
+<p>
+Enter an action to match.  
+Use the drop-down list to select the ACTION to match.  The ACTIONs are the
+special case requests logged by DansGuardian.  To see ALL matches for
+ALLOWED or DENIED or EXCEPTION, 
+select "ALL ALLOWED" or "ALL DENIED" or "ALL EXCEPTIONS".  Only one
+ACTION can be viewed at a time, and many options are very restrictive.  
+For example, if "Banned Site" is selected, 
+then only DENIED requests that were DENIED 
+because of a site being in a banned site list will be shown.  
+No other DENIED requests will be shown.
+<h4>Menu - Report Options</h4>
+<h5>Summary Information</h5>
+<p>
+Selecting these options will show a summary report for the number
+of sites entered.  The top 1 to 100 sites may be selected.
+<p>
+Once the summary screen appears, you may "investigate" why a site was
+denied/allowed and who/what machine was visiting the site.  Simply click
+on the "Trace" link under the "Investigate" column and the results will be
+shown.
+<p>
+Caution:  If you select to filter for only DENIED and check to show
+a summary for allowed, there will not be any results.  This is correct.
+If you don't see the results you expected, go back and check the
+filter criteria that was entered.
+<h5>Yes-or-No Options</h5>
+<p>
+Also display details of individual requests
+<br>&nbsp; - Checking this box will cause every
+request that passes the filters you specified
+to not only be included in the summary tables
+but also be displayed individually. 
+This is generally not needed.
+When you click on any of the items in one of the summary reports,
+you will then see in detail all the individual requests
+behind that line of the report, which is generally satisfactory.
+<p>
+In individual request details, include regular expression match information 
+<br>&nbsp; - Checking this box will cause
+display of individual requests
+to include regular expression match information
+(if it affected the disposition of the request). 
+Although it's fairly arcane,
+this information can be very useful in both 
+pinpointing over-matching problems
+and helping to direct
+the construction and use of regular expressions.
+<p>
+In invidual request details, include phrase matching information 
+<br>&nbsp; - Checking this box will cause
+display of individual requests
+to include phrase matching information
+(if it affected the disposition of the request).
+A minus sign means the word is a "goodphrase"
+that reduced rather than increased the calculation of the weight or score.
+A comma separates words or phrases
+that all occurred somewhere on the webpage.
+For example <i>&lt;hive&gt;,&lt;mind&gt;&lt;-50&gt;</i> 
+in a phraselist file
+will be displayed here as <i>(-hive,mind)</i>.
+<p>
+In individual request details, include agent string information
+<br>&nbsp; - Checking this box will cause
+display of individual requests
+to include the requesting "agent" string.
+Although the exact format of the agent string
+is not standardized 
+and although in practice agent strings are extremely variable, 
+it is almost always adequate to use them to at least identify particular browsers.
+<p>
+Turn URL's into links
+<br>&nbsp; - Checking this box will cause the URL's 
+in the report to be clickable.
+Generally this option should be checked for reports 
+you run interactively yourself
+(that's why it's checked by default).
+For reports that are distributed to others,
+this option should generally be unchecked.
+<p>
+Include GZip log files
+<br>&nbsp; - Checking this box will cause compressed (*.gz) logfiles 
+in the logfile directory to be included in the analysis.
+<h4>Menu - Future Options</h4>
+<p>
+The drop-down lists for Category, MIME Type, and Filter Group
+are built up by remembering what values have actually
+been seen in your logs.
+If for some reason one of the drop-down lists
+is full of junk and you want to start over,
+use these options to reset each drop-down list
+to its initial empty state.
+<hr>
+</div>
+<a href="javascript:window.close()">Close Window</a>

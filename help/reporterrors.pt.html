@@ -1,0 +1,77 @@
+<header>Reporting "Access Denied" Para usuários</header>
+   <div style="max-Width: 40em">
+<p>
+DansGuardian tem dois diferentes métodos de comunicação de acesso negado aos usuários.
+(Estas definições são para a apresentação de um "acesso negado" página para os usuários.
+Eles não têm qualquer efeito sobre o que se passa no diário ou como.)
+<p>
+Na maioria dos casos, você deve usar a versão mais recente e mais rápido e mais limpo
+Arquivo HTML método.
+Ela não exige que um servidor web ou a criação de um programa CGI,
+e é mais fácil de personalizar o acesso negado página.
+Definir <i>reportinglevel</i> a 3,
+permitir <i>accessdeniedaddress</i> para ser ignorado,
+e deixar <i>htmltemplate</i> ao seu padrão normal
+<code>PREFIX / <i>languagedir</i> / <i>idioma</i> / template.html</code>.
+<p>
+Use o velho método de apontar <i>accessdeniedaddress</i>
+à sua própria instalação de uma "dansguardian.pl"-like
+script em seu próprio servidor web apenas no incomum
+circunstâncias especiais, quando você precisar de máxima flexibilidade.
+<p>
+Embora por omissão todos os grupos filtro uso dos mesmos parâmetros
+acesso negado ao relatório,
+É possível filtrar para cada grupo a ter as suas próprias definições.
+Por exemplo, é possível ter diferentes grupos filtro
+utilizar diferentes <i>htmltemplate</i> os arquivos, alguns incluindo um "bypass"
+instalação e outros não.
+No caso em que substitui o habitual não são necessários,
+especificar as configurações apenas uma vez em dansguardian.conf.
+Para oferecer diferentes configurações para diferentes grupos filtro,
+especificar as definições do indivíduo dansguardianf <i>N</i>. conf
+ficheiros.
+<p>
+Os parâmetros são:
+<ul style='list-style-type: none'>
+<li><u>Reporting Nível</u>
+<ul style='list-style-type: none'>
+<li>-1 = log, mas não bloqueiam (Stealth mode)
+<li>0 = Basta dizer "Acesso Negado"
+<li>1 = Relatório porquê, mas não negou que frase
+<li>2 = Relatório plenamente
+<li>3 = Utilizar Modelo arquivo HTML (Acesso Negado Endereço serão ignoradas)
+</ul>
+O padrão é 3, que especifica usando um arquivo HTML
+(ao invés de um programa CGI)
+e é normalmente adequada.
+<p>
+<li><u>HTML Template Arquivo Caminho</u>
+<br>
+Apenas útil quando <i>reportinglevel</i> é definido como 3
+<u>e</u> filtro alguns grupos têm as suas próprias diferentes acesso negado página.
+Permite que o arquivo HTML para ser lido a partir de uma localização alternativa
+em vez do habitual
+<code>PREFIX / <i>languagedir</i> / <i>idioma</i> / template.html</code>.
+<br>
+Se especificado, este deve ser um caminho completo, começando com "/".
+Embora parciais caminhos não pode causar um erro de sintaxe em todos os casos,
+no final, não vai funcionar direito.
+<p>
+<li><u>Acesso Negado Endereço</u>
+<br>
+Usado apenas quando <i>reportinglevel</i> é <u>não</u> definir a 3,
+ignorados em contrário.
+O endereço do seu relatório script CGI que você instalou e estão executando
+no seu próprio servidor web.
+O servidor não tem nenhuma conexão com DansGuardian
+desde que não seja através deste URL.
+Então, o servidor pode ou não estar em execução em
+no mesmo computador como seu DansGuardian.
+<br>
+Este deve ser um URL completo, começando com "http://".
+Embora parciais URLs não pode causar um erro de sintaxe em todos os casos,
+no final, não vai funcionar direito.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

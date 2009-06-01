@@ -1,0 +1,54 @@
+<header>Set Up Config-&amp;-List Files For Multiple Filter Groups</header>
+  <div style="max-Width: 40em">
+<p>
+This process should be performed once when 
+multiple filter groups are first implemented.
+Once multiple filter groups are set up,
+this process will never need to be performed again.
+<p>
+Setting up all the files for multiple filter groups
+without this aid can be rather daunting.
+This makes the setup process simpler.
+<p>
+Even though it's automated,
+the process is somewhat destabilizing.
+So it should not be performed 
+when DansGuardian is running
+nor when you'll need to use DansGuardian
+for production in just a few minutes.
+<p>
+You will be asked for various bits of information
+so the process knows how to set up
+multiple filter groups for your environment.
+You will be asked what general sheme you want to use,
+whether you want to set aside a filter group for "no" web access,
+whether you want to set aside a filter group for "all" web access,
+what each filter group should be name,
+and whether various lists should be stored per-filter group
+or all filter groups should use one shared list.
+<p>
+The possible general schemes are:
+<ul style='list-style-type: none'>
+<li>1 : nested list files
+<p>this means each list file will affect not only
+its own filter group but also all other filter groups
+below (or above) it. So for example if your filter groups are 
+"temps", "employees", "managers", and "executives", any 
+change to the exception... lists for "managers" will also 
+automatically affect "executives", and any changes to the
+banned... lists for "managers" will also automatically
+affect "employees" and "temps".
+<li>2 : separate list files
+<p>this means each filter group will be given
+own completely independent lists, 
+which will neither affect nor be affected
+by any other filter group 
+<li>3 : common list files
+<p> this means each filter group has its own lists,
+yet it <u>also</u> references a list which is common
+to all filter groups. In other words there are common
+"base" lists on which individual filter groups then elaborate.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

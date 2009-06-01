@@ -1,0 +1,29 @@
+<header>Refus temporaire Infected Page Bypass Secret Key</header>
+   <div style="max-Width: 40em">
+<p>
+Bypass fonctionnalité utilise une clé secrète haché
+d'assurer la sécurité.
+<p>
+Avec le niveau 3 et le modèle HTML,
+un maximum de sécurité est fournie à l'aide d'un autre
+hachés clé secrète à chaque fois.
+Ce problème du choix d'une nouvelle clé à chaque fois que spécifié par
+omettre cette option (ou de préciser ce que la chaîne vide).
+<p>
+Avec le niveau des valeurs autres que 3 et les programmes CGI
+que doit générer l'URL de dérivation,
+telle randomisation ne fonctionnera pas.
+Il est donc possible plutôt que de générer une clé aléatoire à chaque fois
+de préciser explicitement l'une des clés pour être utilisé à chaque fois.
+Il faut plus de 8 caractères, par exemple
+<br>bypasskey&nbsp; =&nbsp; «Mary avait un petit agneau."</code>
+ou <code>bypasskey&nbsp; =&nbsp;'76b42abc1cd0fdcaf6e943dcbc93b826 '</code>.
+<p>
+La même fonctionnalité est fournie pour les pages qui
+sont infectés par le virus (plutôt que de refuser en raison du contenu)
+par l'option de configuration <i>infectedbypasskey</i>,
+avec les mêmes réglages possibles.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

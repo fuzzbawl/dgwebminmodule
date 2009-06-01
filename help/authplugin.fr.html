@@ -1,0 +1,51 @@
+<header>Auth plug-ins</header>
+   <div style="max-Width: 40em">
+<p>
+Ces plugins auth fournir différents types d'utilisateur (ou ordinateur)
+d'authentification ou d'autorisation.
+Normalement, tout ce qui est nécessaire pour activer / désactiver (décommentez / commentaire) entre eux,
+qui peut être fait par le "plugins" dans l'onglet de configuration de montage principale tâche fenêtre.
+(L'ordre de leur inscription sur la liste est importante.
+Mais le fichier de configuration déjà une liste de ces plugins
+dans le seul but raisonnable,
+donc pas de possibilité de changer l'ordre est ici.)
+<p>
+Auth méthodes peuvent être classés comme suit:
+<ul>
+<li>identifier l'utilisateur
+<ul>
+<li>besoin de l'aide de proxy local (Squid)
+<br><small><u>(ces options <i>jamais</i> pleinement travailler dans un "transparent-intercepter" l'environnement)</u></small>
+<ul>
+<li><b>de base</b> depuis longtemps Web externe standard
+<li><b>Digest</b> plus sûr défi-réponse standard du W3C, mai ne pas être pleinement soutenue partout
+<li><b>NTLM</b> de la manière de Microsoft
+</ul>
+<li>ne nécessitent pas d'assistance
+<ul>
+<li><b>ident</b> le plus facilement spoofable
+</ul>
+</ul>
+<li>identifier l'ordinateur
+<ul>
+<li><b>IP</b>
+</ul>
+</ul>
+Chaque plugin a une configuration qui lui est propre.
+Dans la plupart des cas, ces configurations n'ont jamais besoin d'être changé à tous,
+(La seule exception est, dans certains cas détaillée de l'édition
+<i>ipgroups</i> fichier que la filiale de la propriété intellectuelle auth plugin sera nécessaire.)
+Si l'une des configs ne doivent être modifiées,
+vous pouvez accéder au fichier de configuration pour l'édition par le biais du plugin config outil d'édition.
+<p>
+Certaines des options mai dire <i>#!! Non compilé! </I>.
+Si oui, pas de config combinaison peut permettre à tout jamais de ces options sur votre système.
+Pour faire ces options disponibles, vous devez obtenir un exécutable dansguardian
+qui inclut le support de l'option et les fichiers de configuration que l'égaler.
+Une façon de le faire est de reconstruire dansguardian de source.
+La reconstruction inclut l'exécution. / Configure,
+la compilation, de liens, et l'installation;
+il ne doit pas être pris à la légère.
+<hr>
+  </div>
+<a href="javascript:window.close()">Fermer la fenêtre</a>

@@ -1,0 +1,122 @@
+<header>Processos Criança</header>
+   <div style="max-Width: 40em">
+<p>
+A maioria dos aplicativos que tratar continuamente uma grande
+número de pedidos
+têm algum tipo de mecanismo subprocess.
+Com cada pedido a ser tratados por um diferente subprocess,
+mesmo que algo inesperado
+provoca um dos pedidos para ir dramaticamente errado,
+Só que pendurar um subprocess
+mas não a totalidade do pedido.
+Como acontece, cada subprocess do DansGuardian para o manuseamento de um pedido
+é visível para o SO como um "processo filho".
+(Uma jovem de outros processos DansGuardian
+será visível para o SO também.)
+<p>
+Em DansGuardian, existem vários parâmetros relacionados com
+o número de "processos criança" que lidar com pedidos individuais.
+Afinação adequada destes parâmetros pode afetar o desempenho.
+É praticamente o caso que o aumento do número de velocidade
+até a operação de grandes sistemas (até um ponto).
+Mas números maiores usará mais memória,
+e se o tamanho total de todos os processos mais DansGuardian Lulas
+repercute real memória em memória virtual,
+velocidade maio diminuir sensivelmente.
+Então há um equilíbrio a ser alcançado.
+<p>
+Você provavelmente irá querer afinar <i>maxchildren</i>
+a ser praticamente os mesmos do seu pico de número de usuários simultâneos.
+E você pode querer ajustar <i>minsparechildren</i> também por isso é
+sobre o número de usuários que normalmente começam
+atividade ao mesmo tempo.
+Se você quer aumento destes parâmetros,
+pode ser necessário aumentar também os outros parâmetros proporcionalmente.
+<p>
+Os parâmetros incluem:
+<ul style='list-style-type: none'>
+<li><u>Prefork Crianças</u>
+<br>
+Define o número mínimo de processos criança para desovar todos de uma vez
+DansGuardian sempre precisa de, pelo menos, uma desova.
+Spawning vários subprocesses todos de uma vez
+algumas partes aéreas e impede a idiotice
+spawing subprocesses de uma em um momento
+embora vários são necessários.
+<br>
+Em grandes sites que você pode querer experimentar 10.
+<br>
+Default = 6
+<p>
+<li><u>mínimo Peças Crianças</u>
+<br>
+Define o número mínimo de processos criança deve ser mantida
+pronto em reserva, no caso de um grande número de usuários
+chegam todos de uma vez.
+<br>
+Em grandes sites que você pode querer tentar 8.
+<br>
+Default = 4
+<p>
+<li><u>mínimo Crianças</u>
+<br>
+Define o número mínimo de processos para manter
+tanto para lidar com solicitações ativas e pronto para por em reserva para as futuras solicitações.
+Este controla a quantidade de processos criança será
+desovado quando DansGuardian primeiro arranca.
+É efetivamente controla a pequena a pegada
+de um sistema que está momentaneamente está inativo.
+<br>
+Em grandes sites que você pode querer experimentar 32.
+<br>
+Default = 8
+<p>
+<li><u>máxima Peças Crianças</u>
+<br>
+Define o número máximo de processos para se manter em reserva
+para futuros pedidos mesmo que não estejam fazendo nada no momento.
+Quando mais do que isso muitos processos são inativos,
+DansGuardian irá abater algumas delas.
+Esta é quanta capacidade DansGuardian
+deverão manter-se pronta a mão após uma carga espiga.
+Para melhor desempenho este pode ter de ser sobre o mesmo
+como o pico de número de utilizadores que nunca iniciar actividade de uma só vez.
+<br>
+Em grandes sites que você pode querer experimentar 64.
+<br>
+Default = 32
+<p>
+<li><u>máxima Crianças</u>
+<br>
+Define o <b>máximo</b> número de subprocesses que possam existir,
+Este número não é infinito simplesmente por duas razões:
+<ol>
+<li>Um limite de <b>prevenir ataques DoS</b> de
+matar o servidor com muitos desovado processos.
+<li>Um limite de esgotamento <b>impedir RAM</b>
+assim que o servidor não irá bater-se para a morte
+mesmo sob carga muito alta.
+</ol>
+Em grandes sites que você pode querer duplo ou triplo deste número.
+<p>
+<li><u>Idade máxima de crianças</u>
+<br>
+Define o máximo de idade de uma criança antes do processo DansGuardian croaks ele.
+Este é o número de conexões que tratem antes de sair.
+Periodicamente se livrar dos processos existentes criança e desova novos
+é um mecanismo de segurança no caso de existirem "memória"
+ou outros erros em processos que a criança
+que só se tornam visíveis quando o processo é executado por um tempo muito longo.
+<br>
+Se o seu sistema é atormentado por instabilidade,
+tentar reduzir este parâmetro.
+Se a estabilidade não é um problema, mas seu desempenho máximo é,
+tente aumentar este parâmetro.
+<br>
+Em grandes sites que você pode querer tentar 10000.
+<br>
+Default = 500
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

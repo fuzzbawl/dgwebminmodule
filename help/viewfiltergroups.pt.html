@@ -1,0 +1,42 @@
+<header>Como Config-&amp;-List Files Para Múltiplas Filtrar Grupos são criados</header>
+   <div style="max-Width: 40em">
+<p>
+Para facilitar a manutenção, implementação <i>filtros múltiplos grupos</i>
+muitas vezes também envolve liga de configuração e lista arquivos em uma determinada maneira.
+O processo de configuração, que pode ser bastante assustador,
+pode ser feito automaticamente por uma dessas ferramentas de gestão DansGuardian.
+Geralmente é feito apenas uma vez.
+<p>
+Às vezes, um administrador pretende saber
+se o processo já foi feito,
+e em caso afirmativo quais opções foram selecionadas.
+Isto resolve esse problema
+apresentando as opções que foram usadas
+para criar as ligações entre config &amp; lista arquivos
+para filtros múltiplos grupos.
+<p>
+Os possíveis regimes gerais são:
+<ul style='list-style-type: none'>
+<li>1: lista aninhada arquivos
+<p>isto significa cada lista arquivo afectarão não só
+o seu próprio filtro grupo, mas também todos os outros grupos filtro
+abaixo (ou acima)-lo. Assim, por exemplo, se o seu filtro grupos são
+"tempo", "empregados", "gestores", e "executivos", qualquer
+mudança para a excepção ... listas de "gestores" irá também
+automaticamente afecta "executivos", e quaisquer alterações à
+proibidos ... listas de "gestores" também serão automaticamente
+afectar "empregados" e "tempo".
+<li>2: lista separada arquivos
+<p>isto significa cada filtro grupo, será dada
+próprias listas completamente independente,
+que não afecta nem ser afectadas
+por qualquer outro filtro grupo
+<li>3: lista comum arquivos
+<p>isto significa cada filtro grupo tem as suas próprias listas,
+ainda que também <u></u> referências, que é uma lista comum
+filtro para todos os grupos. Em outras palavras, são comuns
+"base", lista na qual cada filtro grupos então elaboradas.
+</ul>
+<hr>
+  </div>
+<a href="javascript:window.close()">Fechar janela</a>

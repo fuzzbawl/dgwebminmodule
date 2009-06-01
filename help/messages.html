@@ -1,0 +1,35 @@
+<header>View or Edit Translation Messages</header>
+  <div style="max-Width: 40em">
+  <p>
+DansGuardian can present itself in different languages
+depending on the setting of its <i>language</i> option.
+Usually you can just select the language you prefer and use it.
+<p>
+If you want to <u>change</u> or <u>improve</u>
+the translation for a particular language,
+use this tool to edit the file of translated messages.
+The format of the file is
+<br><code>programKey=translatedMessage</code>.
+The <i>programKey</i>s are the message tags used by the program code.
+They must stay the same for all languages, so DansGuardian
+can find the message no matter what language it's using.
+The <i>translatedMessage</i>s are the bits of text
+that are display to the DansGuardian user.
+They will be different for each language.
+<p>
+If you modify this file, and if you analyze logs on a different computer,
+be sure to copy the modified file to that computer too.
+Otherwise that computer may not be able to analyze logs
+written with the revised message translations.
+<p>
+Using this tool to modify the DansGuardian language translation 
+may have unintended consequences.
+Often it will work better to accept a suboptimal translation
+rather than try to "fix" it.
+To prevent abuse of this tool simply make it invisible.
+Make this tool invisible by turning off its permission for each user
+in their "Module Access Control",
+accessible through Webmin Users.
+<hr>
+  </div>
+<a href="javascript:window.close()">Close Window</a>

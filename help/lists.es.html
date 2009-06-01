@@ -1,0 +1,65 @@
+<header>Modificar Contenido de una lista</header>
+   <div style="max-Width: 40em">
+<p>
+Gran parte de la frecuencia que cambió la configuración de DansGuardian es en forma de "listas".
+Más frecuentes de las listas son bastante largas.
+Hay listas de muchas cosas, incluidos los lugares, las URL, las extensiones, y frases.
+<p>
+La mayoría de las listas se utilizan para "pre-vett" usuario solicita
+antes de ir a buscar la página solicitada
+y examen de su contenido.
+Listas de los temas que siempre debe obtener y
+circunvalación de contenido debe comenzar con 'excepción...'.
+Listas de temas que nunca se debe obtener
+(y por lo tanto de contenido nunca realizado) comienzan con 'prohibido...'.
+Listas de los temas que siempre debe obtener
+pero debe ser sometido a control el contenido de todos modos comenzar con 'gris...'.
+<p>
+Por manipular el contenido de estas listas,
+puede cambiar el comportamiento de su DansGuardian drásticamente.
+Por lo general, la administración de rutina de un filtro DansGuardian
+se compongan exclusivamente de cambiar el contenido de varias listas.
+<p>
+La ubicación de cada lista puede ser controlado con una opción de configuración.
+Pero como no hay ninguna buena razón
+utilizar algo más que el nombre predeterminado y la ubicación de cada lista,
+tales son las opciones de configuración ni siquiera figuran en el presente instrumento.
+<p>
+Después de modificar una lista,
+DansGuardian seguirá comportan de la forma antigua
+hasta que se le dijo que vuelva a leer la lista de archivos.
+Puede DansGuardian instrucciones para empezar a utilizar la lista modificada de inmediato
+y sin interrumpir el usuario existente &hArr; conexiones de red,
+DansGuardian utilizando la "suave" reload.
+En función de un módulo de opción DansGuardian Webmin
+(y en su Webmin permisos),
+Webmin automáticamente DG decirle que vuelva a leer la lista de archivos
+para que usted cada vez que cambie alguno de los archivos de la lista.
+Si es así, un <span style='color: magenta'>magenta mensaje</span>
+le dirá la recarga se ha hecho para usted.
+<p>
+Si el suave recarga no es automática,
+es posible que tenga que ejecutar una explícita.
+Suave se puede recargar a través de este módulo de interfaz DansGuardian Webmin
+(por lo que no hay necesidad de recurrir a cualquier otro interfaz o para salir y volver).
+Está disponible a través de una pestaña o enlace en cada página,
+y se llama algo así como "Recargar DG Grupos".
+<hr>
+Si añade una nueva. Include'd lista,
+darle un nombre cuya parte izquierda es el nombre de
+su padre lista (la lista que. Incluir es todo).
+Por ejemplo, si añade un archivo especial para algunos 'bannedsitelist' objetos,
+nombre es algo así como 'bannedsitelistproxies'.
+(Observe el patrón de '<i>bannedsitelist</i>proxies'.)
+<p>
+Nuevos archivos con el nombre de esta manera se dará
+el mismo archivo de los permisos de acceso
+como su padre la lista,
+y se buscará al mismo tiempo que sus padres lista.
+Si crea un nuevo archivo de lista de nombre, pero que de otra manera,
+las búsquedas pueden no encontrar los artículos en el nuevo archivo,
+Webmin y los permisos no pueden permitirle editar el archivo,
+efectivamente lo que inútil,
+<hr>
+  </div>
+<a href="javascript:window.close()">Cerrar ventana</a>
