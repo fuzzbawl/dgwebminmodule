@@ -484,7 +484,7 @@ sub initConstants
 #  CONNECT, but _not_ SSL - which can legitimately be in the middle of the subreason field
 
 $parseactionsandreasonregexp = '(?:((?:\*(?!(?:DENIED|EXCEPTION))[A-Z]{6,}\* ?)*) )?(?:(\*(?:DENIED|EXCEPTION)\*) )?(?:([^.:* ][^.:]*)\.?(?::+ +((?:(?! [A-R][A-R][A-Z]).)+))? +)?';
-$parsetoeolregexp = '^ *' . $parseactionsandreasonregexp . '([A-Z]{3,7}) (\d+) (?:(-?\d+) )?(?:((?:(?!\d\d? )[^ ]+ )*(?!\d\d? )[^ ]+) )?(?:([1-9]\d?) )?(?:(\d\d\d) )?(?:(-|[-\w]+\/[-_.\w]+) )?(?:(\w[-_\w]*(?:\.[-_\w]+)+) )?(?:([a-zA-Z][^ ]*) )?(?:([a-zA-Z][^ ]*\d.+ .*[^ ]) )? *$';
+$parsetoeolregexp = '^ *' . $parseactionsandreasonregexp . '([A-Z]{3,8}) (\d+) (?:(-?\d+) )?(?:((?:(?!\d\d? )[^ ]+ )*(?!\d\d? )[^ ]+) )?(?:([1-9]\d?) )?(?:(\d\d\d) )?(?:(-|[-\w]+\/[-_.\w]+) )?(?:(\w[-_\w]*(?:\.[-_\w]+)+) )?(?:([a-zA-Z][^ ]*) )?(?:([a-zA-Z][^ ]*\d.+ .*[^ ]) )? *$';
 ($parsetoeolregexpjr = $parsetoeolregexp) =~ s/\((?:[^()]*|[^()]*\([^()]*\)[^()]*|[^()]*\([^()]*\([^()]*\)[^()]*\)[^()]*)\)[^()]*$/()/;
 }
 
