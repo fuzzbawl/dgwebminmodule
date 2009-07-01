@@ -8,7 +8,7 @@
 #  generating any messages about the less-than-clean code in the very old 
 #  Webmin libraries themselves
 our (%text, %access, %config, %in, $module_name, $modulever, $moduleinfo);
-our ($dg_version, $current_lang, $module_config_directory);
+our ($debug, $dg_version, $current_lang, $module_config_directory);
 our (%groupsconfigurationlists, %sharedgroupsconfigurationlists, %notsharedgroupsconfigurationlists);
 our (%sharedonlynestedconfigurationlists, %sharedonlyseparateconfigurationlists, %sharedonlycommonconfigurationlists);
 our ($EFFECTIVE_USER_ID);
