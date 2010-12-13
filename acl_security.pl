@@ -94,28 +94,29 @@ sub acl_security_form
 }
 
 sub acl_security_save {
-  $_[0]->{'start'} = $in{'start'};
-  $_[0]->{'stop'} = $in{'stop'};
-  $_[0]->{'restart'} = ($in{'start'} && $in{'stop'}) ? 1 : 0;
-  $_[0]->{'reload'} = $in{'reload'};
-  $_[0]->{'status'} = $in{'status'};
-  $_[0]->{'logs'} = $in{'logs'};
-  $_[0]->{'search'} = $in{'search'};
-  $_[0]->{'editconf'} = $in{'editconf'};
-  $_[0]->{'editplugconf'} = $in{'editplugconf'};
-  $_[0]->{'editlists'} = $in{'editlists'};
-  $_[0]->{'editmessages'} = $in{'editmessages'};
-  $_[0]->{'editfiltergroupassignments'} = $in{'editfiltergroupassignments'};
-  $_[0]->{'editgroupsconf'} = $in{'editgroupsconf'};
-  $_[0]->{'editgroupslists'} = $in{'editgroupslists'};
-  $_[0]->{'setupfiltergroups'} = $in{'setupfiltergroups'};
-  $_[0]->{'viewfiltergroups'} = $in{'viewfiltergroups'};
-  $_[0]->{'autorestart'} = ($in{'start'} && $in{'stop'}) ? $in{'autorestart'} : 0 ;
-  $_[0]->{'autoreload'} = $in{'autoreload'};
+  my ($access, $in) = @_;
+  $access->{'start'} = $in->{'start'};
+  $access->{'stop'} = $in->{'stop'};
+  $access->{'restart'} = ($in->{'start'} && $in->{'stop'}) ? 1 : 0;
+  $access->{'reload'} = $in->{'reload'};
+  $access->{'status'} = $in->{'status'};
+  $access->{'logs'} = $in->{'logs'};
+  $access->{'search'} = $in->{'search'};
+  $access->{'editconf'} = $in->{'editconf'};
+  $access->{'editplugconf'} = $in->{'editplugconf'};
+  $access->{'editlists'} = $in->{'editlists'};
+  $access->{'editmessages'} = $in->{'editmessages'};
+  $access->{'editfiltergroupassignments'} = $in->{'editfiltergroupassignments'};
+  $access->{'editgroupsconf'} = $in->{'editgroupsconf'};
+  $access->{'editgroupslists'} = $in->{'editgroupslists'};
+  $access->{'setupfiltergroups'} = $in->{'setupfiltergroups'};
+  $access->{'viewfiltergroups'} = $in->{'viewfiltergroups'};
+  $access->{'autorestart'} = ($in->{'start'} && $in->{'stop'}) ? $in->{'autorestart'} : 0 ;
+  $access->{'autoreload'} = $in->{'autoreload'};
 
   # parse HTML input into a form more convenient for Perl
-  map { $groups{$_} = 1} split(/\0/, $in{'groups'});
-  map { $lists{$_} = 1 } split(/\0/, $in{'lists'});
+  map { $groups{$_} = 1} split(/\0/, $in->{'groups'});
+  map { $lists{$_} = 1 } split(/\0/, $in->{'lists'});
 
   # check all the filter groups, see if at least one
   #  ('f0' is a fake filter group which means the shared/common/base files)
@@ -123,24 +124,24 @@ sub acl_security_save {
   for ($i=0; $i<=99; ++$i) {
       $groupname = "f$i";
       ++$somegroup if exists $groups{$groupname};
-      $_[0]->{$groupname} = $groups{$groupname};
+      $access->{$groupname} = $groups{$groupname};
   }
   ++$somegroup if exists $groups{'local'};
-  $_[0]->{'local'} = $groups{'local'};
+  $access->{'local'} = $groups{'local'};
   $somelist = 0;
   $someconf = 0;
   foreach $s ('conf', 'blacklists', 'phraselists', keys %groupsconfigurationlists) {
     $somelist = 1 if $lists{$s};
-    $_[0]->{$s} = $lists{$s};
+    $access->{$s} = $lists{$s};
   }
   $someconf = 1 if $lists{'conf'};
   if ($somegroup) {
     # at least one group, show choices if also a) 'conf' or b) at least one list
-    $_[0]->{'editgroupsconf'} = $someconf;
-    $_[0]->{'editgroupslists'} = $somelist;
+    $access->{'editgroupsconf'} = $someconf;
+    $access->{'editgroupslists'} = $somelist;
   } else {
     # no groups, not allowed to edit anything at all, don't even show the choice
-    $_[0]->{'editgroupsconf'} = 0;
-    $_[0]->{'editgroupslists'} = 0;
+    $access->{'editgroupsconf'} = 0;
+    $access->{'editgroupslists'} = 0;
   }
 }
