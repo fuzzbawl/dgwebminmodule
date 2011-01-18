@@ -1,3 +1,9 @@
+0.7.1 (01-18-2011):
+- Changed root user warning text slightly
+- Fixed bug #2914571 by darrikmazey
+- Fixed bug #2814496 (Errors about $debug declaration)
+- Fixed bug #2810044 (Fixed regexp issue with logs.cgi)
+
 0.7.0 beta1b:
 Fixed several other missing files. Bumped version just in case.
 
